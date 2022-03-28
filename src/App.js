@@ -1,11 +1,18 @@
 import "./App.css";
+import { BrowserRouter,Routes, Route, } from "react-router-dom";
+import {Sidebar} from './contexts/sidebar-context'
+import {LandingRoute} from './routes/landingroute'
 
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <BrowserRouter>  
+      <Routes>
+      <Route path="/" element={<Sidebar><LandingRoute/></Sidebar>}/>
+      </Routes>
+      </BrowserRouter>  
+    </>
   );
 }
 

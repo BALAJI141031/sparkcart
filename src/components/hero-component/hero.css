@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+.hero-card{
+    width: 100%;
+    padding-left: 0.3em;
+    position: relative;
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+    background-size:cover;
+    color: #fff;
+    padding: 1em;
+    
+    
+}
+.hero-card > h2{
+    /* color: var(--secondary-color) ; */
+    width: 37%;    
+}
+
+
+
+/* .hero-card > ul > li:hover{
+    background-color: none !important;
+} */

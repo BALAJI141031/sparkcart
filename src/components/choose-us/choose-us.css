@@ -1,0 +1,9 @@
+
+.chooseUsCard{
+    /* width:90%; */
+    padding-left: 0.5rem;
+}
+.icon{
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
