@@ -1,11 +1,16 @@
 import './navStyles.css'
 import { useSidebar } from '../../contexts/sidebar-context';
 import {GrCart} from "react-icons/gr"
+import { useNavigate,} from "react-router-dom";
 
 const NavIcon = ({ children }) => {  
+  let navigateObj = useNavigate()
+  const gotowishlist=()=>{
+    navigateObj('/wishlist')
+  }
   const {setToggleState}=useSidebar()
   // return <div onClick={()=>setToggleState((prevtate)=>!prevtate)}>{children}</div>;
-  return <div>{children}</div>
+  return <div onClick={gotowishlist}>{children}</div>
 };
 
 const BadgeIcons = ({ children }) => {

@@ -7,7 +7,9 @@ import { CgClose,CgMenu,CgMoreVertical,CgSearch } from "react-icons/cg";
 
 const Navbar = () => {
 const {sidebarToggle,setToggleState}=useSidebar()
-
+ const gotowishlist=()=>{
+   console.log("clicked")
+ }
 
   return (
     <nav className="flex-H-space-bw">
@@ -25,7 +27,7 @@ const {sidebarToggle,setToggleState}=useSidebar()
           
         </NavIcon>
         <BadgeIcons />
-        <NavIcon>
+        <NavIcon >
           <CgMoreVertical className="header-icons header-icons-m-lr icon-lg"/>
         </NavIcon>
       </div>

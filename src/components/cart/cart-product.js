@@ -27,8 +27,6 @@ const CartProduct=({product})=>{
     }catch(e){
       throw e
     }
-     
-
   }
     return <>
       <div className="cart cartItem">
