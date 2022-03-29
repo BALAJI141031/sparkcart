@@ -3,26 +3,33 @@ import './cart.css'
 import {useState} from 'react'
 import {useCart} from '../../contexts/cart-context'
 import { GoX } from "react-icons/go";
+import axios  from "axios";
 const CartProduct=({product})=>{
+  const {dispatchCart}=useCart()
   const {title,imageUrl,price}=product
-  const [singleProductTotalPrice,updateTotalPrice]=useState(Number(price))
-  const [count,updateCount]=useState(1)
+  const[quantityPrice,setQuantityPrice]=useState(Number(price))
+  const [count,setCount]=useState(1)
   const isdisable=count===1?true:false
-  const {setCheckoutPrice,updateQuantity,updatedCartItems,cartlistFromStorage,cartProductsId,setCartListFromStorage}=useCart()
-  
-  const decreaseQunatity=(product)=>{   
-  
+
+  const decreaseQunatity=(product)=>{  
+    setQuantityPrice((prevPrice)=>prevPrice-Number(product.price))
+    setCount((prevCount)=>prevCount-1)
   } 
-
-  const increaseQuantity=(product)=>{  
-  
+  const increaseQuantity=(product)=>{
+    setQuantityPrice((prevPrice)=>prevPrice+Number(product.price))
+    setCount((prevCount)=>prevCount+1)
   }
-useEffect(()=>{
-  const quantity=updatedCartItems.filter((id)=>product._id===id).length
-  updateCount(quantity);
 
-},[updatedCartItems])
+  const removeProduct=async (product)=>{
+    try{
+      const updatedCartResponse=await axios.delete(`/api/user/cart/${product._id}`,{headers:{authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3OGMwYThhMy1jN2ZiLTQ0ZjgtYWUwZS1iMmU2MTM2ZjUyNzEiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.RuUtRShcJPrhxsDlO30czFOKxmunlJd62KWyLPPwZlk"}})
+      dispatchCart({type:"cart",payload:updatedCartResponse.data.cart})
+    }catch(e){
+      throw e
+    }
+     
 
+  }
     return <>
       <div className="cart cartItem">
           <div><div className="flex-H-center-V"><img src={imageUrl} className="cart-image" alt="cart"/>
@@ -37,8 +44,8 @@ useEffect(()=>{
               <p>{count}</p>
               <button onClick={()=>increaseQuantity(product)}>+</button>
           </div>
-          <p className="flex-V-center-VH">${singleProductTotalPrice}</p>
-          <button className="like-icon icon-sm removeBtn" >
+          <p className="flex-V-center-VH">${quantityPrice}</p>
+          <button className="like-icon icon-sm removeBtn" onClick={()=>removeProduct(product)}>
           <GoX/>
           </button>
       </div>

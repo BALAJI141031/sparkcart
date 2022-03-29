@@ -42,7 +42,7 @@ const LandingRoute=()=>{
         </Carousel> 
         <h1 className="text-align-center">New Products</h1>    
           <Carousel breakPoints={serviceCardBreakPoints} showArrows={false}>
-        {featuredList.map((item)=><ProductCard productObj={item} />)}
+        {/* {featuredList.map((item)=><ProductCard productObj={item} />)} */}
         </Carousel>  
         <h1 className="text-align-center">Why choose Us</h1>
         {list.map((item)=><ChooseUs chooseUsObj={item}/>)}

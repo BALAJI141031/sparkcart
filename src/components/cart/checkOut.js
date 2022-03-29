@@ -2,8 +2,9 @@ import './cart.css'
 import {useCart} from '../../contexts/cart-context'
 import { IoIosJet,IoMdArrowForward } from "react-icons/io";
 
-const Checkout=()=>{
-    const {checkoutPrice}=useCart()
+const Checkout=({checkoutPrice})=>{
+    // const {checkoutPrice}=useCart()
+    console.log(checkoutPrice,"what is this")
     return <div className="flex-V-center-VH">
     <div className="flex-V-center-VH checkout">
    <div className="cuponDiv flex-V-center-VH">

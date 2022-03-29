@@ -6,7 +6,6 @@ const sidebarContext=createContext({sidebarToggle:false})
 const Sidebar =({children})=>{
     const [toggleState,setToggleState]=useState(true)
     return <sidebarContext.Provider value={{sidebarToggle:toggleState,setToggleState}}>{children}</sidebarContext.Provider>
-
 }
 
 const useSidebar=()=>useContext(sidebarContext)

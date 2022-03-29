@@ -9,9 +9,7 @@ import {SortBy} from '../components/filter/sort'
 import {Navbar} from '.././components/navbar-components/complete-navbar'
 import { Sidenavbar } from '../components/side-Navbar/sidebar';
 const Products= ()=>{
-
     const {dispatchFilter,filteredList}=useFilter()
-  
     useEffect(()=>{
       axios.get('/api/products').then((response)=>{ 
        
@@ -35,7 +33,7 @@ const Products= ()=>{
       <hr/>
       <h2>Products</h2>
       {filteredList.map((item)=> {
-      return <ProductCard productObj={item}/>
+      return <ProductCard productObj={item} key={item._id}/>
       })}
       <Sidenavbar/>     
     </> 

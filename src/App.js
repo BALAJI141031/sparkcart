@@ -12,10 +12,10 @@ function App() {
     <>
       <BrowserRouter>  
       <Routes>
-      <Route path="/" element={<Sidebar><LandingRoute/></Sidebar>}/>
-      <Route path="/mock" element={<Mockman />}/>
-      <Route path="/products" element={<Sidebar><FilterProvider><Products/></FilterProvider></Sidebar>}/>
-      <Route path="/cart" element={<CartProvider><Cart/></CartProvider>}/>
+      <Route exact path="/" element={<CartProvider><Sidebar><LandingRoute/></Sidebar></CartProvider>}/>
+      <Route exact path="/mock" element={<Mockman />}/>
+      <Route exact path="/products" element={<Sidebar><FilterProvider><Products/></FilterProvider></Sidebar>}/>
+      <Route exact path="/cart" element={<Cart/>}/>
       </Routes>
       </BrowserRouter>  
     </>
