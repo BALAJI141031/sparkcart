@@ -1,14 +1,15 @@
 import { Navbar } from "../components/navbar-components/complete-navbar";
 import {Hero} from "../components/hero-component/hero"
-import {TextOverlayCard} from '../components/card-components/text-overlay'
+// import {TextOverlayCard} from '../components/card-components/text-overlay'
 import {ServiceCard} from '../components/card-components/service-card'
 import {ProductCard} from '../components/card-components/product-card'
-import { ChooseUs } from "../components/choose-us/choose-us";
+import { IconWithText } from "../components/iconWith-Text/icon-text";
 import {CardWithText} from '../components/card-components/card-with-text'
 import {SocialMedia} from '../components/socialmedia-links/media-icons'
 import {Sidenavbar} from '../components/side-Navbar/sidebar'
 import Carousel from 'react-elastic-carousel';
 import { useEffect, useState } from "react";
+import {Footer} from '../components/footer/footer-component'
 import axios from 'axios'
 import './routes.css'
 const breakPoints=[{width:1,itemsToShow:1},{width:550,itemsToShow:1},{width:768,itemsToShow:1},{width:1200,itemsToShow:1}]
@@ -44,7 +45,7 @@ const LandingRoute=()=>{
         </Carousel>  
         <h1 className="text-align-center">Why choose Us</h1>
         <div className="chooseUs">
-        {list.map((item)=><ChooseUs chooseUsObj={item}/>)}
+        {list.map((item)=><IconWithText chooseUsObj={item}/>)}
         </div>
         {/* <Hero/> */}
         <CardWithText/>       
@@ -52,10 +53,11 @@ const LandingRoute=()=>{
         <div className="flex-H-center-V">
           <img src="https://b.zmtcdn.com/data/pictures/7/18802677/1fd7f6dc3754d5d595f4a651148d036b.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*" alt="getintouch" className="contactImg"/>
         <div className="getinTouchDiv">
-        {getInTouch.map((item)=><ChooseUs chooseUsObj={item} contacts="true"/>)}
+        {getInTouch.map((item)=><IconWithText chooseUsObj={item} contacts="true"/>)}
         <SocialMedia/>
         </div>       
         </div>
+        <Footer/>
         <Sidenavbar/> 
     </div>
         

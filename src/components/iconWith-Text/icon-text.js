@@ -1,7 +1,7 @@
-import './choose-us.css';
+import './icon-text.css';
 import {GrDeliver,GrCafeteria } from "react-icons/gr";
 import {HiCake,HiCreditCard,HiOutlinePhone,HiOutlineLocationMarker,HiOutlineMail} from 'react-icons/hi'
-const ChooseUs=(props)=>{
+const IconWithText=(props)=>{
     const {chooseUsObj,contacts}=props
     const {reason,text,}=chooseUsObj
     let compo
@@ -33,4 +33,4 @@ const ChooseUs=(props)=>{
         <p>{text}</p>
         </div>
 }
-export {ChooseUs}
+export {IconWithText}
