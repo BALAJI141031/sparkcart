@@ -1,0 +1,9 @@
+
+ .mediaIconsDiv{
+    width: 80%;
+}
+@media screen and (min-width:800px) {
+    .mediaIconsDiv{
+        width: 100%;
+    }   
+}

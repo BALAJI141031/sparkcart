@@ -1,0 +1,50 @@
+.chooseUs{
+    display: flex;
+    /* text-align: center; */
+    flex-wrap: wrap;
+   /* margin:3rem; */
+   justify-content: center;
+   align-items: center;
+}
+
+.getinTouchDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* text-align: center; */
+    /* flex-wrap: wrap; */
+   /* margin:3rem; */
+   justify-content: center;
+   align-items: center; 
+}
+
+/* .contactImg{
+    display: none;
+
+} */
+
+/* responsive breakpoints */
+
+.contactImg{
+    display: none;
+}
+
+@media screen and (min-width:800px) {
+    .getinTouchDiv{
+        display: flex;
+        /* flex-direction: column; */
+        width: 50%;
+        /* text-align: center; */
+        /* flex-wrap: wrap; */
+       margin-left:auto;
+       justify-content: center;
+       align-items: center; 
+    }
+
+    .contactImg{
+        display: block;
+        width: 60%;
+    }
+
+    
+}

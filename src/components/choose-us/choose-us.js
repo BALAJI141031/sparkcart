@@ -27,12 +27,10 @@ const ChooseUs=(props)=>{
         default:
             compo=<HiOutlineMail className="icon-lg"/>
     }
-    return <div >
-        <div className="chooseUsCard flex-V-center-H">
+    return  <div className="chooseUsCard flex-V-center-H">
         {compo}
         {contacts!=="true"?<h2>{reason}</h2>:null}
         <p>{text}</p>
         </div>
-    </div>
 }
 export {ChooseUs}
