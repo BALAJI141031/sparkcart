@@ -1,4 +1,4 @@
-import './cards.css'
+import './index.css'
 
 const TextCard=(props)=>{
     const {textObj}=props

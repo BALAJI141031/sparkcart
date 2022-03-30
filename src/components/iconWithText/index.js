@@ -1,4 +1,4 @@
-import './icon-text.css';
+import './index.css';
 import {GrDeliver,GrCafeteria } from "react-icons/gr";
 import {HiCake,HiCreditCard,HiOutlinePhone,HiOutlineLocationMarker,HiOutlineMail} from 'react-icons/hi'
 const IconWithText=(props)=>{

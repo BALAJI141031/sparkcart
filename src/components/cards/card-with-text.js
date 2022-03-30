@@ -1,5 +1,5 @@
-import './cards.css'
-const CardWithText=(props)=>{
+import './index.css'
+const CardWithText=props=>{
 
     return <div className="cardWithText card">
         <img src="https://b.zmtcdn.com/data/pictures/2/19878202/50ce7585caec037759b188e5ccf9368b.jpeg?fit=around|960:500&crop=960:500;*,*" alt="about" className="aboutImg"/>

@@ -1,17 +1,8 @@
-import { Navbar } from "../components/navbar-components/complete-navbar";
-import {Hero} from "../components/hero-component/hero"
-// import {TextOverlayCard} from '../components/card-components/text-overlay'
-import {ServiceCard} from '../components/card-components/service-card'
-import {ProductCard} from '../components/card-components/product-card'
-import { IconWithText } from "../components/iconWith-Text/icon-text";
-import {CardWithText} from '../components/card-components/card-with-text'
-import {SocialMedia} from '../components/socialmedia-links/media-icons'
-import {Sidenavbar} from '../components/side-Navbar/sidebar'
+import {Navbar,Hero,ServiceCard,ProductCard,CardWithText,Footer,IconWithText,SocialMedia,SideNavbar} from '../components'
 import Carousel from 'react-elastic-carousel';
 import { useEffect, useState } from "react";
-import {Footer} from '../components/footer/footer-component'
 import axios from 'axios'
-import './routes.css'
+import './index.css'
 const breakPoints=[{width:1,itemsToShow:1},{width:550,itemsToShow:1},{width:768,itemsToShow:1},{width:1200,itemsToShow:1}]
 const serviceCardBreakPoints=[{width:1,itemsToShow:1},{width:550,itemsToShow:2},{width:768,itemsToShow:2},{width:1200,itemsToShow:3}]
 
@@ -19,11 +10,13 @@ const LandingRoute=()=>{
     let list=[{reason:"Quality Products",imageUrl:"",text:"We guarantee the quality of all the cakes we provide as they are baked using the freshest ingredients."},{reason:"Free Delivary",imageUrl:"",text:"We guarantee the quality of all the cakes we provide as they are baked using the freshest ingredients."},{reason:"Catering Service",imageUrl:"",text:"We guarantee the quality of all the cakes we provide as they are baked using the freshest ingredients."},{reason:"Online Payment",imageUrl:"",text:"We guarantee the quality of all the cakes we provide as they are baked using the freshest ingredients."}]
     const getInTouch=[{reason:"location",text:"523 Sylvan Ave, 5th FloorMountain View, CA 94041 USA"},{reason:"phone",text:"+1 (844) 123 456 78"},{reason:"mail",text:"info@demolink.org"}]
     const [featuredList,updateFeaturedList]=useState([])
+
     useEffect(()=>{
         axios.get('/api/products').then((response)=>{  
             updateFeaturedList([...response.data.products])
         } )
       },[])
+
     return <div>
          <Navbar/> 
          <Carousel breakPoints={breakPoints} showArrows={false} enableAutoPlay={true} transitionMs={1000} autoPlaySpeed={400}><Hero/>
@@ -58,7 +51,7 @@ const LandingRoute=()=>{
         </div>       
         </div>
         <Footer/>
-        <Sidenavbar/> 
+        <SideNavbar/> 
     </div>
         
 }

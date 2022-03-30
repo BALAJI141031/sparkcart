@@ -1,4 +1,4 @@
-import './cards.css'
+import './index.css'
 import { IoArrowForward } from "react-icons/io5";
 const TextOverlayCard=()=>{
     

@@ -1,5 +1,5 @@
 import {GrInstagram,GrLinkedinOption,GrGoogle,GrFacebookOption,GrSwift} from "react-icons/gr"
-import './mediaicons.css'
+import './index.css'
 const SocialMedia=(props)=>{
     return <div className="flex-H-space-around mediaIconsDiv">
          <GrInstagram className="icon-lg mediaIcon"/>

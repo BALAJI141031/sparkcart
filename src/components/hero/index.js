@@ -1,5 +1,5 @@
-import "./hero.css"
-import {Button} from '../primary-button/button'
+import "./index.css"
+import {Button} from '../buttons'
 
 const Hero=(props)=>{
        

@@ -1,6 +1,6 @@
 import { RiTwitterLine, RiWhatsappLine, } from "react-icons/ri";
 import { VscGithubAlt } from "react-icons/vsc";
-import './footer.css'
+import './index.css'
 const Footer=()=>{
     return ( <footer class="flex-V-center-VH">
     <div>Lets Connect Now!!!!</div>
