@@ -1,5 +1,5 @@
 import "./index.css"
-import {Button} from '../buttons'
+import {Button} from '../index'
 
 const Hero=(props)=>{
        

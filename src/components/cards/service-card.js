@@ -1,7 +1,7 @@
 import './index.css'
 const ServiceCard=()=>{
     return <div className="serviceCard flex-V-center-VH"><div class="sq-card">
-    <img src="https://b.zmtcdn.com/webFrontend/e5b8785c257af2a7f354f1addaf37e4e1647364814.jpeg?fit=around|402:360&crop=402:360;*,*" />
+    <img src="https://b.zmtcdn.com/webFrontend/e5b8785c257af2a7f354f1addaf37e4e1647364814.jpeg?fit=around|402:360&crop=402:360;*,*" alt="service-card" />
     <h4>Hyderbad Dum Biriyani</h4>
     <p>Indian,Chinese,Deserts</p>
     <div class="flex-space-between">

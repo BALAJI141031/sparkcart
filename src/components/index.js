@@ -11,5 +11,7 @@ import {InputElement} from './input'
 import {SideNavbar} from './sidebar'
 import {SocialMedia} from './mediaIcons'
 import {IconWithText} from './iconWithText'
+import {Button} from './buttons'
+import { NavIcon, BadgeIcons } from './navbar/nav-icons'
 
-export {CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}
+export {Button,NavIcon, BadgeIcons,CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}

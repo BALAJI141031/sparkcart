@@ -1,15 +1,15 @@
 
-import { NavIcon, BadgeIcons } from "./nav-icons";
+import { NavIcon, BadgeIcons } from "../index";
 import './index.css'
 import {useSidebar} from '../../contexts/sidebar-context'
-
 import { CgClose,CgMenu,CgMoreVertical,CgSearch } from "react-icons/cg";
 
 const Navbar = () => {
 const {sidebarToggle,setToggleState}=useSidebar()
- const gotowishlist=()=>{
-   console.log("clicked")
- }
+
+//  const gotowishlist=()=>{
+//    console.log("clicked")
+//  }
 
   return (<>
   {/* mobile navbar */}
@@ -24,8 +24,7 @@ const {sidebarToggle,setToggleState}=useSidebar()
       </div>
       <div className="flex-H-space-bw header-icons-div">
         <NavIcon>
-          <CgSearch className="header-icons header-icons-m-lr icon-lg"/>
-          
+          <CgSearch className="header-icons header-icons-m-lr icon-lg"/>    
         </NavIcon>
         <BadgeIcons />
         <NavIcon >
@@ -34,6 +33,8 @@ const {sidebarToggle,setToggleState}=useSidebar()
       </div>
     </nav>
     </div>
+
+
     {/* desktop navbar */}
    
    <div className="desktopNavbar"> <nav className="flex-H-space-around ">
