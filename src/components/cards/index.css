@@ -5,7 +5,7 @@
     text-align: center;
     background-image: url("https://b.zmtcdn.com/data/pictures/5/18800475/83ef877a6bbe67c8eebc7290a9b8d803.jpg?fit=around|960:500&crop=960:500;*,*");
     background-size: cover;
-    color:#fff;
+    color:var(--pale-white);
     padding: 2em;
     margin:1rem
 }
