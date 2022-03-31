@@ -1,0 +1,36 @@
+.chooseUs{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
+.getinTouchDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   justify-content: center;
+   align-items: center; 
+}
+
+.contactImg{
+    display: none;
+}
+
+/* responsive breakpoints */
+@media screen and (min-width:800px) {
+    .getinTouchDiv{
+        display: flex;
+        width: 50%;
+       margin-left:auto;
+       justify-content: center;
+       align-items: center; 
+    }
+
+    .contactImg{
+        display: block;
+        width: 60%;
+    }
+
+    
+}

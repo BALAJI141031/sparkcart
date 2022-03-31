@@ -4,7 +4,7 @@ import axios  from "axios";
 import {FilterByPrice} from '../components/filter/filter-by-price'
 import {Categories} from '../components/filter/categories'
 import {Rating} from '../components/filter/ratings'
-import {ProductCard} from '../components/card-components/product-card'
+import {ProductCard} from '../components/cards/product-card'
 import {SortBy} from '../components/filter/sort'
 import {Navbar} from '.././components/navbar-components/complete-navbar'
 import { Sidenavbar } from '../components/side-Navbar/sidebar';

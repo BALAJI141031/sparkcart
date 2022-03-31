@@ -1,38 +1,36 @@
-import './choose-us.css';
+import './index.css';
 import {GrDeliver,GrCafeteria } from "react-icons/gr";
 import {HiCake,HiCreditCard,HiOutlinePhone,HiOutlineLocationMarker,HiOutlineMail} from 'react-icons/hi'
-const ChooseUs=(props)=>{
+const IconWithText=(props)=>{
     const {chooseUsObj,contacts}=props
     const {reason,text,}=chooseUsObj
-    let compo
+    let component
     switch(reason){
        case "Quality Products":
-           compo=<HiCake className="icon-lg"/>
+           component=<HiCake className="icon-lg"/>
            break
        case "Free Delivary":
-           compo=<GrDeliver className="icon-lg"/>
+           component=<GrDeliver className="icon-lg"/>
            break
        case "Catering Service":
-           compo=<GrCafeteria className="icon-lg"/>
+           component=<GrCafeteria className="icon-lg"/>
            break
        case "Online Payment":
-           compo=<HiCreditCard className="icon-lg"/>
+           component=<HiCreditCard className="icon-lg"/>
            break
         case "location":
-            compo=<HiOutlineLocationMarker className="icon-lg"/>
+            component=<HiOutlineLocationMarker className="icon-lg"/>
             break
         case "phone":
-            compo=<HiOutlinePhone className="icon-lg"/>
+            component=<HiOutlinePhone className="icon-lg"/>
             break
         default:
-            compo=<HiOutlineMail className="icon-lg"/>
+            component=<HiOutlineMail className="icon-lg"/>
     }
-    return <div >
-        <div className="chooseUsCard flex-V-center-H">
-        {compo}
+    return  <div className="chooseUsCard flex-V-center-H">
+        {component}
         {contacts!=="true"?<h2>{reason}</h2>:null}
         <p>{text}</p>
         </div>
-    </div>
 }
-export {ChooseUs}
+export {IconWithText}

@@ -1,8 +1,13 @@
 
 .overlay-card{
     width: 100%;
-    border-width: 0.5em;
+    /* border-width: 0.5em; */
     text-align: center;
+    background-image: url("https://b.zmtcdn.com/data/pictures/5/18800475/83ef877a6bbe67c8eebc7290a9b8d803.jpg?fit=around|960:500&crop=960:500;*,*");
+    background-size: cover;
+    color:var(--pale-white);
+    padding: 2em;
+    margin:1rem
 }
 .overlay-card h1{
     width: 100%;
@@ -66,4 +71,8 @@
 
 .like-icon:hover{
     cursor: pointer;
+}
+
+.aboutImg{
+    width: 80%;
 }

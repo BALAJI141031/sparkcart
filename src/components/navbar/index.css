@@ -19,3 +19,27 @@
 .header-icons-div{
     width:12rem;
 }
+
+
+.desktopNavbar{
+    display: none;
+}
+
+.mobileNavbar{
+    display: block;
+}
+
+.navbar-rightside-div{
+    width:30%
+}
+
+@media screen and (min-width:800px) {
+  .mobileNavbar{
+      display: none;
+  }
+  .desktopNavbar{
+    display: block;
+}
+
+    
+}

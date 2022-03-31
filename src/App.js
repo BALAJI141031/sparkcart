@@ -1,20 +1,13 @@
 import "./App.css";
-import { BrowserRouter,Routes, Route, } from "react-router-dom";
-import {Sidebar} from './contexts/sidebar-context'
-import {LandingRoute} from './routes/landingroute'
-import {Products} from './routes/productsRoute'
-import {FilterProvider} from './contexts/filter-context'
-import Mockman from "mockman-js"
+import {Routes, Route, } from "react-router-dom";
+import {LandingRoute} from './routes/landingRoute'
+
 function App() {
   return (
-    <>
-      <BrowserRouter>  
+    <>  
       <Routes>
-      <Route path="/" element={<Sidebar><LandingRoute/></Sidebar>}/>
-      <Route path="/mock" element={<Mockman />}/>
-      <Route path="/products" element={<Sidebar><FilterProvider><Products/></FilterProvider></Sidebar>}/>
+      <Route path="/" element={<LandingRoute/>}/>
       </Routes>
-      </BrowserRouter>  
     </>
   );
 }
