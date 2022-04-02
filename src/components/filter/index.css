@@ -2,14 +2,26 @@
     width: 60%;
     margin-left: 1rem;
 }
+.filter span {
+    margin-left:5px;
+    margin-bottom:5px
+}
 .checkbox{
     height: 1.3em;
     width: 1.3em;
 }
 
+.checkboxLabel{
+    margin-left:10px;
+}
+
 .sort{
     display: flex;
     align-items: center;
+}
+.label{
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 .sort > input {

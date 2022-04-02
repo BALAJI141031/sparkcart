@@ -1,12 +1,14 @@
-import './filter.css'
+import './index.css'
+import {Button} from '../index'
 
 const FilterByPrice=()=>{
 
     const sortByPrice=(e)=>{
-        console.log(e.value)
+        
     }
     return <div className="filter">
         <div>
+        <p>Price:$10---$50</p> 
          <input
           type="range"
           min="10"
@@ -16,10 +18,9 @@ const FilterByPrice=()=>{
           id="myRange"
           onInput={sortByPrice}
         />
-        <div className="flex-H-space-bw">
-            <button>Apply Price</button>
-            <p>Price:$10---$50</p>
-            
+        <div className="flex-H-space-bw">    
+            <Button type="btn secondary-btn" text="Filter Now"/>
+                   
         </div>
         </div>
     </div>

@@ -1,21 +1,27 @@
 .chooseUs{
     display: flex;
     flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .getinTouchDiv{
     display: flex;
     flex-direction: column;
     width: 100%;
-   justify-content: center;
-   align-items: center; 
+    justify-content: center;
+    align-items: center; 
 }
 
 .contactImg{
     display: none;
 }
+
+.productsSection{
+    margin-left: 5%;
+}
+
+
 
 /* responsive breakpoints */
 @media screen and (min-width:800px) {
@@ -30,6 +36,12 @@
     .contactImg{
         display: block;
         width: 60%;
+    }
+
+    .products{
+        display:grid;
+        grid-template-columns: 0.3fr 1fr;
+    
     }
 
     

@@ -1,14 +1,14 @@
 
-.overlay-card{
+/* .overlay-card{
     width: 100%;
     /* border-width: 0.5em; */
-    text-align: center;
+    /* text-align: center;
     background-image: url("https://b.zmtcdn.com/data/pictures/5/18800475/83ef877a6bbe67c8eebc7290a9b8d803.jpg?fit=around|960:500&crop=960:500;*,*");
     background-size: cover;
     color:var(--pale-white);
     padding: 2em;
-    margin:1rem
-}
+    margin:1rem */
+/* } */ */
 .overlay-card h1{
     width: 100%;
 }
@@ -60,7 +60,9 @@
 }
 
 .productCard{
-    margin:1rem
+    margin:1rem;
+    /* height:28rem; */
+   
 }
 
 #wishListStyle{
@@ -75,4 +77,8 @@
 
 .aboutImg{
     width: 80%;
+}
+
+.productCard > div > p,h3,h4 {
+    margin:2px
 }
