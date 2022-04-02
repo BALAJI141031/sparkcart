@@ -1,5 +1,5 @@
 import './index.css'
-import {useFilter} from '../../contexts/filter-context'
+import {useFilter} from '../../contexts/filterContext'
 
 const Categories=()=>{
   const {dispatchFilter}=useFilter()

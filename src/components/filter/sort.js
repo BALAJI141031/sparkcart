@@ -1,4 +1,4 @@
-import { useFilter } from "../../contexts/filter-context"
+import { useFilter } from "../../contexts/filterContext"
 import './index.css'
 const SortBy=()=>{
     const {dispatchFilter}=useFilter()

@@ -1,6 +1,7 @@
-import {useFilter} from '../contexts/filter-context'
+// import {useFilter} from '../contexts/filter-context'
 import { useEffect,Fragment } from 'react'
 import axios  from "axios";
+import {useFilter} from '../contexts/filterContext'
 
 import {Categories,Rating,ProductCard,SortBy,FilterByPrice,Navbar,SideNavbar,Footer} from '../components'
 

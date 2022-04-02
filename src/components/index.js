@@ -17,7 +17,7 @@ import { NavIcon, BadgeIcons } from './navbar/nav-icons'
 // filter components
 
 import {Categories} from './filter/categories'
-import {FilterByPrice} from './filter/filter-by-price'
+import {FilterByPrice} from './filter/filterByPrice'
 import {Rating} from './filter/ratings'
 import {SortBy} from './filter/sort'
 
