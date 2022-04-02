@@ -21,6 +21,12 @@
     margin-left: 5%;
 }
 
+.wishlist-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+
 
 
 /* responsive breakpoints */

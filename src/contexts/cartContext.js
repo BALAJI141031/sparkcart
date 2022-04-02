@@ -7,8 +7,6 @@ const CartProvider=({children})=>{
         switch(action.type){
             case 'cart':
                 return {...cartState,cart:[...action.payload.cart],cartCount:action.payload.cartCount}
-            case 'wishlistCount':
-                return {...cartState,wishlistCount:action.payload}
             default :
               return {...cartState}
         }

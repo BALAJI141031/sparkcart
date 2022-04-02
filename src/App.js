@@ -1,8 +1,7 @@
 import "./App.css";
 import {Routes, Route, } from "react-router-dom";
-import {LandingRoute,Products,Cart} from './routes'
+import {LandingRoute,Products,Cart,Wishlist} from './routes'
 import Mockman from "mockman-js"
-import {Wishlist} from './routes/wishlistRoute'
 function App() {
   return (
     <>  
@@ -10,6 +9,7 @@ function App() {
       <Route path="/" element={<LandingRoute/>}/>
       <Route path="/products" element={<Products/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/wishlist' element={<Wishlist/>}/>
       <Route path="/mock" element={<Mockman />}/>
       </Routes>
     </>

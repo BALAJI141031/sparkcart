@@ -1,29 +1,36 @@
 import './index.css'
 import { GoX } from "react-icons/go";
-import { useWishlist } from '../../contexts/wishlist-context';
-const WishlistCard=({productObj})=>{
-    const {dispatchWishlist}=useWishlist()
-    const{price,imageUrl,title,description,productRating}=productObj
-  const removeItem=async(product)=>{
-    try{
-      const response= await axios.delete(`/api/user/wishlist/${product._id}`,{headers:{authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3OGMwYThhMy1jN2ZiLTQ0ZjgtYWUwZS1iMmU2MTM2ZjUyNzEiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.RuUtRShcJPrhxsDlO30czFOKxmunlJd62KWyLPPwZlk"}})
-      dispatchWishlist({type:"wishlist",payload:response.data.wishlist})
-    }catch(e){
-      throw e
-    }
+import { useWishlist } from '../../contexts/wishlistContext';
+import axios from 'axios'
 
-  }
+
+const WishlistCard=({productObj})=>{
+
+    const {dispatchWishlist,wishlistCount}=useWishlist()
+    const{price,imageUrl,title,description,productRating}=productObj
+  
+      const removeFromWishlist=async(product)=>{
+        try{
+          const response=await axios.delete(`/api/user/wishlist/${product._id}`,{headers:{authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI"}})
+   
+          dispatchWishlist({type:"wishlist",payload:{wishlist:response.data.wishlist,wishlistCount:wishlistCount-1,wishListed:false}})
+          // setToWishlist(false)
+      
+        }catch(e){
+          throw e
+        }
+      }
 
   return <div className="flex-V-center-VH productCard"><div className="ver-card pos-rel-Ecase">
     <img src={imageUrl} alt="images" />
     <div className="flex-V-center-VH">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <p>{description}</p>
-      <h3>${price}</h3>
+      <h4>${price}</h4>
       <button className="btn primary-btn p-card-btn">add to cart</button>
     </div>
     <div className="card-badge">
-      <button className="like-icon icon-sm" onClick={()=>removeItem(productObj)}>
+      <button className="like-icon icon-sm" onClick={()=>removeFromWishlist(productObj)}>
         <GoX/>
       </button>
     </div>

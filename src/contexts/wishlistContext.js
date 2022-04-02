@@ -6,15 +6,15 @@ const WishlistProvider=({children})=>{
     const reducerFn=(wishlistState,action)=>{
         switch(action.type){
             case 'wishlist':
-                return {...wishlistState,wishlist:[...action.payload]}
+                return {...wishlistState,wishlist:[...action.payload.wishlist],wishlistCount:action.payload.wishlistCount}
             default :
               return {...wishlistState}
         }
     }
-       
-    const [{wishlist},dispatchWishlist]=useReducer(reducerFn,{wishlist:[]})
-    console.log(wishlist,"at one step back")
-    return <wishlistContext.Provider value={{wishlist,dispatchWishlist}}>
+           
+    const [{wishlist,wishlistCount,},dispatchWishlist]=useReducer(reducerFn,{wishlist:[],wishlistCount:0})
+    
+    return <wishlistContext.Provider value={{wishlist,dispatchWishlist,wishlistCount,}}>
     {children}
     </wishlistContext.Provider>
 }

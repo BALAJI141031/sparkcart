@@ -8,7 +8,7 @@ const Cart=()=>{
        <Navbar/> 
         <Headers/>
         <hr/>
-         {cart.length!==0?cart.map((item)=> <CartProduct product={item}/>):<h1 className="text-align-center">cart is empty</h1>}
+         {cart.length!==0?cart.map((item)=> <CartProduct product={item}/>):<div className="text-align-center"><h1 >cart is empty</h1></div>}
         <Checkout checkoutPrice={checkoutPrice}/>  
       </>
   }

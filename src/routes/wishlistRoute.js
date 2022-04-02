@@ -1,12 +1,16 @@
 
-import {WishlistCard} from '../components/card-components/wishList-card'
-import {useWishlist} from '../contexts/wishlist-context'
+import {WishlistCard,Navbar} from '../components'
+import {useWishlist} from '../contexts/wishlistContext'
 const Wishlist=()=>{
     const {wishlist}=useWishlist()
-    console.log(wishlist,"to render on screen")
     return <>
-      <h1>My Wishlist</h1>
-      {wishlist.length!==0?wishlist.map((item)=><WishlistCard productObj={item} key={item._id}/>):<h1>empty</h1>}
+    <Navbar/>
+      <h1 className="text-align-center">My Wishlist</h1>
+     
+      <div className="flex-wrap">
+        {wishlist.length!==0 && wishlist.map((item)=> <WishlistCard productObj={item} key={item._id}/>)}
+      </div>
+      {wishlist.length===0 && <h2 className="text-align-center">wishlist is empty explore more</h2>}
     </>
 }
 export {Wishlist}
