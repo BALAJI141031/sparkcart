@@ -6,7 +6,7 @@ import { GoX } from "react-icons/go";
 import axios  from "axios";
 
 const CartProduct=({product})=>{
-  const {dispatchCart}=useCart()
+  const {dispatchCart,cartCount}=useCart()
   const {title,imageUrl,price}=product
   const[quantityPrice,setQuantityPrice]=useState(Number(price))
   const [count,setCount]=useState(1)
@@ -23,7 +23,7 @@ const CartProduct=({product})=>{
   const removeProduct=async (product)=>{
     try{
       const updatedCartResponse=await axios.delete(`/api/user/cart/${product._id}`,{headers:{authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3OGMwYThhMy1jN2ZiLTQ0ZjgtYWUwZS1iMmU2MTM2ZjUyNzEiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.RuUtRShcJPrhxsDlO30czFOKxmunlJd62KWyLPPwZlk"}})
-      dispatchCart({type:"cart",payload:updatedCartResponse.data.cart})
+      dispatchCart({type:"cart",payload:{cart:updatedCartResponse.data.cart,cartCount:cartCount-1}})
     }catch(e){
       throw e
     }   

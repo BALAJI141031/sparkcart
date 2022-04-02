@@ -5,7 +5,8 @@ import axios from 'axios'
 const ProductCard=({productObj})=>{
   const{price,imageUrl,title,description,productRating,readyToDeliver}=productObj
 
-  const {dispatchCart}=useCart()
+  const {dispatchCart,wishlistCount,cartCount}=useCart()
+  
   const navigate=useNavigate()
     const [inCart,setButtonText]=useState(false)
 
@@ -18,7 +19,7 @@ const ProductCard=({productObj})=>{
           }
         });
         setButtonText(true)
-        dispatchCart({type:"cart",payload:response.data.cart})
+        dispatchCart({type:"cart",payload:{cart:response.data.cart,cartCount:cartCount+1}})
 
       }catch(e){
         console.error("error while adding item into cart",e)

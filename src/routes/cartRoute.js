@@ -5,7 +5,7 @@ const Cart=()=>{
     const {cart,checkoutPrice}=useCart()
      
       return <>
-       {/* <Navbar/>  */}
+       <Navbar/> 
         <Headers/>
         <hr/>
          {cart.length!==0?cart.map((item)=> <CartProduct product={item}/>):<h1 className="text-align-center">cart is empty</h1>}
