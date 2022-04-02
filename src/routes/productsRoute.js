@@ -16,11 +16,11 @@ const Products= ()=>{
       } )
     },[])
   
-      return <div className="productsSection"> 
+      return <div className="products-section"> 
       <Navbar/>
       <div className="products">
       <div>
-      <h2>Sort By Price</h2>
+      <h2>Sort By Price</h2>     
       <SortBy />
       <h2>CATEGORIES</h2>
       <hr/>
