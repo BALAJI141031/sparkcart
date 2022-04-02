@@ -1,7 +1,7 @@
 
 import { NavIcon, BadgeIcons } from "../index";
 import './index.css'
-import {useSidebar} from '../../contexts/sidebar-context'
+import {useSidebar} from '../../contexts/sidebarContext'
 import { CgClose,CgMenu,CgMoreVertical,CgSearch } from "react-icons/cg";
 
 const Navbar = () => {
