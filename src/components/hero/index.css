@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+.hero-card{
+    width: 100%;
+    padding-left: 0.3em;
+    position: relative;
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+    background-size:cover;
+    color: var(--pale-white);
+    padding: 1em;
+    height: 40vh;  
+}
+.hero-card > h2{
+    width: 37%;    
+}

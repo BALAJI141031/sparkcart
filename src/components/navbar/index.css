@@ -1,0 +1,45 @@
+.position-rel{
+    position: relative;
+    /* background-color: red; */
+}
+
+.nav-icon-badge{
+    position: absolute;
+    top:-45%;
+    right: -13%;
+    background-color: var(--badge-color);
+    color: var(--font-color);
+    font-size: 1.3rem;
+    width: 2rem;
+    text-align: center;
+    border-radius: 0.2em;
+    padding: 0.1em;
+}
+
+.header-icons-div{
+    width:12rem;
+}
+
+
+.desktopNavbar{
+    display: none;
+}
+
+.mobileNavbar{
+    display: block;
+}
+
+.navbar-rightside-div{
+    width:30%
+}
+
+@media screen and (min-width:800px) {
+  .mobileNavbar{
+      display: none;
+  }
+  .desktopNavbar{
+    display: block;
+}
+
+    
+}

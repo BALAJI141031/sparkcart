@@ -1,13 +1,10 @@
-import {useFilter} from '../contexts/filter-context'
-import { useEffect } from 'react'
+// import {useFilter} from '../contexts/filter-context'
+import { useEffect,Fragment } from 'react'
 import axios  from "axios";
-import {FilterByPrice} from '../components/filter/filter-by-price'
-import {Categories} from '../components/filter/categories'
-import {Rating} from '../components/filter/ratings'
-import {ProductCard} from '../components/card-components/product-card'
-import {SortBy} from '../components/filter/sort'
-import {Navbar} from '.././components/navbar-components/complete-navbar'
-import { Sidenavbar } from '../components/side-Navbar/sidebar';
+import {useFilter} from '../contexts/filterContext'
+
+import {Categories,Rating,ProductCard,SortBy,FilterByPrice,Navbar,SideNavbar,Footer} from '../components'
+
 const Products= ()=>{
     const {dispatchFilter,filteredList}=useFilter()
     useEffect(()=>{
@@ -17,9 +14,11 @@ const Products= ()=>{
       } )
     },[])
   
-      return<> 
+      return <div className="products-section"> 
       <Navbar/>
-      <h2>Sort By Price</h2>
+      <div className="products">
+      <div>
+      <h2>Sort By Price</h2>     
       <SortBy />
       <h2>CATEGORIES</h2>
       <hr/>
@@ -31,11 +30,16 @@ const Products= ()=>{
       <hr/>
       <FilterByPrice/>
       <hr/>
+      </div>
+      <div>
       <h2>Products</h2>
-      {filteredList.map((item)=> {
-      return <ProductCard productObj={item} key={item._id}/>
-      })}
-      <Sidenavbar/>     
-    </> 
+      <div className="flex-wrap">
+      {filteredList.map((item)=> <ProductCard productObj={item}/> )}
+      </div>
+      </div>
+      </div>  
+      <SideNavbar/>     
+    </div> 
+    
   }
   export {Products}
