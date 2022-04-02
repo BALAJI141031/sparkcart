@@ -5,10 +5,10 @@
 
 .nav-icon-badge{
     position: absolute;
-    top:-45%;
-    right: -13%;
-    background-color: var(--badge-color);
-    color: var(--font-color);
+    top:-65%;
+    right: -25%;
+    /* background-color: var(--badge-color); */
+    color: var(--secondary-color);
     font-size: 1.3rem;
     width: 2rem;
     text-align: center;
