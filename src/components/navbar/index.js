@@ -2,8 +2,9 @@
 import { NavIcon, BadgeIcons } from "../index";
 import './index.css'
 import {useSidebar} from '../../contexts/sidebarContext'
-import { CgClose,CgMenu,CgMoreVertical,CgSearch } from "react-icons/cg";
-
+import { CgClose,CgMenu,CgSearch } from "react-icons/cg";
+import { VscHeart } from "react-icons/vsc";
+import {GrCart} from "react-icons/gr"
 const Navbar = () => {
 const {sidebarToggle,setToggleState}=useSidebar()
 
@@ -23,13 +24,18 @@ const {sidebarToggle,setToggleState}=useSidebar()
         </h1>
       </div>
       <div className="flex-H-space-bw header-icons-div">
-        <NavIcon>
+        {/* <NavIcon>
           <CgSearch className="header-icons header-icons-m-lr icon-lg"/>    
-        </NavIcon>
-        <BadgeIcons />
-        <NavIcon >
+        </NavIcon> */}
+        <BadgeIcons>
+        <GrCart className="header-icons header-icons-m-lr icon-md"/>
+          </BadgeIcons>
+          <BadgeIcons>
+        <VscHeart className="header-icons header-icons-m-lr icon-md"/>
+          </BadgeIcons>
+        {/* <NavIcon >
           <CgMoreVertical className="header-icons header-icons-m-lr icon-lg"/>
-        </NavIcon>
+        </NavIcon> */}
       </div>
     </nav>
     </div>
