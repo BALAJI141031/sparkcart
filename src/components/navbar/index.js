@@ -52,14 +52,12 @@ const {sidebarToggle,setToggleState}=useSidebar()
         <div className="flex-H-space-around navbar-rightside-div">
           <button className="span-style">Login</button>
           <button className="span-style">Signup</button>
-          <div className="position-relative">
-            <i className="fas fa-cart-plus icon-md"></i>
-            <div className="nav-icon-badge">99+</div>
-          </div>
-          <div className="position-relative">
-            <i className="fas fa-heart icon-md"></i>
-            <div className="nav-icon-badge">99+</div>
-          </div>  
+          <BadgeIcons>
+        <GrCart className="header-icons header-icons-m-lr icon-md"/>
+          </BadgeIcons>
+          <BadgeIcons>
+        <VscHeart className="header-icons header-icons-m-lr icon-md"/>
+          </BadgeIcons>
           </div> 
         </nav>
         </div>
