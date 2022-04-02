@@ -9,7 +9,7 @@ const ProductCard=({productObj})=>{
       <h3>${price}</h3>
       <button className="btn primary-btn p-card-btn">Add to cart</button>
     </div>
-    {/* <div className="card-badge" >
+    <div className="card-badge" >
       <button className="like-icon icon-sm">
         <i className="fas fa-heart"></i>
       </button>
@@ -17,7 +17,7 @@ const ProductCard=({productObj})=>{
     <div className="static-rating-container ratingBadge">
         <div className="flex-H-center-V">
        {productRating}<span className="fa fa-star fa-1x checked"></span>
-    </div></div> */}
+    </div></div>
   </div></div>
 }
 export {ProductCard}

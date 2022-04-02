@@ -45,14 +45,14 @@
     align-items: center;
     width: 3rem;
     height: 2rem;
-    color: #fff;
+    color: var(--pale-white);
     padding: 1rem;
     font-size: 1.3rem;
 }
 
 .ratingBadge > div >span{
-    margin-left:0.3rem;
-    margin-bottom:0.2rem ;
+    margin-left:7px;
+    margin-bottom:5px ;
 }
 
 .wishlistCard{
@@ -64,9 +64,7 @@
 }
 
 #wishListStyle{
-    color: var(--badge-color);
-    
-    
+    color: var(--badge-color);    
 }
 
 .like-icon:hover{
