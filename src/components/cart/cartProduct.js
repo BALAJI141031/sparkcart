@@ -1,11 +1,11 @@
 import './index.css'
 import {useState} from 'react'
-import {Button} from '../index'
-import {useCart} from '../../contexts/cartContext'
 import { GoX } from "react-icons/go";
-import axios  from "axios";
+import {useCart,useWishlist} from '../../customHooks'
+import {removeItemFromCart,addItemToWishlist} from '../../dryProviders'
 
 const CartProduct=({product})=>{
+  const {dispatchWishlist,wishlistCount}=useWishlist() 
   const {dispatchCart,cartCount}=useCart()
   const {title,imageUrl,price}=product
   const[quantityPrice,setQuantityPrice]=useState(Number(price))
@@ -22,16 +22,16 @@ const CartProduct=({product})=>{
 
   const removeProduct=async (product)=>{
     try{
-      const updatedCartResponse=await axios.delete(`/api/user/cart/${product._id}`,{headers:{authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3OGMwYThhMy1jN2ZiLTQ0ZjgtYWUwZS1iMmU2MTM2ZjUyNzEiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.RuUtRShcJPrhxsDlO30czFOKxmunlJd62KWyLPPwZlk"}})
-      dispatchCart({type:"cart",payload:{cart:updatedCartResponse.data.cart,cartCount:cartCount-1}})
+      await removeItemFromCart(product,dispatchCart,cartCount)
     }catch(e){
       throw e
-    }   
+    }
   }
 
   const addToWishList=async(product)=>{
     try{
-      await removeProduct(product)
+      await removeItemFromCart(product,dispatchCart,cartCount)
+      await addItemToWishlist(product,dispatchWishlist,wishlistCount)
     }catch(e){
       throw e
     }

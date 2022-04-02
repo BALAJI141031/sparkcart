@@ -1,8 +1,13 @@
 
 import {WishlistCard,Navbar} from '../components'
-import {useWishlist} from '../contexts/wishlistContext'
+
+import axios from 'axios'
+import {useCart,useWishlist} from '../customHooks'
+
 const Wishlist=()=>{
     const {wishlist}=useWishlist()
+   
+
     return <>
     <Navbar/>
       <h1 className="text-align-center">My Wishlist</h1>
