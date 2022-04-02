@@ -3,19 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import {CartProvider} from './contexts/cart-context'
-import {WishlistProvider} from './contexts/wishlist-context'
+import {Providers} from './providers'
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <WishlistProvider>
-    <CartProvider>
+    <Providers>
     <App />
-    </CartProvider>
-    </WishlistProvider>
+    </Providers>
   </React.StrictMode>,
   document.getElementById("root")
 );
