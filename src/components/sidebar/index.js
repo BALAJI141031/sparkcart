@@ -1,4 +1,4 @@
-import { useSidebar } from "../../contexts/sidebar-context"
+import { useSidebar } from "../../contexts/sidebarContext"
 import './index.css'
 import {Link} from 'react-router-dom'
 const SideNavbar =()=>{

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import {Sidebar} from '../contexts/sidebar-context'
+import {Sidebar} from '../contexts/sidebarContext'
 
 const Providers=({children})=>{
     return <Router>
