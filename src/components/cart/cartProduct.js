@@ -1,16 +1,16 @@
-import { useEffect } from 'react/cjs/react.development'
-import './cart.css'
+import './index.css'
 import {useState} from 'react'
-import {useCart} from '../../contexts/cart-context'
+import {Button} from '../index'
+import {useCart} from '../../contexts/cartContext'
 import { GoX } from "react-icons/go";
 import axios  from "axios";
+
 const CartProduct=({product})=>{
   const {dispatchCart}=useCart()
   const {title,imageUrl,price}=product
   const[quantityPrice,setQuantityPrice]=useState(Number(price))
   const [count,setCount]=useState(1)
   const isdisable=count===1?true:false
-
   const decreaseQunatity=(product)=>{  
     setQuantityPrice((prevPrice)=>prevPrice-Number(product.price))
     setCount((prevCount)=>prevCount-1)
@@ -26,18 +26,27 @@ const CartProduct=({product})=>{
       dispatchCart({type:"cart",payload:updatedCartResponse.data.cart})
     }catch(e){
       throw e
+    }   
+  }
+
+  const addToWishList=async(product)=>{
+    try{
+      await removeProduct(product)
+    }catch(e){
+      throw e
     }
-     
 
   }
     return <>
       <div className="cart cartItem">
+        
           <div><div className="flex-H-center-V"><img src={imageUrl} className="cart-image" alt="cart"/>
           <div><p>{title}</p>
           <p>Grand inn</p>
           </div>
-          </div>
-          </div>
+          </div>  
+          {count===1&&<button className="span-style" onClick={()=>addToWishList(product)}>Move to wishlist</button> }
+          </div>          
           <p className="flex-V-center-VH">${price}</p>
           <div className="flex-H-center-VH">
               <button disabled={isdisable} onClick={()=>decreaseQunatity(product)}>-</button>

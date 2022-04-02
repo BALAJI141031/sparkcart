@@ -1,4 +1,4 @@
-import './cart.css'
+import './index.css'
 
 const Headers=()=>{
     return <>

@@ -21,5 +21,7 @@ import {FilterByPrice} from './filter/filterByPrice'
 import {Rating} from './filter/ratings'
 import {SortBy} from './filter/sort'
 
+// 
+import {Headers,CartProduct,Checkout} from './cart'
 
-export {SortBy,Rating,FilterByPrice,Categories,Button,NavIcon, BadgeIcons,CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}
+export {Headers,CartProduct,Checkout,SortBy,Rating,FilterByPrice,Categories,Button,NavIcon, BadgeIcons,CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}

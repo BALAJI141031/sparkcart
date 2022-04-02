@@ -47,10 +47,10 @@
 }
 
 .cuponDiv{
-    width: 100%;
+    width: 80%;
 }
 .cuponDiv > button {
-    width: 60%;
+    width: 50%;
 }
 
 .checkout{
@@ -58,6 +58,10 @@
 }
 .checkout > button {
     width: 90%;
+}
+
+.checkout-btn{
+    width:40%
 }
 
 .totalPrice{
@@ -68,4 +72,25 @@
     position: absolute;
     top: 0%;
     right: 0%;
+}
+
+/* break points */
+
+@media screen and (min-width:670px) {
+
+    .cart{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .cuponDiv{
+        width:20%
+    }
+
+    .checkout-btn{
+        width:20%
+    }
+
+   
+   
 }
