@@ -114,6 +114,10 @@ const gotoCart = (navigate) => {
   navigate("/cart");
 };
 
+const gotoProductsRoute = (navigate) => {
+  navigate("/products");
+};
+
 const gotoWishlist = (navigate) => {
   navigate("/wishlist");
 };
@@ -149,4 +153,5 @@ export {
   removeItemFromCart,
   showSnackbar,
   hideSnackbar,
+  gotoProductsRoute,
 };

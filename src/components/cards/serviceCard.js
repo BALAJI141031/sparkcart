@@ -1,5 +1,18 @@
 import "./index.css";
+import { gotoProductsRoute } from "../../dryProviders";
+import { useNavigate } from "../../customHooks";
+import { useFilter } from "../../customHooks";
+
 const ServiceCard = () => {
+  const { setNewRecipe, dispatchFilter } = useFilter();
+
+  console.log(setNewRecipe, "whether im getting function or not");
+  const navigate = useNavigate();
+  const redirect = () => {
+    dispatchFilter({ type: "newRecipe", payload: true });
+    setNewRecipe(true);
+    gotoProductsRoute(navigate);
+  };
   return (
     <div className="serviceCard flex-V-center-VH">
       <div class="sq-card">
@@ -18,7 +31,9 @@ const ServiceCard = () => {
           <p>$4 half Plate</p>
         </div>
         <hr />
-        <button class="btn primary-btn">Explore</button>
+        <button class="btn primary-btn" onClick={redirect}>
+          Explore
+        </button>
         <div class="badge border-radius">Newly added</div>
       </div>
     </div>

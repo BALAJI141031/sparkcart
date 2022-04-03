@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 
 const filterContext = createContext();
 const FilterProvider = ({ children }) => {
@@ -21,6 +27,8 @@ const FilterProvider = ({ children }) => {
         return {};
     }
   };
+
+  const [checkNewRecipe, setNewRecipe] = useState(false);
 
   const [
     { sortBy, productsList, vegetarian, delivery, rating, newRecipe },
@@ -68,7 +76,9 @@ const FilterProvider = ({ children }) => {
   let filteredList = [...filteredProducts];
 
   return (
-    <filterContext.Provider value={{ dispatchFilter, filteredList }}>
+    <filterContext.Provider
+      value={{ dispatchFilter, filteredList, checkNewRecipe, setNewRecipe }}
+    >
       {children}
     </filterContext.Provider>
   );

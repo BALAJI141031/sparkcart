@@ -17,7 +17,7 @@ export const products = [
       "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
     productRating: 4,
     fastDelivery: false,
-    trendingRecipe: false,
+    trendingRecipe: true,
   },
   {
     _id: uuid(),
@@ -29,8 +29,8 @@ export const products = [
     imageUrl:
       "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
     productRating: 5,
-    fastDelivery: false,
-    trendingRecipe: true,
+    fastDelivery: true,
+    trendingRecipe: false,
   },
   {
     _id: uuid(),
@@ -43,7 +43,7 @@ export const products = [
       "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
     productRating: 2,
     fastDelivery: true,
-    trendingRecipe: true,
+    trendingRecipe: false,
   },
   {
     _id: uuid(),
@@ -56,7 +56,7 @@ export const products = [
       "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
     productRating: 1,
     fastDelivery: true,
-    trendingRecipe: true,
+    trendingRecipe: false,
   },
   {
     _id: uuid(),
