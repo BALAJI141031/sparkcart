@@ -1,8 +1,9 @@
 // import {useFilter} from '../contexts/filter-context'
-import { useEffect, Fragment } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useFilter } from "../contexts/filterContext";
-
+import { showSnackbar } from "../dryProviders";
+import { useSnackbar } from "../customHooks";
 import {
   Categories,
   Rating,
@@ -11,11 +12,11 @@ import {
   FilterByPrice,
   Navbar,
   SideNavbar,
-  Footer,
 } from "../components";
 
 const Products = () => {
   const { dispatchFilter, filteredList } = useFilter();
+  const { snackbar } = useSnackbar();
   useEffect(() => {
     axios.get("/api/products").then((response) => {
       dispatchFilter({ type: "products", payload: response.data.products });
@@ -50,6 +51,7 @@ const Products = () => {
         </div>
       </div>
       <SideNavbar />
+      {snackbar.status && showSnackbar(snackbar.payload)}
     </div>
   );
 };

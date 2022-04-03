@@ -6,17 +6,18 @@ import {
   gotoCart,
   removeItemFromWishlist,
   addItemToWishlist,
+  hideSnackbar,
 } from "../../dryProviders";
+import { useSnackbar } from "../../customHooks";
 
 const ProductCard = ({ productObj }) => {
-  const { price, imageUrl, title, description, productRating, readyToDeliver } =
-    productObj;
+  const { price, imageUrl, title, description, productRating } = productObj;
   const [wishListed, setToWishlist] = useState(false);
   const { dispatchCart, cartCount } = useCart();
   const { dispatchWishlist, wishlistCount } = useWishlist();
   const navigate = useNavigate();
   const [inCart, setButtonText] = useState(false);
-
+  const { setSnackbar } = useSnackbar();
   const toggleWishlist = async (handlerObj) => {
     try {
       if (!wishListed) {
@@ -26,6 +27,8 @@ const ProductCard = ({ productObj }) => {
           setToWishlist,
           wishlistCount
         );
+        setSnackbar({ status: true, payload: "wishListed!" });
+        hideSnackbar(setSnackbar);
       } else {
         await removeItemFromWishlist(
           handlerObj,
@@ -33,6 +36,8 @@ const ProductCard = ({ productObj }) => {
           setToWishlist,
           wishlistCount
         );
+        setSnackbar({ status: true, payload: "out of list!" });
+        hideSnackbar(setSnackbar);
       }
     } catch (e) {
       throw e;
@@ -46,12 +51,12 @@ const ProductCard = ({ productObj }) => {
         case "navigate_to_cart":
           return gotoCart(navigate);
         default:
-          return await addItemToCart(
-            payload,
-            dispatchCart,
-            setButtonText,
-            cartCount
-          );
+          await addItemToCart(payload, dispatchCart, setButtonText, cartCount);
+
+          setSnackbar({ status: true, payload: "added to cart" });
+          hideSnackbar(setSnackbar);
+
+          break;
       }
     } catch (e) {
       throw e;

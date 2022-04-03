@@ -1,8 +1,10 @@
 import { Checkout, CartProduct, Headers, Navbar } from "../components";
 import { useCart } from "../contexts/cartContext";
+import { useSnackbar } from "../customHooks";
+import { showSnackbar } from "../dryProviders";
 const Cart = () => {
   const { cart, checkoutPrice } = useCart();
-
+  const { snackbar } = useSnackbar();
   return (
     <>
       <Navbar />
@@ -16,6 +18,7 @@ const Cart = () => {
         </div>
       )}
       <Checkout checkoutPrice={checkoutPrice} />
+      {snackbar.status && showSnackbar(snackbar.payload)}
     </>
   );
 };

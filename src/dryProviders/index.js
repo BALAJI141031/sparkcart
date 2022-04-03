@@ -118,6 +118,28 @@ const gotoWishlist = (navigate) => {
   navigate("/wishlist");
 };
 
+// snackbar
+const showSnackbar = (payload) => {
+  return (
+    <div>
+      <div class="toast succuess">
+        <p>{payload}</p>
+        <span id="closeBtn">×</span>
+      </div>
+    </div>
+  );
+};
+
+const hideSnackbar = (setSnackbar) => {
+  setTimeout(
+    () =>
+      setSnackbar({
+        status: false,
+      }),
+    1500
+  );
+};
+
 export {
   addItemToCart,
   gotoCart,
@@ -125,4 +147,6 @@ export {
   removeItemFromWishlist,
   gotoWishlist,
   removeItemFromCart,
+  showSnackbar,
+  hideSnackbar,
 };

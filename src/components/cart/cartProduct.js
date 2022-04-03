@@ -2,7 +2,12 @@ import "./index.css";
 import { useState } from "react";
 import { GoX } from "react-icons/go";
 import { useCart, useWishlist } from "../../customHooks";
-import { removeItemFromCart, addItemToWishlist } from "../../dryProviders";
+import {
+  removeItemFromCart,
+  addItemToWishlist,
+  hideSnackbar,
+} from "../../dryProviders";
+import { useSnackbar } from "../../customHooks";
 
 const CartProduct = ({ product }) => {
   const { dispatchWishlist, wishlistCount } = useWishlist();
@@ -11,6 +16,7 @@ const CartProduct = ({ product }) => {
   const [quantityPrice, setQuantityPrice] = useState(Number(price));
   const [count, setCount] = useState(1);
   const isdisable = count === 1 ? true : false;
+  const { setSnackbar } = useSnackbar();
   const decreaseQunatity = (product) => {
     setQuantityPrice((prevPrice) => prevPrice - Number(product.price));
     setCount((prevCount) => prevCount - 1);
@@ -23,6 +29,8 @@ const CartProduct = ({ product }) => {
   const removeProduct = async (product) => {
     try {
       await removeItemFromCart(product, dispatchCart, cartCount);
+      setSnackbar({ status: true, payload: "out of cart!" });
+      hideSnackbar(setSnackbar);
     } catch (e) {
       throw e;
     }
@@ -31,7 +39,9 @@ const CartProduct = ({ product }) => {
   const addToWishList = async (product) => {
     try {
       await removeItemFromCart(product, dispatchCart, cartCount);
-      await addItemToWishlist(product, dispatchWishlist, wishlistCount);
+      await addItemToWishlist(product, dispatchWishlist, false, wishlistCount);
+      setSnackbar({ status: true, payload: "wishlisted!" });
+      hideSnackbar(setSnackbar);
     } catch (e) {
       throw e;
     }
