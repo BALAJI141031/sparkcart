@@ -1,23 +1,34 @@
-import { createContext, useContext, useReducer, useState } from "react"
+import { createContext, useContext, useReducer, useState } from "react";
 
-const wishlistContext=createContext()
+const wishlistContext = createContext();
 
-const WishlistProvider=({children})=>{ 
-    const reducerFn=(wishlistState,action)=>{
-        switch(action.type){
-            case 'wishlist':
-                return {...wishlistState,wishlist:[...action.payload.wishlist],wishlistCount:action.payload.wishlistCount}
-            default :
-              return {...wishlistState}
-        }
+const WishlistProvider = ({ children }) => {
+  const reducerFn = (wishlistState, action) => {
+    switch (action.type) {
+      case "wishlist":
+        return {
+          ...wishlistState,
+          wishlist: [...action.payload.wishlist],
+          wishlistCount: action.payload.wishlistCount,
+        };
+      default:
+        return { ...wishlistState };
     }
-           
-    const [{wishlist,wishlistCount,},dispatchWishlist]=useReducer(reducerFn,{wishlist:[],wishlistCount:0})
-    
-    return <wishlistContext.Provider value={{wishlist,dispatchWishlist,wishlistCount,}}>
-    {children}
-    </wishlistContext.Provider>
-}
-const useWishlist=()=>useContext(wishlistContext)
+  };
 
-export {WishlistProvider,useWishlist}
+  const [{ wishlist, wishlistCount }, dispatchWishlist] = useReducer(
+    reducerFn,
+    { wishlist: [], wishlistCount: 0 }
+  );
+
+  return (
+    <wishlistContext.Provider
+      value={{ wishlist, dispatchWishlist, wishlistCount }}
+    >
+      {children}
+    </wishlistContext.Provider>
+  );
+};
+const useWishlist = () => useContext(wishlistContext);
+
+export { WishlistProvider, useWishlist };

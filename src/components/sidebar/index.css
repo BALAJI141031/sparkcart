@@ -1,24 +1,23 @@
-
-.sidebar{
-    display: block;
-    width: 50%;
-    position: absolute;
-    z-index: 3;
-    top:12%;
-    left: 0%;
-    background-color: var(--teritiary-Color);
-    height: 100vh;
-    opacity: 1;
-    padding-top: 5rem;
-    padding-left:1.5rem;
-    color: var(--pale-white);
-    font-size: 1.5rem;
+.sidebar {
+  display: block;
+  width: 50%;
+  position: absolute;
+  z-index: 3;
+  top: 12%;
+  left: 0%;
+  background-color: var(--teritiary-Color);
+  height: 100vh;
+  opacity: 1;
+  padding-top: 5rem;
+  padding-left: 1.5rem;
+  color: var(--pale-white);
+  font-size: 1.5rem;
 }
 
-.hideSidebar{
-    display: none;
+.hideSidebar {
+  display: none;
 }
 
-.linkColor{
-    color: var(--pale-white);
+.linkColor {
+  color: var(--pale-white);
 }

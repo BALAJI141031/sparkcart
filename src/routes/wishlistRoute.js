@@ -1,21 +1,26 @@
+import { WishlistCard, Navbar } from "../components";
 
-import {WishlistCard,Navbar} from '../components'
+import axios from "axios";
+import { useCart, useWishlist } from "../customHooks";
 
-import axios from 'axios'
-import {useCart,useWishlist} from '../customHooks'
+const Wishlist = () => {
+  const { wishlist } = useWishlist();
 
-const Wishlist=()=>{
-    const {wishlist}=useWishlist()
-   
-
-    return <>
-    <Navbar/>
+  return (
+    <>
+      <Navbar />
       <h1 className="text-align-center">My Wishlist</h1>
-     
+
       <div className="flex-wrap">
-        {wishlist.length!==0 && wishlist.map((item)=> <WishlistCard productObj={item} key={item._id}/>)}
+        {wishlist.length !== 0 &&
+          wishlist.map((item) => (
+            <WishlistCard productObj={item} key={item._id} />
+          ))}
       </div>
-      {wishlist.length===0 && <h2 className="text-align-center">wishlist is empty explore more</h2>}
+      {wishlist.length === 0 && (
+        <h2 className="text-align-center">wishlist is empty explore more</h2>
+      )}
     </>
-}
-export {Wishlist}
+  );
+};
+export { Wishlist };
