@@ -16,7 +16,7 @@ const Hero = (props) => {
       <p>Hotel Gayathri Grand Inn offers the best Biriyani for you</p>
       <Button
         type="btn primary-btn"
-        text="order Now"
+        text="Order Now"
         redirect={goToProductsRoute}
       />
     </div>

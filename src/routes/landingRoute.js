@@ -60,9 +60,15 @@ const LandingRoute = () => {
   const [featuredList, updateFeaturedList] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
-      updateFeaturedList([...response.data.products]);
-    });
+    const getFeaturedProducts = async () => {
+      try {
+        const response = await axios.get("/api/categories");
+        updateFeaturedList([...response.data.categories]);
+      } catch (e) {
+        throw e;
+      }
+    };
+    getFeaturedProducts();
   }, []);
 
   return (
@@ -90,7 +96,9 @@ const LandingRoute = () => {
       </Carousel>
       <h1 className="text-align-center">New Products</h1>
       <Carousel breakPoints={serviceCardBreakPoints} showArrows={false}>
-        {/* {featuredList.map((item)=><ProductCard productObj={item} />)} */}
+        {featuredList.map((item) => (
+          <ProductCard productObj={item} />
+        ))}
       </Carousel>
       <h1 className="text-align-center">Why choose Us</h1>
       <div className="chooseUs">

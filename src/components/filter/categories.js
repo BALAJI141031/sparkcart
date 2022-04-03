@@ -35,6 +35,21 @@ const Categories = () => {
         </div>
         <p>(20)</p>
       </div>
+      <div className="flex-H-space-bw filter">
+        <div className="flex-H-center-V">
+          <input
+            type="checkbox"
+            className="checkbox"
+            onClick={(e) =>
+              e.target.checked
+                ? dispatchFilter({ type: "newRecipe", payload: true })
+                : dispatchFilter({ type: "newRecipe", payload: false })
+            }
+          />
+          <p className="checkboxLabel">Trending Recipes</p>
+        </div>
+        <p>(5)</p>
+      </div>
     </>
   );
 };

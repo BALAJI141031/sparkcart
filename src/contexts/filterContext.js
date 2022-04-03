@@ -15,13 +15,15 @@ const FilterProvider = ({ children }) => {
         return { ...filterState, delivery: filterAction.payload };
       case "rating":
         return { ...filterState, rating: filterAction.payload };
+      case "newRecipe":
+        return { ...filterState, newRecipe: filterAction.payload };
       default:
         return {};
     }
   };
 
   const [
-    { sortBy, productsList, vegetarian, delivery, rating },
+    { sortBy, productsList, vegetarian, delivery, rating, newRecipe },
     dispatchFilter,
   ] = useReducer(reducerFn, {
     allProducts: true,
@@ -30,6 +32,7 @@ const FilterProvider = ({ children }) => {
     vegetarian: true,
     delivery: false,
     rating: false,
+    newRecipe: false,
   });
 
   // filter functions
@@ -45,12 +48,13 @@ const FilterProvider = ({ children }) => {
   };
 
   const applyFilters = (sortedProducts, filterObj) => {
-    const { vegetarian, delivery, rating } = filterObj;
+    const { vegetarian, delivery, rating, newRecipe } = filterObj;
 
     return sortedProducts
       .filter(({ vegetarianP }) => (vegetarian ? true : !vegetarianP))
       .filter(({ fastDelivery }) => (delivery ? fastDelivery : true))
-      .filter(({ productRating }) => (rating ? productRating >= 3 : true));
+      .filter(({ productRating }) => (rating ? productRating >= 3 : true))
+      .filter(({ trendingRecipe }) => (newRecipe ? trendingRecipe : true));
   };
 
   const sortedProducts = sortProducts(productsList, sortBy);
@@ -58,6 +62,7 @@ const FilterProvider = ({ children }) => {
     vegetarian,
     delivery,
     rating,
+    newRecipe,
   });
 
   let filteredList = [...filteredProducts];

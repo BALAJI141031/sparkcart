@@ -18,7 +18,7 @@ const ServiceCard = () => {
           <p>$4 half Plate</p>
         </div>
         <hr />
-        <button class="btn primary-btn">check out</button>
+        <button class="btn primary-btn">Explore</button>
         <div class="badge border-radius">Newly added</div>
       </div>
     </div>
