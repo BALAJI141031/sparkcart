@@ -69,6 +69,7 @@ const LandingRoute = () => {
       }
     };
     getFeaturedProducts();
+  });
   return (
     <div>
       <Navbar />
@@ -99,7 +100,7 @@ const LandingRoute = () => {
           <ProductCard productObj={item} />
         ))}
       </Carousel> */}
-      </Carousel>
+      {/* </Carousel> */}
       <h1 className="text-align-center">Why choose Us</h1>
       <div className="chooseUs">
         {list.map((item) => (
