@@ -69,8 +69,6 @@ const LandingRoute = () => {
       }
     };
     getFeaturedProducts();
-  }, []);
-
   return (
     <div>
       <Navbar />
@@ -95,11 +93,13 @@ const LandingRoute = () => {
         <ServiceCard />
       </Carousel>
       {/* <h1 className="text-align-center">New Products</h1>
+      <h1 className="text-align-center">New Products</h1>
       <Carousel breakPoints={serviceCardBreakPoints} showArrows={false}>
         {featuredList.map((item) => (
           <ProductCard productObj={item} />
         ))}
       </Carousel> */}
+      </Carousel>
       <h1 className="text-align-center">Why choose Us</h1>
       <div className="chooseUs">
         {list.map((item) => (
