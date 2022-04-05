@@ -8,20 +8,41 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    title: "Veg recipes",
+    author: "Shiv Khera",
+    price: "5000",
+    vegetarianP: false,
+    description: "India's premium Food ",
+    imageUrl:
+      "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
+    productRating: 4,
+    fastDelivery: false,
+    readyToDeliver: false,
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    title: "NonVeg recipes",
+    author: "Junaid Qureshi",
+    price: "3000",
+    vegetarianP: true,
+    description: "India's premium Food ",
+    imageUrl:
+      "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
+    productRating: 5,
+    fastDelivery: false,
+    readyToDeliver: true,
   },
   {
     _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    title: "NonVeg recipes",
+    author: "Junaid Qureshi",
+    price: "3000",
+    vegetarianP: true,
+    description: "India's premium Food ",
+    imageUrl:
+      "https://b.zmtcdn.com/data/dish_photos/ff4/9f479fb2450b8c8cabca1b8cf53ecff4.jpg",
+    productRating: 5,
+    fastDelivery: false,
+    readyToDeliver: true,
   },
 ];

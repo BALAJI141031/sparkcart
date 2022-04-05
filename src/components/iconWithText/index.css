@@ -1,31 +1,25 @@
-
-.chooseUsCard{
-    width:80%;
-    /* padding-left: 0.5rem; */
-    margin: 1em;
+.chooseUsCard {
+  width: 80%;
+  /* padding-left: 0.5rem; */
+  margin: 1em;
 }
-.icon{
-    font-size: 2rem;
-    color: var(--secondary-color);
+.icon {
+  font-size: 2rem;
+  color: var(--secondary-color);
 }
 .chooseUsCard > p {
-    text-align: center;
+  text-align: center;
 }
 
-.chooseUsCard > h2{
-    text-align: center;
+.chooseUsCard > h2 {
+  text-align: center;
 }
-
 
 /* responsive breakpoints */
 
-@media screen and (min-width:800px) {
-    .chooseUsCard{
-        width:40%;
-        margin: 1em;
-    }
-
-    
-
-    
+@media screen and (min-width: 800px) {
+  .chooseUsCard {
+    width: 40%;
+    margin: 1em;
+  }
 }

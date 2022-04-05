@@ -1,96 +1,91 @@
-.cart{ 
-    display: grid;
-    grid-template-columns: 1fr 0.25fr 0.5fr 0.25fr;
-    padding:0.2rem;
-   
+.cart {
+  display: grid;
+  grid-template-columns: 1fr 0.25fr 0.5fr 0.25fr;
+  padding: 0.2rem;
 }
 
-.cartItem{
-    position: relative;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--primary-color);
-    margin-bottom: 1em;
+.cartItem {
+  position: relative;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--primary-color);
+  margin-bottom: 1em;
 }
 
-.cart-image{
-    width: 4rem;
-    height:4rem;
+.cart-image {
+  width: 4rem;
+  height: 4rem;
 }
 
 .cart button {
-    margin: 5px;
+  margin: 5px;
 }
 
-.cart > div >div >div > p{
-    /* margin-bottom: 0px; */
-    margin-left: 5px;
+.cart > div > div > div > p {
+  /* margin-bottom: 0px; */
+  margin-left: 5px;
 }
-.cart > div >div >div > p:nth-child(2){
-    margin-top: 0px;   
-}
-
-.flex-H-center-VH{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.quantity{
-    margin-left:0.5em;
-    margin-right:0.5em
-}
-.cuponEl{
-    display: block;
-    height: 3rem;
-    margin-bottom: 1rem;
-    width:90%  
+.cart > div > div > div > p:nth-child(2) {
+  margin-top: 0px;
 }
 
-.cuponDiv{
-    width: 80%;
+.flex-H-center-VH {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantity {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.cuponEl {
+  display: block;
+  height: 3rem;
+  margin-bottom: 1rem;
+  width: 90%;
+}
+
+.cuponDiv {
+  width: 80%;
 }
 .cuponDiv > button {
-    width: 50%;
+  width: 50%;
 }
 
-.checkout{
-    width:80%;
+.checkout {
+  width: 80%;
 }
 .checkout > button {
-    width: 90%;
+  width: 90%;
 }
 
-.checkout-btn{
-    width:40%
+.checkout-btn {
+  width: 40%;
 }
 
-.totalPrice{
-    margin-left:1.5rem;
+.totalPrice {
+  margin-left: 1.5rem;
 }
 
-.removeBtn{
-    position: absolute;
-    top: 0%;
-    right: 0%;
+.removeBtn {
+  position: absolute;
+  top: 0%;
+  right: 0%;
 }
 
 /* break points */
 
-@media screen and (min-width:670px) {
+@media screen and (min-width: 670px) {
+  .cart {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 
-    .cart{
-        margin-left: 20%;
-        margin-right: 20%;
-    }
+  .cuponDiv {
+    width: 20%;
+  }
 
-    .cuponDiv{
-        width:20%
-    }
-
-    .checkout-btn{
-        width:20%
-    }
-
-   
-   
+  .checkout-btn {
+    width: 20%;
+  }
 }

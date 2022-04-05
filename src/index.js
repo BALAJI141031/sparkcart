@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import {Providers} from './providers'
+import { Providers } from "./providers";
 
 // Call make Server
 makeServer();
@@ -11,7 +11,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Providers>
-    <App />
+      <App />
     </Providers>
   </React.StrictMode>,
   document.getElementById("root")

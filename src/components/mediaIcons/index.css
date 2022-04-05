@@ -1,20 +1,18 @@
-
- .mediaIconsDiv{
-    width: 80%;
+.mediaIconsDiv {
+  width: 80%;
 }
-.mediaIcon{
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 50%;
-    padding: 5px;
-}
-
-.mediaIcon:hover{
-
+.mediaIcon {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  padding: 5px;
 }
 
-@media screen and (min-width:800px) {
-    .mediaIconsDiv{
-        width: 100%;
-    }   
+/* .mediaIcon:hover {
+} */
+
+@media screen and (min-width: 800px) {
+  .mediaIconsDiv {
+    width: 100%;
+  }
 }

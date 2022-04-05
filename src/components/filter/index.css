@@ -1,31 +1,31 @@
-.filter{
-    width: 60%;
-    margin-left: 1rem;
+.filter {
+  width: 60%;
+  margin-left: 1rem;
 }
 .filter span {
-    margin-left:5px;
-    margin-bottom:5px
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
-.checkbox{
-    height: 1.3em;
-    width: 1.3em;
-}
-
-.checkboxLabel{
-    margin-left:10px;
+.checkbox {
+  height: 1.3em;
+  width: 1.3em;
 }
 
-.sort{
-    display: flex;
-    align-items: center;
+.checkboxLabel {
+  margin-left: 10px;
 }
-.label{
-    margin-left: 5px;
-    margin-top: 5px;
+
+.sort {
+  display: flex;
+  align-items: center;
+}
+.label {
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .sort > input {
-    width:3rem;
-    height:1.2rem;
-    color:var(--primary-color)
+  width: 3rem;
+  height: 1.2rem;
+  color: var(--primary-color);
 }

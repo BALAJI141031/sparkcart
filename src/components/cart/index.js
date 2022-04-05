@@ -1,5 +1,5 @@
-import {Headers} from './cartHeaders'
-import {CartProduct} from './cartProduct'
-import {Checkout} from './checkOut'
+import { Headers } from "./cartHeaders";
+import { CartProduct } from "./cartProduct";
+import { Checkout } from "./checkOut";
 
-export {Headers,CartProduct,Checkout}
+export { Headers, CartProduct, Checkout };
