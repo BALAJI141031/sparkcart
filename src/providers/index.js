@@ -1,9 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Sidebar} from '../contexts/sidebarContext'
+import {FilterProvider} from '../contexts/filterContext'
 
 const Providers=({children})=>{
     return <Router>
-    <Sidebar>{children}</Sidebar>
+    <FilterProvider>
+        <Sidebar>{children}</Sidebar>
+    </FilterProvider>
     </Router>
 }
 

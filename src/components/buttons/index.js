@@ -1,5 +1,8 @@
 const Button=(props)=>{
-    const {type,text}=props
-    return <button className={type} >{text}</button>
+    const {type,text,redirect}=props
+
+    const clickHandler=()=>redirect()
+
+    return <button className={type} onClick={clickHandler}>{text}</button>
 }
 export {Button}

@@ -1,13 +1,15 @@
 import './index.css'
 const ProductCard=({productObj})=>{
-  const{price,imageUrl,title,description,productRating}=productObj
-    return <div className="flex-V-center-VH productCard"><div className="ver-card pos-rel-Ecase">
+  const{price,imageUrl,title,description,productRating,readyToDeliver}=productObj
+  console.log(readyToDeliver,"what the hell is this")
+    return <div className="flex-V-center-VH "><div className="ver-card pos-rel-Ecase productCard">
     <img src={imageUrl} alt="images" />
-    <div className="flex-V-center-VH">
-      <h2>{title}</h2>
+    <div className="flex-V-center-VH text-align-center" >
+      <h3 >{title}</h3>
       <p>{description}</p>
-      <h3>${price}</h3>
-      <button className="btn primary-btn p-card-btn">Add to cart</button>
+      <h4>${price}</h4>
+      <button  className={readyToDeliver?"btn primary-btn p-card-btn":"btn primary-outlime-btn"}>{readyToDeliver?'Add to cart':"can't Deliver"}</button>
+      
     </div>
     <div className="card-badge" >
       <button className="like-icon icon-sm">

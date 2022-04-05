@@ -14,4 +14,12 @@ import {IconWithText} from './iconWithText'
 import {Button} from './buttons'
 import { NavIcon, BadgeIcons } from './navbar/nav-icons'
 
-export {Button,NavIcon, BadgeIcons,CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}
+// filter components
+
+import {Categories} from './filter/categories'
+import {FilterByPrice} from './filter/filterByPrice'
+import {Rating} from './filter/ratings'
+import {SortBy} from './filter/sort'
+
+
+export {SortBy,Rating,FilterByPrice,Categories,Button,NavIcon, BadgeIcons,CardWithText,IconWithText,SocialMedia,ProductCard,ServiceCard,TextCard,TextOverlayCard,WishlistCard,Footer,Hero,Navbar,InputElement,SideNavbar}
