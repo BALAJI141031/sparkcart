@@ -6,9 +6,7 @@ import {useFilter} from '../contexts/filterContext'
 import {Categories,Rating,ProductCard,SortBy,FilterByPrice,Navbar,SideNavbar,Footer} from '../components'
 
 const Products= ()=>{
-
     const {dispatchFilter,filteredList}=useFilter()
-  
     useEffect(()=>{
       axios.get('/api/products').then((response)=>{ 
        

@@ -1,12 +1,15 @@
 
-import { NavIcon, BadgeIcons } from "../index";
+import { NavIcon,} from "../index";
 import './index.css'
 import {useSidebar} from '../../contexts/sidebarContext'
-import { CgClose,CgMenu,CgSearch } from "react-icons/cg";
+import { CgClose,CgMenu} from "react-icons/cg";
 import { VscHeart } from "react-icons/vsc";
 import {GrCart} from "react-icons/gr"
+import { useCart } from '../../customHooks';
 const Navbar = () => {
 const {sidebarToggle,setToggleState}=useSidebar()
+const {cartCount,wishlistCount}=useCart()
+
 
 //  const gotowishlist=()=>{
 //    console.log("clicked")
@@ -24,18 +27,17 @@ const {sidebarToggle,setToggleState}=useSidebar()
         </h1>
       </div>
       <div className="flex-H-space-bw header-icons-div">
-        {/* <NavIcon>
-          <CgSearch className="header-icons header-icons-m-lr icon-lg"/>    
-        </NavIcon> */}
-        <BadgeIcons>
-        <GrCart className="header-icons header-icons-m-lr icon-md"/>
-          </BadgeIcons>
-          <BadgeIcons>
-        <VscHeart className="header-icons header-icons-m-lr icon-md"/>
-          </BadgeIcons>
-        {/* <NavIcon >
-          <CgMoreVertical className="header-icons header-icons-m-lr icon-lg"/>
-        </NavIcon> */}
+        
+          <div className="position-rel">
+          <GrCart className="header-icons header-icons-m-lr icon-md"/>
+          {Boolean(cartCount)&&<div class="nav-icon-badge">{cartCount}</div>}  
+          </div>
+        
+          <div className="position-rel">
+          <VscHeart className="header-icons header-icons-m-lr icon-md"/>
+          {Boolean(wishlistCount)&&<div class="nav-icon-badge">{wishlistCount}</div>}  
+          </div>
+    
       </div>
     </nav>
     </div>
@@ -52,12 +54,15 @@ const {sidebarToggle,setToggleState}=useSidebar()
         <div className="flex-H-space-around navbar-rightside-div">
           <button className="span-style">Login</button>
           <button className="span-style">Signup</button>
-          <BadgeIcons>
-        <GrCart className="header-icons header-icons-m-lr icon-md"/>
-          </BadgeIcons>
-          <BadgeIcons>
-        <VscHeart className="header-icons header-icons-m-lr icon-md"/>
-          </BadgeIcons>
+          <div className="position-rel">
+          <GrCart className="header-icons header-icons-m-lr icon-md"/>
+          {Boolean(cartCount)&&<div class="nav-icon-badge">{cartCount}</div>}  
+          </div>
+        
+          <div className="position-rel">
+          <VscHeart className="header-icons header-icons-m-lr icon-md"/>
+          {Boolean(wishlistCount)&&<div class="nav-icon-badge">{wishlistCount}</div>}  
+          </div>
           </div> 
         </nav>
         </div>
