@@ -21,7 +21,7 @@ import { FilterByPrice } from "./filter/filterByPrice";
 import { Rating } from "./filter/ratings";
 import { SortBy } from "./filter/sort";
 
-//
+
 import { Headers, CartProduct, Checkout } from "./cart";
 
 export {
