@@ -7,7 +7,6 @@ const addItemToCart = async (
   cartCount
 ) => {
   try {
-    console.log(product, "entered intotry");
     const response = await axios.post(
       "/api/user/cart",
       { product },
@@ -122,14 +121,31 @@ const gotoWishlist = (navigate) => {
   navigate("/wishlist");
 };
 
+const loginUser = async (payload) => {
+  try {
+    const loginResponse = await axios.post("/api/auth/login", payload);
+    return loginResponse;
+  } catch (e) {
+    throw e;
+  }
+};
+
+const signupUser = async (payload) => {
+  try {
+    const loginResponse = await axios.post("/api/auth/signup", payload);
+    return loginResponse;
+  } catch (e) {
+    throw e;
+  }
+};
+
 // snackbar
-const showSnackbar = (payload) => {
+const showSnackbar = (type, payload) => {
+  console.log(payload);
   return (
-    <div>
-      <div class="toast succuess">
-        <p>{payload}</p>
-        <span id="closeBtn">×</span>
-      </div>
+    <div class={type}>
+      <p>{payload}</p>
+      <span id="closeBtn">×</span>
     </div>
   );
 };
@@ -154,4 +170,6 @@ export {
   showSnackbar,
   hideSnackbar,
   gotoProductsRoute,
+  loginUser,
+  signupUser,
 };

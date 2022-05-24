@@ -4,19 +4,25 @@ import { FilterProvider } from "../contexts/filterContext";
 import { CartProvider } from "../contexts/cartContext";
 import { WishlistProvider } from "../contexts/wishlistContext";
 import { SnackbarProvider } from "../contexts/snackbarContext";
+import { AuthProvider } from "../contexts/authContext";
+import { NotifyUser } from "../contexts/toastContext";
 
 const Providers = ({ children }) => {
   return (
     <Router>
-      <SnackbarProvider>
-        <WishlistProvider>
-          <CartProvider>
-            <FilterProvider>
-              <Sidebar>{children}</Sidebar>
-            </FilterProvider>
-          </CartProvider>
-        </WishlistProvider>
-      </SnackbarProvider>
+      <AuthProvider>
+        <NotifyUser>
+          <SnackbarProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <FilterProvider>
+                  <Sidebar>{children}</Sidebar>
+                </FilterProvider>
+              </CartProvider>
+            </WishlistProvider>
+          </SnackbarProvider>
+        </NotifyUser>
+      </AuthProvider>
     </Router>
   );
 };
