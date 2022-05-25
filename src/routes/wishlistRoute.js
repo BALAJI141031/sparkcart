@@ -8,7 +8,6 @@ const Wishlist = () => {
 
   return (
     <>
-      <Navbar />
       <h1 className="text-align-center">My Wishlist</h1>
 
       <div className="flex-wrap">

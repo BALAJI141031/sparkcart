@@ -25,7 +25,6 @@ const Products = () => {
 
   return (
     <div className="products-section">
-      <Navbar />
       <div className="products">
         <div>
           <h2>Sort By Price</h2>

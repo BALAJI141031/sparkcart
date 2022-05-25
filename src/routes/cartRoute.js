@@ -7,7 +7,6 @@ const Cart = () => {
   const { snackbar } = useSnackbar();
   return (
     <>
-      <Navbar />
       <Headers />
       <hr />
       {cart.length !== 0 ? (

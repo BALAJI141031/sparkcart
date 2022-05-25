@@ -6,7 +6,7 @@
   position: absolute;
   top: -65%;
   right: -25%;
-  color: var(--secondary-color);
+   color: var(--cta-font-color);
   font-size: 1.3rem;
   width: 2rem;
   text-align: center;
@@ -16,6 +16,7 @@
 
 .header-icons-div {
   width: 12rem;
+ 
 }
 
 .desktopNavbar {
