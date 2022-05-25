@@ -15,7 +15,9 @@ const Rating = (props) => {
               : dispatchFilter({ type: "rating", payload: false })
           }
         />
-        Above 3 <span class="fa fa-star fa-1x checked"></span>
+        <label className="checkboxLabel">
+          Above 3 <span class="fa fa-star fa-1x checked"></span>
+        </label>
       </div>
     </div>
   );

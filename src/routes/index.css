@@ -59,6 +59,23 @@
 
 /* new css  */
 
+.products  p {
+  font-weight: 800;
+  font-size: bolder;
+}
+
+
+.clear-All{
+  border-style:solid;
+  /* border:none; */
+  border-top: 0px;
+  border-right:0px;
+  border-left:0px;
+  border-color: var(--primary-color);
+  padding: 5px;
+
+}
+
 /* responsive breakpoints */
 @media screen and (min-width: 800px) {
   .products {

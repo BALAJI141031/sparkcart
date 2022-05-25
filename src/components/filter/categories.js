@@ -16,7 +16,7 @@ const Categories = () => {
                 : dispatchFilter({ type: "vegetarian", payload: true })
             }
           />
-          <p className="checkboxLabel">Show Pure Nonveg</p>
+          <label className="checkboxLabel">NCERT</label>
         </div>
         <p>(45)</p>
       </div>
@@ -37,10 +37,96 @@ const Categories = () => {
               }
             }}
           />
-          <p className="checkboxLabel">Trending Recipes</p>
+          <label className="checkboxLabel">Indian Polity</label>
         </div>
         <p>(5)</p>
       </div>
+      {/* testing phase */}
+      <div className="flex-H-space-bw filter">
+        <div className="flex-H-center-V">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checkNewRecipe}
+            onClick={(e) => {
+              let checkboxStatus = e.target.checked;
+              if (checkNewRecipe) {
+                dispatchFilter({ type: "newRecipe", payload: false });
+                setNewRecipe(false);
+              } else {
+                dispatchFilter({ type: "newRecipe", payload: true });
+                setNewRecipe(true);
+              }
+            }}
+          />
+          <label className="checkboxLabel">World Geography</label>
+        </div>
+        <p>(5)</p>
+      </div>
+      <div className="flex-H-space-bw filter">
+        <div className="flex-H-center-V">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checkNewRecipe}
+            onClick={(e) => {
+              let checkboxStatus = e.target.checked;
+              if (checkNewRecipe) {
+                dispatchFilter({ type: "newRecipe", payload: false });
+                setNewRecipe(false);
+              } else {
+                dispatchFilter({ type: "newRecipe", payload: true });
+                setNewRecipe(true);
+              }
+            }}
+          />
+          <label className="checkboxLabel">IR</label>
+        </div>
+        <p>(5)</p>
+      </div>
+      <div className="flex-H-space-bw filter">
+        <div className="flex-H-center-V">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checkNewRecipe}
+            onClick={(e) => {
+              let checkboxStatus = e.target.checked;
+              if (checkNewRecipe) {
+                dispatchFilter({ type: "newRecipe", payload: false });
+                setNewRecipe(false);
+              } else {
+                dispatchFilter({ type: "newRecipe", payload: true });
+                setNewRecipe(true);
+              }
+            }}
+          />
+          <label className="checkboxLabel">Art&Culture</label>
+        </div>
+        <p>(5)</p>
+      </div>
+      <div className="flex-H-space-bw filter">
+        <div className="flex-H-center-V">
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checkNewRecipe}
+            onClick={(e) => {
+              let checkboxStatus = e.target.checked;
+              if (checkNewRecipe) {
+                dispatchFilter({ type: "newRecipe", payload: false });
+                setNewRecipe(false);
+              } else {
+                dispatchFilter({ type: "newRecipe", payload: true });
+                setNewRecipe(true);
+              }
+            }}
+          />
+          <label className="checkboxLabel">Economy</label>
+        </div>
+        <p>(5)</p>
+      </div>
+
       <div className="flex-H-space-bw filter">
         <div className="flex-H-center-V">
           <input
@@ -52,7 +138,7 @@ const Categories = () => {
                 : dispatchFilter({ type: "delivery", payload: false })
             }
           />
-          <p className="checkboxLabel">fastDelivery</p>
+          <label className="checkboxLabel">fastDelivery</label>
         </div>
         <p>(25)</p>
       </div>

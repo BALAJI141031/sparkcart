@@ -10,9 +10,10 @@ import {
   ProductCard,
   SortBy,
   FilterByPrice,
-  Navbar,
   SideNavbar,
 } from "../components";
+
+import "./index.css";
 
 const Products = () => {
   const { dispatchFilter, filteredList } = useFilter();
@@ -27,15 +28,19 @@ const Products = () => {
     <div className="products-section">
       <div className="products">
         <div>
-          <h2>Sort By Price</h2>
+          <div className="flex-H-space-bw filter">
+            <p>Filters</p>
+            <p className="clear-All">Clear All</p>
+          </div>
+          <p>Sort By Price</p>
           <SortBy />
-          <h2>CATEGORIES</h2>
+          <p>CATEGORIES</p>
           <hr />
           <Categories />
-          <h2>RATINGS</h2>
+          <p>RATINGS</p>
           <hr />
           <Rating />
-          <h2>Filter By Price</h2>
+          <p>Filter By Price</p>
           <hr />
           <FilterByPrice />
           <hr />
