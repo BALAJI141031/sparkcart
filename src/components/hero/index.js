@@ -1,26 +1,43 @@
 import "./index.css";
-import { Button } from "../index";
+import { BsArrowRightSquareFill } from "../../icons";
 import { useNavigate } from "../../customHooks";
 
-const Hero = (props) => {
+const HeroCard = ({ item }) => {
   const navigate = useNavigate();
 
-  const goToProductsRoute = () => {
-    navigate("/products");
-  };
+  let { title, image } = item;
 
-  const { title, description, image } = props;
   return (
-    <div className="hero-card">
-      <h2>Delicious Biriyani For You</h2>
-      <p>Hotel Gayathri Grand Inn offers the best Biriyani for you</p>
-      <Button
-        type="btn primary-btn"
-        text="Order Now"
-        redirect={goToProductsRoute}
-      />
+    <div className="hero-card" style={{ backgroundImage: `url(${image})` }}>
+      <h1>{title}</h1>
     </div>
   );
 };
 
-export { Hero };
+const HeroImageCard = () => {
+  return (
+    <div className="arrival-card-section">
+      <div class="h-card flex-H arrival-card">
+        <img
+          src="https://images-na.ssl-images-amazon.com/images/I/51URPCHNSBL._SX379_BO1,204,203,200_.jpg"
+          class="card-image"
+        />
+        <div class="flex-V-sapce-between">
+          <strong>New Arrival</strong>
+          <div>
+            <p>
+              Taj's Lorem Ipsum is simply dummy text of the printing
+              andtypesetting industry Food
+            </p>
+            <span>Rs 599/- </span>
+            <span class="strike-rate">Rs 899/- </span>
+            <p>50% OFF</p>
+          </div>
+        </div>
+      </div>
+      <BsArrowRightSquareFill className="second-cta" />
+    </div>
+  );
+};
+
+export { HeroCard, HeroImageCard };

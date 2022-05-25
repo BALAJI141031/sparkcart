@@ -2,15 +2,41 @@
   box-sizing: border-box;
 }
 .hero-card {
-  width: 100%;
-  padding-left: 0.3em;
-  position: relative;
-  background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
   background-size: cover;
-  color: var(--pale-white);
-  padding: 1em;
-  height: 40vh;
+  height: 12rem;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
-.hero-card > h2 {
-  width: 37%;
+
+.arrival-card{
+  width: 100%;
+  color: var(--cta-font-color);
+  grid-area:1/-1
+}
+
+.arrival-card-section{
+  display: grid;
+  background-color: var(--background-color);  
+  margin:2rem
+}
+
+.second-cta{
+  display: grid;
+  grid-area: 1/-1;
+  justify-self: flex-end;
+  width: 2rem;
+  height: 2rem;
+  margin:5px 1rem 0px 0px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.hero-card > h1{
+  background-color: var(--background-color);
+  text-align: center;
+  width: 100%;
+  color: var(--cta-font-color);
 }

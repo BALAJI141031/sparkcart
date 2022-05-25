@@ -1,20 +1,26 @@
-.chooseUs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.hero-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem;
+  
 }
 
-.getinTouchDiv {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+.arrival-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+
 }
 
-.contactImg {
-  display: none;
+#hero-cta{
+  width: max-content;
+  display: grid;
+  grid-area: 1/-1;
+  justify-self: center;
+  text-align: center;
+  margin-top: 10rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .products-section {
@@ -24,32 +30,37 @@
 .wishlist-wrap {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
 }
 
 
+.hero{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to Right, var(--background-color), var(--primary-color));
+}
+
+.banner{
+  display: grid;
+  grid-area: 1/-1;
+  justify-self: center;
+  text-align: center;
+  color: var(--cta-font-color);
+  background-color: var(--background-color);
+  width: 100%;
+  opacity: 0.5;
+
+}
+
+.hero-main-image{
+  display: grid;
+  grid-area: 1/-1;
+}
+
 /* new css  */
-
-
-
-
-
 
 /* responsive breakpoints */
 @media screen and (min-width: 800px) {
-  .getinTouchDiv {
-    display: flex;
-    width: 50%;
-    margin-left: auto;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contactImg {
-    display: block;
-    width: 60%;
-  }
-
   .products {
     display: grid;
     grid-template-columns: 0.3fr 1fr;

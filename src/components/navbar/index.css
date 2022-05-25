@@ -1,13 +1,11 @@
 .position-rel {
   position: relative;
-  /* background-color: red; */
 }
 
 .nav-icon-badge {
   position: absolute;
   top: -65%;
   right: -25%;
-  /* background-color: var(--badge-color); */
   color: var(--secondary-color);
   font-size: 1.3rem;
   width: 2rem;
@@ -29,7 +27,7 @@
 }
 
 .navbar-rightside-div {
-  width: 30%;
+  width:30rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -37,6 +35,8 @@
     display: none;
   }
   .desktopNavbar {
-    display: block;
+    display: block;  
+  background-color: var(--primary-background-color);
+  color: var(--cta-font-color);
   }
 }
