@@ -46,8 +46,6 @@ const FilterProvider = ({ children }) => {
     }
   };
 
-  const [checkNewRecipe, setNewRecipe] = useState(false);
-
   const [
     {
       sortBy,
@@ -127,7 +125,12 @@ const FilterProvider = ({ children }) => {
 
   return (
     <filterContext.Provider
-      value={{ dispatchFilter, filteredList, checkNewRecipe, setNewRecipe }}
+      value={{
+        dispatchFilter,
+        filteredList,
+        categoryFilters,
+        newArrival,
+      }}
     >
       {children}
     </filterContext.Provider>

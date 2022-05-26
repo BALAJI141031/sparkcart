@@ -1,28 +1,30 @@
 import { HeroCard, SideNavbar, HeroImageCard } from "../components";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import "./index.css";
 
 const LandingRoute = () => {
+  const navigate = useNavigate();
   let list = [
     {
-      title: "International Relations",
+      title: "IR",
       image:
         "https://i.ytimg.com/vi/3OMmxKiG4LE/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBmMrhT0Xnk6Yl-bqb64XZm8NXRNw",
     },
     {
-      title: "Political Science",
+      title: "Polity",
       image:
         "https://i.ytimg.com/vi/XK2MBnw6RlY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCbYgrLpduGFJnFXCvQjF8v5mY8Bw",
     },
     {
-      title: "Indian History",
+      title: "Economy",
       image:
         "https://i.ytimg.com/vi/JpISyeHz73Q/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyHacep2MYS1OygXqAdAvDRZuBCA",
     },
     {
-      title: "World Geography",
+      title: "Geography",
       image:
         "https://i.ytimg.com/vi/JpISyeHz73Q/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDyHacep2MYS1OygXqAdAvDRZuBCA",
     },
@@ -45,7 +47,11 @@ const LandingRoute = () => {
         <div className="banner">
           <h1>Genius is 1% talent and 99% percent hard work.</h1>
         </div>
-        <h2 className="primary-cta" id="hero-cta">
+        <h2
+          className="primary-cta"
+          id="hero-cta"
+          onClick={() => navigate("/products")}
+        >
           Explore
         </h2>
       </div>

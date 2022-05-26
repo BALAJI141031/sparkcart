@@ -3,13 +3,14 @@ import { useFilter } from "../../contexts/filterContext";
 
 const Categories = ({ eachCategory }) => {
   const { category } = eachCategory;
-  const { dispatchFilter, checkNewRecipe, setNewRecipe } = useFilter();
+  const { dispatchFilter, categoryFilters } = useFilter();
   return (
     <>
       <div className="flex-H-center-V filter">
         <input
           type="checkbox"
           className="checkbox"
+          checked={categoryFilters.includes(category) ? true : false}
           onClick={(e) =>
             e.target.checked
               ? dispatchFilter({

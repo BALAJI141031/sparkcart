@@ -1,6 +1,5 @@
 import { CardWithText } from "./cards/cardWithText";
 import { ProductCard } from "./cards/productCard";
-import { ServiceCard } from "./cards/serviceCard";
 import { TextCard } from "./cards/textCard";
 import { TextOverlayCard } from "./cards/textOverlay";
 import { WishlistCard } from "./cards/wishlistCard";
@@ -18,7 +17,7 @@ import { Categories } from "./filter/categories";
 import { FilterByPrice } from "./filter/filterByPrice";
 import { Rating } from "./filter/ratings";
 import { SortBy } from "./filter/sort";
-import { Arrivals } from "./filter/arrivals.js";
+import { Arrivals } from "./filter/arrivals";
 import { Headers, CartProduct, Checkout } from "./cart";
 
 export {
@@ -35,7 +34,6 @@ export {
   CardWithText,
   IconWithText,
   ProductCard,
-  ServiceCard,
   TextCard,
   TextOverlayCard,
   WishlistCard,

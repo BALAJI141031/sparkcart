@@ -1,20 +1,34 @@
 import "./index.css";
 import { BsArrowRightSquareFill } from "../../icons";
-import { useNavigate } from "../../customHooks";
+import { useNavigate, useFilter } from "../../customHooks";
 
 const HeroCard = ({ item }) => {
   const navigate = useNavigate();
+  const { dispatchFilter } = useFilter();
 
   let { title, image } = item;
 
   return (
-    <div className="hero-card" style={{ backgroundImage: `url(${image})` }}>
+    <div
+      className="hero-card"
+      style={{ backgroundImage: `url(${image})` }}
+      onClick={() => {
+        dispatchFilter({
+          type: "categoryFilter",
+          status: true,
+          payload: title,
+        });
+        navigate("/products");
+      }}
+    >
       <h1>{title}</h1>
     </div>
   );
 };
 
 const HeroImageCard = () => {
+  const navigate = useNavigate();
+  const { dispatchFilter } = useFilter();
   return (
     <div className="arrival-card-section">
       <div class="h-card flex-H arrival-card">
@@ -35,7 +49,16 @@ const HeroImageCard = () => {
           </div>
         </div>
       </div>
-      <BsArrowRightSquareFill className="second-cta" />
+      <BsArrowRightSquareFill
+        className="second-cta"
+        onClick={() => {
+          dispatchFilter({
+            type: "newArrival",
+            payload: true,
+          });
+          navigate("/products");
+        }}
+      />
     </div>
   );
 };

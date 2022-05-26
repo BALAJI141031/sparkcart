@@ -33,7 +33,6 @@ const Products = () => {
       dispatchFilter({ type: "products", payload: response.data.products });
     });
   }, []);
-  console.log(filteredList, "empty it iss");
   return (
     <div className="products-section">
       <div className="products">
