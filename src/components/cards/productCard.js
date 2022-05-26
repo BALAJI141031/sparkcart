@@ -72,9 +72,7 @@ const ProductCard = ({ productObj }) => {
           <p>{description}</p>
           <h4>${price}</h4>
           <button
-            className={
-              !inCart ? "btn primary-btn p-card-btn" : "btn primary-outlime-btn"
-            }
+            className="primary-cta"
             onClick={
               inCart
                 ? () => cartHandler({ type: "navigate_to_cart" })

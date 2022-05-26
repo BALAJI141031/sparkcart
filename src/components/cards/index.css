@@ -63,7 +63,7 @@
 }
 
 #wishListStyle {
-  color: var(--badge-color);
+  color: var(--cta-font-color);
 }
 
 .like-icon:hover {
