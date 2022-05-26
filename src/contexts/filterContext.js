@@ -15,32 +15,59 @@ const FilterProvider = ({ children }) => {
         return { ...filterState, productsList: [...filterAction.payload] };
       case "sort":
         return { ...filterState, sortBy: filterAction.payload };
-      case "vegetarian":
-        return { ...filterState, vegetarian: filterAction.payload };
-      case "delivery":
-        return { ...filterState, delivery: filterAction.payload };
-      case "rating":
-        return { ...filterState, rating: filterAction.payload };
+      case "categoryFilter":
+        let updatedCategoryFilters = [...filterState.categoryFilters];
+        if (filterAction.status) {
+          updatedCategoryFilters.push(filterAction.payload);
+        } else {
+          const categoryIndex = updatedCategoryFilters.indexOf(
+            filterAction.payload
+          );
+          updatedCategoryFilters.pop(categoryIndex);
+        }
+        return { ...filterState, categoryFilters: [...updatedCategoryFilters] };
       case "newRecipe":
         return { ...filterState, newRecipe: filterAction.payload };
+      case "ratingFilters":
+        let updatedRatingsFilter = [...filterState.ratings];
+        if (filterAction.status) {
+          updatedRatingsFilter.push(filterAction.payload);
+        } else {
+          const ratingIndex = updatedRatingsFilter.indexOf(
+            filterAction.payload
+          );
+          updatedRatingsFilter.pop(ratingIndex);
+        }
+        return { ...filterState, ratings: [...updatedRatingsFilter] };
+      case "priceFilter":
+        return { ...filterState, priceFilter: filterAction.payload };
       default:
-        return {};
+        return { ...filterState };
     }
   };
 
   const [checkNewRecipe, setNewRecipe] = useState(false);
 
   const [
-    { sortBy, productsList, vegetarian, delivery, rating, newRecipe },
+    {
+      sortBy,
+      productsList,
+      categoryFilters,
+      delivery,
+      ratings,
+      newRecipe,
+      priceFilter,
+    },
     dispatchFilter,
   ] = useReducer(reducerFn, {
     allProducts: true,
     sortBy: null,
     productsList: [],
-    vegetarian: true,
+    categoryFilters: [],
     delivery: false,
-    rating: false,
+    ratings: [],
     newRecipe: false,
+    priceFilter: 1000,
   });
 
   // filter functions
@@ -56,21 +83,38 @@ const FilterProvider = ({ children }) => {
   };
 
   const applyFilters = (sortedProducts, filterObj) => {
-    const { vegetarian, delivery, rating, newRecipe } = filterObj;
+    const { categoryFilters, delivery, ratings, newRecipe, priceFilter } =
+      filterObj;
+    console.log(ratings);
+    let filteredProducts = [...sortedProducts];
+    if (categoryFilters.length !== 0) {
+      filteredProducts = sortedProducts.filter((product) =>
+        categoryFilters.includes(product.category)
+      );
+    }
 
-    return sortedProducts
-      .filter(({ vegetarianP }) => (vegetarian ? true : !vegetarianP))
-      .filter(({ fastDelivery }) => (delivery ? fastDelivery : true))
-      .filter(({ productRating }) => (rating ? productRating >= 3 : true))
-      .filter(({ trendingRecipe }) => (newRecipe ? trendingRecipe : true));
+    if (ratings.length !== 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        ratings.includes(product.productRating)
+      );
+    }
+
+    // price filter
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price >= priceFilter
+    );
+
+    return filteredProducts;
   };
 
   const sortedProducts = sortProducts(productsList, sortBy);
+
   const filteredProducts = applyFilters(sortedProducts, {
-    vegetarian,
     delivery,
-    rating,
+    ratings,
     newRecipe,
+    categoryFilters,
+    priceFilter,
   });
 
   let filteredList = [...filteredProducts];
@@ -82,7 +126,7 @@ const FilterProvider = ({ children }) => {
       {children}
     </filterContext.Provider>
   );
-};
+};;
 const useFilter = () => useContext(filterContext);
 
 export { FilterProvider, useFilter };

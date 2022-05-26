@@ -11,7 +11,7 @@ export const products = [
     title: "Indian Polity",
     author: "Shiv Khera",
     price: "5000",
-    vegetarianP: false,
+    category: "Polity",
     description: "India's premium Food ",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51rKNmuSrsL._SX384_BO1,204,203,200_.jpg",
@@ -24,7 +24,7 @@ export const products = [
     title: "ART & Culture",
     author: "Junaid Qureshi",
     price: "3000",
-    vegetarianP: true,
+    category: "ArtAndCulture",
     description: "India's premium Food ",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51rKNmuSrsL._SX384_BO1,204,203,200_.jpg",
@@ -38,7 +38,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium Food ",
-    vegetarianP: false,
+    category: "Economy",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51ZfZy6CV2L._SX355_BO1,204,203,200_.jpg",
     productRating: 2,
@@ -51,7 +51,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "Economy",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51WWmZpXrHL._SX397_BO1,204,203,200_.jpg",
     productRating: 1,
@@ -64,7 +64,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "Geography",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/517OihiR00L._SX378_BO1,204,203,200_.jpg",
     productRating: 1,
@@ -77,7 +77,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "Geography",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51f2LjqY7oL._SX377_BO1,204,203,200_.jpg",
     productRating: 1,
@@ -90,7 +90,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "NCERT",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51mCG33uzmL._SX382_BO1,204,203,200_.jpg",
     productRating: 1,
@@ -103,7 +103,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "NCERT",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/514pVn+ccML._SY373_BO1,204,203,200_.jpg",
     productRating: 1,
@@ -116,7 +116,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "NCERT",
     imageUrl: "https://m.media-amazon.com/images/I/61QXr5dugqL._AC_UY218_.jpg",
     productRating: 1,
     fastDelivery: true,
@@ -128,7 +128,7 @@ export const products = [
     author: "Shiv Khera",
     price: "1000",
     description: "India's premium ",
-    vegetarianP: true,
+    category: "NCERT",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51Fdqv1Mn2L._SX379_BO1,204,203,200_.jpg",
     productRating: 1,

@@ -12,8 +12,17 @@ import {
   FilterByPrice,
   SideNavbar,
 } from "../components";
-
 import "./index.css";
+const categoryList = [
+  { category: "Polity", count: 10 },
+  { category: "IR", count: 10 },
+  { category: "ArtAndCulture", count: 10 },
+  { category: "Economy", count: 10 },
+  { category: "Geography", count: 10 },
+  { category: "History", count: 10 },
+  { category: "NCERT", count: 10 },
+];
+const ratings = [2, 3, 4];
 
 const Products = () => {
   const { dispatchFilter, filteredList } = useFilter();
@@ -23,7 +32,7 @@ const Products = () => {
       dispatchFilter({ type: "products", payload: response.data.products });
     });
   }, []);
-
+  console.log(filteredList, "empty it iss");
   return (
     <div className="products-section">
       <div className="products">
@@ -36,10 +45,14 @@ const Products = () => {
           <SortBy />
           <p>CATEGORIES</p>
           <hr />
-          <Categories />
+          {categoryList.map((eachCategory) => (
+            <Categories eachCategory={eachCategory} />
+          ))}
           <p>RATINGS</p>
           <hr />
-          <Rating />
+          {ratings.map((rating) => (
+            <Rating rating={rating} />
+          ))}
           <p>Filter By Price</p>
           <hr />
           <FilterByPrice />

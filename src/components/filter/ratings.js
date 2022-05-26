@@ -1,7 +1,7 @@
 import { useFilter } from "../../contexts/filterContext";
 import "./index.css";
 
-const Rating = (props) => {
+const Rating = ({ rating }) => {
   const { dispatchFilter } = useFilter();
   return (
     <div class="static-rating-container filter">
@@ -11,12 +11,20 @@ const Rating = (props) => {
           className="checkbox "
           onClick={(e) =>
             e.target.checked
-              ? dispatchFilter({ type: "rating", payload: true })
-              : dispatchFilter({ type: "rating", payload: false })
+              ? dispatchFilter({
+                  type: "ratingFilters",
+                  payload: rating,
+                  status: true,
+                })
+              : dispatchFilter({
+                  type: "ratingFilters",
+                  payload: rating,
+                  status: false,
+                })
           }
         />
         <label className="checkboxLabel">
-          Above 3 <span class="fa fa-star fa-1x checked"></span>
+          {rating} <span class="fa fa-star fa-1x checked"></span>
         </label>
       </div>
     </div>
