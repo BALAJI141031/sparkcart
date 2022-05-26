@@ -26,8 +26,8 @@ const FilterProvider = ({ children }) => {
           updatedCategoryFilters.pop(categoryIndex);
         }
         return { ...filterState, categoryFilters: [...updatedCategoryFilters] };
-      case "newRecipe":
-        return { ...filterState, newRecipe: filterAction.payload };
+      case "newArrival":
+        return { ...filterState, newArrival: filterAction.payload };
       case "ratingFilters":
         let updatedRatingsFilter = [...filterState.ratings];
         if (filterAction.status) {
@@ -55,7 +55,7 @@ const FilterProvider = ({ children }) => {
       categoryFilters,
       delivery,
       ratings,
-      newRecipe,
+      newArrival,
       priceFilter,
     },
     dispatchFilter,
@@ -66,7 +66,7 @@ const FilterProvider = ({ children }) => {
     categoryFilters: [],
     delivery: false,
     ratings: [],
-    newRecipe: false,
+    newArrival: false,
     priceFilter: 1000,
   });
 
@@ -83,7 +83,7 @@ const FilterProvider = ({ children }) => {
   };
 
   const applyFilters = (sortedProducts, filterObj) => {
-    const { categoryFilters, delivery, ratings, newRecipe, priceFilter } =
+    const { categoryFilters, delivery, ratings, priceFilter, newArrival } =
       filterObj;
     console.log(ratings);
     let filteredProducts = [...sortedProducts];
@@ -104,6 +104,12 @@ const FilterProvider = ({ children }) => {
       (product) => product.price >= priceFilter
     );
 
+    if (newArrival) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.newArrival ? true : false
+      );
+    }
+
     return filteredProducts;
   };
 
@@ -112,9 +118,9 @@ const FilterProvider = ({ children }) => {
   const filteredProducts = applyFilters(sortedProducts, {
     delivery,
     ratings,
-    newRecipe,
     categoryFilters,
     priceFilter,
+    newArrival,
   });
 
   let filteredList = [...filteredProducts];
@@ -126,7 +132,7 @@ const FilterProvider = ({ children }) => {
       {children}
     </filterContext.Provider>
   );
-};;
+};
 const useFilter = () => useContext(filterContext);
 
 export { FilterProvider, useFilter };

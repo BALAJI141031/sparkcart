@@ -11,6 +11,7 @@ import {
   SortBy,
   FilterByPrice,
   SideNavbar,
+  Arrivals,
 } from "../components";
 import "./index.css";
 const categoryList = [
@@ -48,6 +49,9 @@ const Products = () => {
           {categoryList.map((eachCategory) => (
             <Categories eachCategory={eachCategory} />
           ))}
+          <hr />
+          <p>Arrivals</p>
+          <Arrivals />
           <p>RATINGS</p>
           <hr />
           {ratings.map((rating) => (
