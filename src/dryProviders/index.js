@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useCart } from "../customHooks";
 
 const addItemToCart = async (
   product,
@@ -17,10 +18,34 @@ const addItemToCart = async (
         },
       }
     );
+
     setButtonText(true);
     dispatchCart({
       type: "cart",
       payload: { cart: response.data.cart, cartCount: cartCount + 1 },
+    });
+    let initalCartTotal = response.data.cart.reduce(
+      (prevAmount, currAmmount) => prevAmount + currAmmount.price,
+      0
+    );
+
+    let discount = 0;
+    for (let i = 0; i < response.data.cart.length; i++) {
+      discount =
+        discount +
+        response.data.cart[i].actualPrice -
+        response.data.cart[i].price;
+    }
+
+    console.log(discount, "why nan");
+
+    dispatchCart({
+      type: "cartTotalAmount",
+      payload: initalCartTotal,
+    });
+    dispatchCart({
+      type: "discountAmount",
+      payload: discount,
     });
   } catch (e) {
     console.error("error while adding item into cart", e);

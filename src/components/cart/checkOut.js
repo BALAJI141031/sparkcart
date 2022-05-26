@@ -1,28 +1,35 @@
 import "./index.css";
 import { useCart } from "../../contexts/cartContext";
-import { IoIosJet, IoMdArrowForward } from "react-icons/io";
-
 const Checkout = ({ checkoutPrice }) => {
-  // const {checkoutPrice}=useCart()
+  const { cartCount, cartTotal, discount } = useCart();
   return (
-    <div className="flex-V-center-VH ">
-      <div className="flex-V-center-VH checkout">
-        <div className="cuponDiv flex-V-center-VH">
-          <input placeholder="Coupon Code" className="cuponEl" />
-
-          <button class="btn  primary-icon-btn">
-            Apply
-            <IoIosJet />
-          </button>
-        </div>
-        <div className="flex-H-center-V">
-          <p>Total</p>
-          <h2 className="totalPrice">${checkoutPrice}</h2>
-        </div>
+    <div class="price-card  ">
+      <strong>Price Detials</strong>
+      <hr />
+      <div>
+        <p>Price ({cartCount} items)</p>
+        <p>{cartTotal}</p>
       </div>
-      <button className="btn primary-icon-btn checkout-btn">
-        Procced To CheckOut <IoMdArrowForward />
-      </button>
+      <div>
+        <p>Discount</p>
+        <p>{discount}</p>
+      </div>
+      <div>
+        <p>DeliveryCharges</p>
+        <p>59</p>
+      </div>
+      <hr />
+      <div>
+        <strong>Total Amount</strong>
+        <strong>Rs/- {cartTotal - discount + 59} </strong>
+      </div>
+      <hr />
+      <strong>You will save {discount} on this order</strong>
+      <div class="flex-v">
+        <button class="primary-cta" id="cta">
+          Place Order
+        </button>
+      </div>
     </div>
   );
 };

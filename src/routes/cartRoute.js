@@ -2,23 +2,42 @@ import { Checkout, CartProduct, Headers, Navbar } from "../components";
 import { useCart } from "../contexts/cartContext";
 import { useSnackbar } from "../customHooks";
 import { showSnackbar } from "../dryProviders";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import "./index.css";
 const Cart = () => {
-  const { cart, checkoutPrice } = useCart();
+  // const [totalQuantityPrice, setTotalQuantityPrice] = useState({});
+  const navigate = useNavigate();
+  const { cart, dispatchCart, cartTotal } = useCart();
   const { snackbar } = useSnackbar();
+
   return (
-    <>
-      <Headers />
-      <hr />
+    <div className="cart">
       {cart.length !== 0 ? (
-        cart.map((item) => <CartProduct product={item} />)
-      ) : (
-        <div className="text-align-center">
-          <h1>cart is empty</h1>
+        <div className="cart-section">
+          <div className="cart-products">
+            {cart.map((item) => {
+              return <CartProduct product={item} />;
+            })}
+          </div>
+          <Checkout />
         </div>
+      ) : (
+        <center>
+          <h1>cart is empty</h1>
+        </center>
       )}
-      <Checkout checkoutPrice={checkoutPrice} />
+      <button
+        className="primary-cta"
+        id="cta"
+        onClick={() => navigate("/products")}
+      >
+        Shop Now!
+      </button>
+
       {snackbar.status && showSnackbar(snackbar.payload)}
-    </>
+    </div>
   );
 };
 

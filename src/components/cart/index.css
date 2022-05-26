@@ -1,15 +1,10 @@
-.cart {
-  display: grid;
-  grid-template-columns: 1fr 0.25fr 0.5fr 0.25fr;
-  padding: 0.2rem;
-}
-
-.cartItem {
+#cartItem {
   position: relative;
   border-style: solid;
   border-width: 1px;
   border-color: var(--primary-color);
   margin-bottom: 1em;
+  box-shadow:none
 }
 
 .cart-image {
@@ -25,9 +20,14 @@
   /* margin-bottom: 0px; */
   margin-left: 5px;
 }
-.cart > div > div > div > p:nth-child(2) {
-  margin-top: 0px;
+
+.price-card div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+
 
 .flex-H-center-VH {
   display: flex;

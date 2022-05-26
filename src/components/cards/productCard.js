@@ -13,7 +13,7 @@ import { useSnackbar } from "../../customHooks";
 const ProductCard = ({ productObj }) => {
   const { price, imageUrl, title, description, productRating } = productObj;
   const [wishListed, setToWishlist] = useState(false);
-  const { dispatchCart, cartCount } = useCart();
+  const { dispatchCart, cartCount, cartTotal } = useCart();
   const { dispatchWishlist, wishlistCount } = useWishlist();
   const navigate = useNavigate();
   const [inCart, setButtonText] = useState(false);
@@ -51,11 +51,13 @@ const ProductCard = ({ productObj }) => {
         case "navigate_to_cart":
           return gotoCart(navigate);
         default:
-          await addItemToCart(payload, dispatchCart, setButtonText, cartCount);
-
-          setSnackbar({ status: true, payload: "added to cart" });
-          hideSnackbar(setSnackbar);
-
+          await addItemToCart(
+            payload,
+            dispatchCart,
+            setButtonText,
+            cartCount,
+            cartTotal
+          );
           break;
       }
     } catch (e) {

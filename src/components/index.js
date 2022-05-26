@@ -18,10 +18,9 @@ import { FilterByPrice } from "./filter/filterByPrice";
 import { Rating } from "./filter/ratings";
 import { SortBy } from "./filter/sort";
 import { Arrivals } from "./filter/arrivals";
-import { Headers, CartProduct, Checkout } from "./cart";
+import { CartProduct, Checkout } from "./cart";
 
 export {
-  Headers,
   CartProduct,
   Checkout,
   SortBy,

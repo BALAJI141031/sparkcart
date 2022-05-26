@@ -9,7 +9,6 @@
 .arrival-div{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
-
 }
 
 #hero-cta{
@@ -52,6 +51,11 @@
 
 }
 
+.cart-products{
+  justify-self: self-end;
+  margin-right: 2rem 
+}
+
 .hero-main-image{
   display: grid;
   grid-area: 1/-1;
@@ -73,6 +77,18 @@
   border-left:0px;
   border-color: var(--primary-color);
   padding: 5px;
+
+}
+
+.cart-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  margin:5rem 5rem 0px 5rem
+}
+
+.cart > button{
+  margin: 5rem 50% 0rem 50%;
+  transform: translateX(-50%);
 
 }
 

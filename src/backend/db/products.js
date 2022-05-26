@@ -10,7 +10,8 @@ export const products = [
     _id: uuid(),
     title: "Indian Polity",
     author: "Shiv Khera",
-    price: "5000",
+    price: 5000,
+    actualPrice: 5999,
     category: "Polity",
     description: "India's premium Food ",
     imageUrl:
@@ -23,7 +24,8 @@ export const products = [
     _id: uuid(),
     title: "ART & Culture",
     author: "Junaid Qureshi",
-    price: "3000",
+    price: 3000,
+    actualPrice: 6999,
     category: "ArtAndCulture",
     description: "India's premium Food ",
     imageUrl:
@@ -36,7 +38,8 @@ export const products = [
     _id: uuid(),
     title: "Indian Economy",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 5999,
     description: "India's premium Food ",
     category: "Economy",
     imageUrl:
@@ -49,7 +52,8 @@ export const products = [
     _id: uuid(),
     title: "Indian Economy",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 1999,
     description: "India's premium ",
     category: "Economy",
     imageUrl:
@@ -62,7 +66,8 @@ export const products = [
     _id: uuid(),
     title: "World History",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 2999,
     description: "India's premium ",
     category: "Geography",
     imageUrl:
@@ -75,7 +80,8 @@ export const products = [
     _id: uuid(),
     title: "balaji spicy  veg",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 4999,
     description: "India's premium ",
     category: "Geography",
     imageUrl:
@@ -88,7 +94,8 @@ export const products = [
     _id: uuid(),
     title: "Ncert",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 5999,
     description: "India's premium ",
     category: "NCERT",
     imageUrl:
@@ -101,7 +108,8 @@ export const products = [
     _id: uuid(),
     title: "Ncert",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 3999,
     description: "India's premium ",
     category: "NCERT",
     imageUrl:
@@ -126,7 +134,8 @@ export const products = [
     _id: uuid(),
     title: "World Geography",
     author: "Shiv Khera",
-    price: "1000",
+    price: 1000,
+    actualPrice: 1999,
     description: "India's premium ",
     category: "NCERT",
     imageUrl:

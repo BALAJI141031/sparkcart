@@ -39,7 +39,11 @@
 }
 
 .secondary-cta{
-    background-color: palegreen;
+    background-color: var(--background-color);
+    color: var(--cta-font-color);
+    font-weight:bolder ;
+    padding:10px;
+    border-style: none;
 }
 
 #cta{
