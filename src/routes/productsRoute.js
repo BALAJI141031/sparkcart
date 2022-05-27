@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useFilter } from "../contexts/filterContext";
 import { showSnackbar } from "../dryProviders";
-import { useSnackbar } from "../customHooks";
+import { useSnackbar, useCart, useWishlist } from "../customHooks";
 import {
   Categories,
   Rating,
@@ -26,13 +26,27 @@ const categoryList = [
 const ratings = [2, 3, 4];
 
 const Products = () => {
+  const { cart } = useCart();
   const { dispatchFilter, filteredList } = useFilter();
+  const { wishlist } = useWishlist();
   const { snackbar } = useSnackbar();
   useEffect(() => {
     axios.get("/api/products").then((response) => {
       dispatchFilter({ type: "products", payload: response.data.products });
     });
   }, []);
+
+  // get cart items and wishlist items  as well to persist button text an style
+  let cartItems = [];
+  for (let i = 0; i < cart.length; i++) {
+    cartItems.push(cart[i]._id);
+  }
+
+  let wishListItems = [];
+  for (let i = 0; i < wishlist.length; i++) {
+    wishListItems.push(wishlist[i]._id);
+  }
+
   return (
     <div className="products-section">
       <div className="products">
@@ -65,7 +79,11 @@ const Products = () => {
           <h2>Products</h2>
           <div className="flex-wrap">
             {filteredList.map((item) => (
-              <ProductCard productObj={item} />
+              <ProductCard
+                productObj={item}
+                cartItems={cartItems}
+                wishListItems={wishListItems}
+              />
             ))}
           </div>
         </div>
@@ -74,5 +92,5 @@ const Products = () => {
       {snackbar.status && showSnackbar(snackbar.payload)}
     </div>
   );
-};
+};;
 export { Products };

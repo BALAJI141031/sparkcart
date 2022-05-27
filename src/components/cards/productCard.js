@@ -10,17 +10,19 @@ import {
 } from "../../dryProviders";
 import { useSnackbar } from "../../customHooks";
 
-const ProductCard = ({ productObj }) => {
-  const { price, imageUrl, title, description, productRating } = productObj;
+const ProductCard = ({ productObj, cartItems, wishListItems }) => {
+  const { price, imageUrl, title, description, productRating, _id } =
+    productObj;
   const [wishListed, setToWishlist] = useState(false);
   const { dispatchCart, cartCount, cartTotal } = useCart();
   const { dispatchWishlist, wishlistCount } = useWishlist();
   const navigate = useNavigate();
   const [inCart, setButtonText] = useState(false);
   const { setSnackbar } = useSnackbar();
+
   const toggleWishlist = async (handlerObj) => {
     try {
-      if (!wishListed) {
+      if (!wishListed && !wishListItems.includes(_id)) {
         await addItemToWishlist(
           handlerObj,
           dispatchWishlist,
@@ -74,22 +76,29 @@ const ProductCard = ({ productObj }) => {
           <p>{description}</p>
           <h4>${price}</h4>
           <button
-            className="primary-cta"
+            className={
+              !inCart && !cartItems.includes(_id)
+                ? "primary-cta"
+                : "secondary-cta"
+            }
+            id="cta"
             onClick={
-              inCart
+              inCart || cartItems.includes(_id)
                 ? () => cartHandler({ type: "navigate_to_cart" })
                 : () =>
                     cartHandler({ type: "add_to_cart", payload: productObj })
             }
           >
-            {!inCart ? "Add to cart" : "Go to cart"}
+            {!inCart && !cartItems.includes(_id) ? "Add to cart" : "Go to cart"}
           </button>
         </div>
         <div className="card-badge">
           <button
             className="like-icon icon-sm"
             onClick={() => toggleWishlist(productObj)}
-            id={wishListed ? "wishListStyle" : null}
+            id={
+              wishListed || wishListItems.includes(_id) ? "wishListStyle" : null
+            }
           >
             <i className="fas fa-heart"></i>
           </button>

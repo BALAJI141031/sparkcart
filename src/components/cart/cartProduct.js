@@ -5,7 +5,7 @@ import { useCart, useWishlist } from "../../customHooks";
 import { removeItemFromCart, addItemToWishlist } from "../../dryProviders";
 
 const CartProduct = ({ product }) => {
-  const { dispatchWishlist, wishlistCount } = useWishlist();
+  const { dispatchWishlist, wishlistCount, wishlist } = useWishlist();
   const { dispatchCart, cartCount, cartTotal } = useCart();
   const { title, imageUrl, price, author, actualPrice } = product;
 
@@ -36,51 +36,27 @@ const CartProduct = ({ product }) => {
 
   const addToWishList = async (product) => {
     try {
-      await removeItemFromCart(product, dispatchCart, cartCount);
-      await addItemToWishlist(product, dispatchWishlist, false, wishlistCount);
+      let wishListItems = [];
+      for (let i = 0; i < wishlist.length; i++) {
+        wishListItems.push(wishlist[i]._id);
+      }
+      if (!wishListItems.includes(product._id)) {
+        await removeItemFromCart(product, dispatchCart, cartCount);
+        await addItemToWishlist(
+          product,
+          dispatchWishlist,
+          false,
+          wishlistCount
+        );
+      } else {
+        // show message that already wishlisted
+      }
     } catch (e) {
       throw e;
     }
   };
   return (
     <>
-      {/* <div className="cart cartItem">
-        <div>
-          <div className="flex-H-center-V">
-            <img src={imageUrl} className="cart-image" alt="cart" />
-            <div>
-              <p>{title}</p>
-              <p>Grand inn</p>
-            </div>
-          </div>
-          {count === 1 && (
-            <button
-              className="span-style"
-              onClick={() => addToWishList(product)}
-            >
-              Move to wishlist
-            </button>
-          )}
-        </div>
-        <p className="flex-V-center-VH">${price}</p>
-        <div className="flex-H-center-VH">
-          <button
-            disabled={isdisable}
-            onClick={() => decreaseQunatity(product)}
-          >
-            -
-          </button>
-          <p>{count}</p>
-          <button onClick={() => increaseQuantity(product)}>+</button>
-        </div>
-        <p className="flex-V-center-VH">${quantityPrice}</p>
-        <button
-          className="like-icon icon-sm removeBtn"
-          onClick={() => removeProduct(product)}
-        >
-          <GoX />
-        </button>
-      </div> */}
       <div class="h-card flex-H" id="cartItem">
         <img src={imageUrl} class="card-image" />
         <div class="flex-V-sapce-between">

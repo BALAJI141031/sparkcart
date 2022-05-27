@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const cartContext = createContext();
 
@@ -30,6 +30,7 @@ const CartProvider = ({ children }) => {
     cartTotal: 0,
     discount: 0,
   });
+
   return (
     <cartContext.Provider
       value={{
