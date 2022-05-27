@@ -87,8 +87,9 @@
 }
 
 .cart > button{
-  margin: 5rem 50% 0rem 50%;
+  margin: 5rem 50% 5rem 50%;
   transform: translateX(-50%);
+
 
 }
 

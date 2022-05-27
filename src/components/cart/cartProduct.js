@@ -7,7 +7,7 @@ import { removeItemFromCart, addItemToWishlist } from "../../dryProviders";
 const CartProduct = ({ product }) => {
   const navigate = useNavigate();
   const { dispatchWishlist, wishlistCount, wishlist } = useWishlist();
-  const { dispatchCart, cartCount, cartTotal } = useCart();
+  const { dispatchCart, cartCount, cartTotal, discount } = useCart();
   const { title, imageUrl, price, author, actualPrice, _id } = product;
 
   const [count, setCount] = useState(1);
@@ -22,20 +22,38 @@ const CartProduct = ({ product }) => {
     setCount((prevCount) => prevCount - 1);
     dispatchCart({
       type: "cartTotalAmount",
-      payload: cartTotal - product.price,
+      payload: cartTotal - product.actualPrice,
+    });
+
+    dispatchCart({
+      type: "discountAmount",
+      payload: discount - (product.actualPrice - product.price),
     });
   };
   const increaseQuantity = (product) => {
     setCount((prevCount) => prevCount + 1);
     dispatchCart({
       type: "cartTotalAmount",
-      payload: cartTotal + product.price,
+      payload: cartTotal + product.actualPrice,
+    });
+    dispatchCart({
+      type: "discountAmount",
+      payload: discount + (product.actualPrice - product.price),
     });
   };
 
   const removeProduct = async (product) => {
     try {
       await removeItemFromCart(product, dispatchCart, cartCount);
+      dispatchCart({
+        type: "cartTotalAmount",
+        payload: cartTotal - count * product.actualPrice,
+      });
+
+      dispatchCart({
+        type: "discountAmount",
+        payload: discount - count * (product.actualPrice - product.price),
+      });
     } catch (e) {
       throw e;
     }
@@ -51,6 +69,15 @@ const CartProduct = ({ product }) => {
           false,
           wishlistCount
         );
+        dispatchCart({
+          type: "cartTotalAmount",
+          payload: cartTotal - count * product.actualPrice,
+        });
+
+        dispatchCart({
+          type: "discountAmount",
+          payload: discount - count * (product.actualPrice - product.price),
+        });
       } else {
         // show message that already wishlisted or navigate to wishist
         navigate("/wishlist");

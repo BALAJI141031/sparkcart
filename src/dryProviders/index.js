@@ -24,21 +24,21 @@ const addItemToCart = async (
       payload: { cart: response.data.cart, cartCount: cartCount + 1 },
     });
     let initalCartTotal = response.data.cart.reduce(
-      (prevAmount, currAmmount) => prevAmount + currAmmount.price,
+      (prevAmount, currAmmount) => prevAmount + currAmmount.actualPrice,
       0
     );
+
+    dispatchCart({
+      type: "cartTotalAmount",
+      payload: initalCartTotal,
+    });
 
     let discount = 0;
     for (let i = 0; i < response.data.cart.length; i++) {
       discount =
         discount +
-        response.data.cart[i].actualPrice -
-        response.data.cart[i].price;
+        (response.data.cart[i].actualPrice - response.data.cart[i].price);
     }
-    dispatchCart({
-      type: "cartTotalAmount",
-      payload: initalCartTotal,
-    });
     dispatchCart({
       type: "discountAmount",
       payload: discount,
