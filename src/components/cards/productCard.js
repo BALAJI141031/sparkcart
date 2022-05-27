@@ -6,11 +6,12 @@ import {
   gotoCart,
   removeItemFromWishlist,
   addItemToWishlist,
-  hideSnackbar,
 } from "../../dryProviders";
-import { useSnackbar } from "../../customHooks";
-
+import Cookies from "js-cookie";
+import { useNotifyUser } from "../../customHooks";
+import { Navigate } from "react-router-dom";
 const ProductCard = ({ productObj, cartItems, wishListItems }) => {
+  const { toast } = useNotifyUser();
   const { price, imageUrl, title, description, productRating, _id } =
     productObj;
   const [wishListed, setToWishlist] = useState(false);
@@ -18,7 +19,6 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
   const { dispatchWishlist, wishlistCount } = useWishlist();
   const navigate = useNavigate();
   const [inCart, setButtonText] = useState(false);
-  const { setSnackbar } = useSnackbar();
 
   const toggleWishlist = async (handlerObj) => {
     try {
@@ -29,8 +29,6 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
           setToWishlist,
           wishlistCount
         );
-        setSnackbar({ status: true, payload: "wishListed!" });
-        hideSnackbar(setSnackbar);
       } else {
         await removeItemFromWishlist(
           handlerObj,
@@ -38,8 +36,6 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
           setToWishlist,
           wishlistCount
         );
-        setSnackbar({ status: true, payload: "out of list!" });
-        hideSnackbar(setSnackbar);
       }
     } catch (e) {
       throw e;
@@ -53,13 +49,18 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
         case "navigate_to_cart":
           return gotoCart(navigate);
         default:
-          await addItemToCart(
-            payload,
-            dispatchCart,
-            setButtonText,
-            cartCount,
-            cartTotal
-          );
+          if (Cookies.get("jwt_token")) {
+            await addItemToCart(
+              payload,
+              dispatchCart,
+              setButtonText,
+              cartCount,
+              cartTotal
+            );
+          } else {
+            toast.warning("Please Login!!");
+            navigate("/user/login");
+          }
           break;
       }
     } catch (e) {

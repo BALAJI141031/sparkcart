@@ -4,6 +4,7 @@ import { useWishlist } from "../contexts/wishlistContext";
 import { useSnackbar } from "../contexts/snackbarContext";
 import { useFilter } from "../contexts/filterContext";
 import { useNotifyUser } from "../contexts/toastContext";
+import { useAuth } from "../contexts/authContext";
 
 export {
   useNavigate,
@@ -12,4 +13,5 @@ export {
   useSnackbar,
   useFilter,
   useNotifyUser,
+  useAuth,
 };

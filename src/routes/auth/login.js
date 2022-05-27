@@ -41,6 +41,7 @@ export function Login() {
           email: emailInput.current.value,
           password: passwordInput.current.value,
         });
+
         Cookies.set("jwt_token", loginResponse.data.encodedToken);
         toast.success("Login sucessful!");
         setIsLoggedIn(true);

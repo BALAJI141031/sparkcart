@@ -2,11 +2,13 @@ import { NavIcon } from "../index";
 import "./index.css";
 import { useSidebar } from "../../contexts/sidebarContext";
 import { CgClose, CgMenu } from "react-icons/cg";
-import { VscHeart } from "react-icons/vsc";
+import Cookies from "js-cookie";
 
 import { FaShoppingCart, AiTwotoneHeart } from "../../icons";
-import { useCart, useWishlist, useNavigate } from "../../customHooks";
+import { useCart, useWishlist, useNavigate, useAuth } from "../../customHooks";
+import { Link } from "react-router-dom";
 const Navbar = () => {
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   const { sidebarToggle, setToggleState } = useSidebar();
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
@@ -21,6 +23,21 @@ const Navbar = () => {
       default:
         return navigate("/");
     }
+  };
+
+  const toggleLogin = () => {
+    console.log(isLoggedIn);
+    if (isLoggedIn) {
+      setIsLoggedIn(false);
+      Cookies.remove("jwt_token");
+      navigate("/");
+    } else {
+      navigate("/user/login");
+    }
+  };
+
+  const signupHandle = () => {
+    navigate("/user/signup");
   };
 
   return (
@@ -63,22 +80,23 @@ const Navbar = () => {
       {/* desktop navbar */}
 
       <div className="desktopNavbar">
-        {" "}
         <nav className="flex-H-space-around ">
-          <div>
+          <Link to="/">
             <span className="span-style">SparkCart</span>
-          </div>
+          </Link>
           <div>
             <i className="fas fa-search"></i>
             Search.....
           </div>
           <div className="flex-H-space-around navbar-rightside-div">
-            <button className="primary-cta" id="cta">
-              Login
+            <button className="primary-cta" id="cta" onClick={toggleLogin}>
+              {isLoggedIn ? "Logout" : "Login"}
             </button>
-            <button className="primary-cta" id="cta">
-              Signup
-            </button>
+            {!isLoggedIn && (
+              <button className="primary-cta" id="cta" onClick={signupHandle}>
+                Signup
+              </button>
+            )}
             <div className="position-rel" onClick={() => redirect("cart")}>
               <FaShoppingCart className="header-icons header-icons-m-lr icon-md" />
               {Boolean(cartCount) && (

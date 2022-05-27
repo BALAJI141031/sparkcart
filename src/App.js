@@ -10,6 +10,7 @@ import {
 } from "./routes";
 import { Navbar } from "./components";
 import Mockman from "mockman-js";
+import RequireAuth from "./authUtils";
 function App() {
   return (
     <>
@@ -17,8 +18,22 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingRoute />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequireAuth>
+              <Wishlist />
+            </RequireAuth>
+          }
+        />
         <Route path="/mock" element={<Mockman />} />
         <Route path="/user/login" element={<Login />} />
         <Route path="/user/signup" element={<Signup />} />

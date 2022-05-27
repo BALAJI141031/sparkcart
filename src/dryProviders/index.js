@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCart } from "../customHooks";
+import Cookies from "js-cookie";
 
 const addItemToCart = async (
   product,
@@ -13,8 +13,7 @@ const addItemToCart = async (
       { product },
       {
         headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI",
+          authorization: Cookies.get("jwt_token"),
         },
       }
     );
@@ -36,9 +35,6 @@ const addItemToCart = async (
         response.data.cart[i].actualPrice -
         response.data.cart[i].price;
     }
-
-    console.log(discount, "why nan");
-
     dispatchCart({
       type: "cartTotalAmount",
       payload: initalCartTotal,
@@ -47,8 +43,9 @@ const addItemToCart = async (
       type: "discountAmount",
       payload: discount,
     });
+    return response;
   } catch (e) {
-    console.error("error while adding item into cart", e);
+    console.log("error while adding item into cart", e);
   }
 };
 
@@ -58,8 +55,7 @@ const removeItemFromCart = async (product, dispatchCart, cartCount) => {
       `/api/user/cart/${product._id}`,
       {
         headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3OGMwYThhMy1jN2ZiLTQ0ZjgtYWUwZS1iMmU2MTM2ZjUyNzEiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.RuUtRShcJPrhxsDlO30czFOKxmunlJd62KWyLPPwZlk",
+          authorization: Cookies.get("jwt_token"),
         },
       }
     );
@@ -87,8 +83,7 @@ const addItemToWishlist = async (
       { product },
       {
         headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI",
+          authorization: Cookies.get("jwt_token"),
         },
       }
     );
@@ -149,6 +144,7 @@ const gotoWishlist = (navigate) => {
 const loginUser = async (payload) => {
   try {
     const loginResponse = await axios.post("/api/auth/login", payload);
+    console.log(loginResponse, "checking in calls");
     return loginResponse;
   } catch (e) {
     throw e;
@@ -164,27 +160,6 @@ const signupUser = async (payload) => {
   }
 };
 
-// snackbar
-const showSnackbar = (type, payload) => {
-  console.log(payload);
-  return (
-    <div class={type}>
-      <p>{payload}</p>
-      <span id="closeBtn">×</span>
-    </div>
-  );
-};
-
-const hideSnackbar = (setSnackbar) => {
-  setTimeout(
-    () =>
-      setSnackbar({
-        status: false,
-      }),
-    1500
-  );
-};
-
 export {
   addItemToCart,
   gotoCart,
@@ -192,8 +167,6 @@ export {
   removeItemFromWishlist,
   gotoWishlist,
   removeItemFromCart,
-  showSnackbar,
-  hideSnackbar,
   gotoProductsRoute,
   loginUser,
   signupUser,

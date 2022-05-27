@@ -10,7 +10,6 @@ const Cart = () => {
   // const [totalQuantityPrice, setTotalQuantityPrice] = useState({});
   const navigate = useNavigate();
   const { cart, dispatchCart, cartTotal } = useCart();
-  const { snackbar } = useSnackbar();
 
   return (
     <div className="cart">
@@ -35,8 +34,6 @@ const Cart = () => {
       >
         Shop Now!
       </button>
-
-      {snackbar.status && showSnackbar(snackbar.payload)}
     </div>
   );
 };

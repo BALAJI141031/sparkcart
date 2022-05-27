@@ -29,7 +29,6 @@ const Products = () => {
   const { cart } = useCart();
   const { dispatchFilter, filteredList } = useFilter();
   const { wishlist } = useWishlist();
-  const { snackbar } = useSnackbar();
   useEffect(() => {
     axios.get("/api/products").then((response) => {
       dispatchFilter({ type: "products", payload: response.data.products });
@@ -89,7 +88,6 @@ const Products = () => {
         </div>
       </div>
       <SideNavbar />
-      {snackbar.status && showSnackbar(snackbar.payload)}
     </div>
   );
 };;
