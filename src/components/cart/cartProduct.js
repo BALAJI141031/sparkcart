@@ -1,16 +1,23 @@
 import "./index.css";
 import { useState } from "react";
 
-import { useCart, useWishlist } from "../../customHooks";
+import { useCart, useWishlist, useNavigate } from "../../customHooks";
 import { removeItemFromCart, addItemToWishlist } from "../../dryProviders";
 
 const CartProduct = ({ product }) => {
+  const navigate = useNavigate();
   const { dispatchWishlist, wishlistCount, wishlist } = useWishlist();
   const { dispatchCart, cartCount, cartTotal } = useCart();
-  const { title, imageUrl, price, author, actualPrice } = product;
+  const { title, imageUrl, price, author, actualPrice, _id } = product;
 
   const [count, setCount] = useState(1);
   const isdisable = count === 1 ? true : false;
+
+  let wishListItems = [];
+  for (let i = 0; i < wishlist.length; i++) {
+    wishListItems.push(wishlist[i]._id);
+  }
+
   const decreaseQunatity = (product) => {
     setCount((prevCount) => prevCount - 1);
     dispatchCart({
@@ -36,10 +43,6 @@ const CartProduct = ({ product }) => {
 
   const addToWishList = async (product) => {
     try {
-      let wishListItems = [];
-      for (let i = 0; i < wishlist.length; i++) {
-        wishListItems.push(wishlist[i]._id);
-      }
       if (!wishListItems.includes(product._id)) {
         await removeItemFromCart(product, dispatchCart, cartCount);
         await addItemToWishlist(
@@ -49,7 +52,8 @@ const CartProduct = ({ product }) => {
           wishlistCount
         );
       } else {
-        // show message that already wishlisted
+        // show message that already wishlisted or navigate to wishist
+        navigate("/wishlist");
       }
     } catch (e) {
       throw e;
@@ -91,7 +95,9 @@ const CartProduct = ({ product }) => {
               class="secondary-cta"
               onClick={() => addToWishList(product)}
             >
-              add to WishList
+              {wishListItems.includes(_id)
+                ? "Go To WishList"
+                : "Add To Wishlist"}
             </button>
           </div>
         </div>

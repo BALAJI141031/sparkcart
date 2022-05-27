@@ -1,11 +1,12 @@
 import { WishlistCard, Navbar } from "../components";
 
+
 import axios from "axios";
-import { useCart, useWishlist } from "../customHooks";
+import { useCart, useWishlist, useNavigate } from "../customHooks";
 
 const Wishlist = () => {
   const { wishlist } = useWishlist();
-
+  const navigate = useNavigate();
   return (
     <>
       <h1 className="text-align-center">My Wishlist</h1>
@@ -19,6 +20,15 @@ const Wishlist = () => {
       {wishlist.length === 0 && (
         <h2 className="text-align-center">wishlist is empty explore more</h2>
       )}
+      <center>
+        <button
+          className="primary-cta"
+          id="cta"
+          onClick={() => navigate("/products")}
+        >
+          Shop Now!
+        </button>
+      </center>
     </>
   );
 };

@@ -7,7 +7,11 @@ import { addItemToCart } from "../../dryProviders";
 const WishlistCard = ({ productObj }) => {
   const navigate = useNavigate();
   const [inCart, setButtonText] = useState(false);
-  const { dispatchCart, cartCount } = useCart();
+  const { dispatchCart, cartCount, cart } = useCart();
+  let cartItems = [];
+  for (let i = 0; i < cart.length; i++) {
+    cartItems.push(cart[i]._id);
+  }
   const moveToCart = async (product) => {
     try {
       // const response=await axios.post('/api/user/cart',{product},{
@@ -71,45 +75,49 @@ const WishlistCard = ({ productObj }) => {
     }
   };
 
-  return (
-    <div className="flex-V-center-VH productCard">
-      <div className="ver-card pos-rel-Ecase">
-        <img src={imageUrl} alt="images" />
-        <div className="flex-V-center-VH">
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <h4>${price}</h4>
-          <button
-            className={
-              !inCart ? "btn primary-btn p-card-btn" : "btn primary-outlime-btn"
-            }
-            onClick={
-              inCart
-                ? () => cartHandler({ type: "navigate_to_cart" })
-                : () =>
-                    cartHandler({ type: "add_to_cart", payload: productObj })
-            }
-          >
-            {!inCart ? "Add to cart" : "Go to cart"}
-          </button>
-        </div>
-        <div className="card-badge">
-          <button
-            className="like-icon icon-sm"
-            onClick={() => removeFromWishlist(productObj)}
-          >
-            <GoX />
-          </button>
-        </div>
-        <div className="static-rating-container ratingBadge">
-          <div className="flex-H-center-V">
-            {productRating}
-            <span className="fa fa-star fa-1x checked"></span>
-          </div>
+return (
+  <div className="flex-V-center-VH productCard">
+    <div className="ver-card pos-rel-Ecase">
+      <img src={imageUrl} alt="images" />
+      <div className="flex-V-center-VH">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <h4>${price}</h4>
+        <button
+          className={
+            !inCart && !cartItems.includes(productObj._id)
+              ? "primary-cta"
+              : "secondary-cta"
+          }
+          id="cta"
+          onClick={
+            inCart || cartItems.includes(productObj._id)
+              ? () => cartHandler({ type: "navigate_to_cart" })
+              : () => cartHandler({ type: "add_to_cart", payload: productObj })
+          }
+        >
+          {!inCart && !cartItems.includes(productObj._id)
+            ? "Add to cart"
+            : "Go to cart"}
+        </button>
+      </div>
+      <div className="card-badge">
+        <button
+          className="like-icon icon-sm"
+          onClick={() => removeFromWishlist(productObj)}
+        >
+          <GoX />
+        </button>
+      </div>
+      <div className="static-rating-container ratingBadge">
+        <div className="flex-H-center-V">
+          {productRating}
+          <span className="fa fa-star fa-1x checked"></span>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export { WishlistCard };
