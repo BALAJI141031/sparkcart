@@ -31,7 +31,7 @@
 }
 
 .primary-cta{
-   background-color: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--cta-font-color);
     font-weight:bolder ;
     padding:10px;
