@@ -4,5 +4,6 @@ import { Cart } from "./cartRoute";
 import { Wishlist } from "./wishlistRoute";
 import { Signup } from "./auth/signup";
 import { Login } from "./auth/login";
+import {Product} from './singleProductRoute'
 
-export { Products, LandingRoute, Cart, Wishlist, Signup, Login };
+export { Products, LandingRoute, Cart, Wishlist, Signup, Login,Product };

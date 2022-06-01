@@ -7,6 +7,7 @@ import {
   Wishlist,
   Login,
   Signup,
+  Product
 } from "./routes";
 import { Navbar } from "./components";
 import Mockman from "mockman-js";
@@ -18,6 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingRoute />} />
         <Route path="/products" element={<Products />} />
+         <Route path="/products/:id" element={<Product />} />
+
         <Route
           path="/cart"
           element={

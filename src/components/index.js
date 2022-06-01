@@ -11,6 +11,7 @@ import { SideNavbar } from "./sidebar";
 import { IconWithText } from "./iconWithText";
 import { Button } from "./buttons";
 import { NavIcon, BadgeIcons } from "./navbar/nav-icons";
+import { AboutProduct } from "./singleProductDetials";
 
 // filter components
 import { Categories } from "./filter/categories";
@@ -43,4 +44,5 @@ export {
   SideNavbar,
   HeroImageCard,
   Arrivals,
+  AboutProduct
 };

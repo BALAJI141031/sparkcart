@@ -6,6 +6,10 @@
   
 }
 
+.shop-now-btn{
+  margin:3rem
+}
+
 .arrival-div{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
@@ -92,6 +96,37 @@
 
 
 }
+
+/* single product */
+.single-product{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.shop-agian-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-product > img {
+  justify-self: end;
+  margin: 2rem 2rem 0px 0px;
+
+}
+
+.single-product > div{
+  margin-top: 2rem;
+
+}
+
+.product-cta-div button{
+  margin:10px 0px 0px 1rem;
+
+}
+
+
 
 /* responsive breakpoints */
 @media screen and (min-width: 800px) {

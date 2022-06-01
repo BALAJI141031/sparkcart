@@ -21,6 +21,8 @@ export const products = [
     newArrival: true,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:10
   },
   {
     _id: "cghtj",
@@ -37,6 +39,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 3,
+    reviewCount:15
   },
   {
     _id: "lkjhgf",
@@ -53,6 +57,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 4,
+    reviewCount:10
   },
   {
     _id: "asdefr3",
@@ -69,6 +75,8 @@ export const products = [
     newArrival: true,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:2
   },
   {
     _id: "fghthyu6543",
@@ -85,6 +93,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:8
   },
   {
     _id: "bnhjgty5678",
@@ -101,6 +111,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:10
   },
   {
     _id: "vbghtjyu7868",
@@ -117,6 +129,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:3
   },
   {
     _id: "jkhukiloytyre",
@@ -133,6 +147,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 2,
+    reviewCount:5
   },
   {
     _id: "ploikujyg",
@@ -147,6 +163,8 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 4,
+    reviewCount:4
   },
   {
     _id: "lkjuyhtgr",
@@ -163,5 +181,7 @@ export const products = [
     newArrival: false,
     inCart: false,
     inWishList: false,
+    rating: 5,
+    reviewCount:5
   },
 ];

@@ -160,6 +160,16 @@ const signupUser = async (payload) => {
   }
 };
 
+const getProduct = async (id) => {
+  try {
+    console.log(`/api/products/${id}`)
+    const response = await axios.get(`/api/products/${id}`)
+    return response
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 
 const searchItems = async(text) => {
   try {
@@ -182,5 +192,6 @@ export {
   gotoProductsRoute,
   loginUser,
   signupUser,
-  searchItems
+  searchItems,
+  getProduct
 };

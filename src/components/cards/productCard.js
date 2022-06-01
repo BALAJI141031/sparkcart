@@ -69,7 +69,7 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
   };
 
   return (
-    <div className="flex-V-center-VH ">
+    <div className="flex-V-center-VH " onClick={()=>navigate(`/products/${_id}`)}>
       <div className="ver-card pos-rel-Ecase productCard">
         <img src={imageUrl} alt="images" />
         <div className="flex-V-center-VH text-align-center">
@@ -83,12 +83,19 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
                 : "secondary-cta"
             }
             id="cta"
+           
             onClick={
               inCart || cartItems.includes(_id)
-                ? () => cartHandler({ type: "navigate_to_cart" })
-                : () =>
-                    cartHandler({ type: "add_to_cart", payload: productObj })
-            }
+                ? (e) => {
+                   e.stopPropagation()
+                  return cartHandler({ type: "navigate_to_cart" })
+                }
+                : (e) => {
+                  e.stopPropagation()
+                  return cartHandler({ type: "add_to_cart", payload: productObj })
+                  
+                }
+            } 
           >
             {!inCart && !cartItems.includes(_id) ? "Add to cart" : "Go to cart"}
           </button>
@@ -96,7 +103,11 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
         <div className="card-badge">
           <button
             className="like-icon icon-sm"
-            onClick={() => toggleWishlist(productObj)}
+            onClick={(e) => {
+              e.stopPropagation()
+              return toggleWishlist(productObj)
+            }
+            }
             id={
               wishListed || wishListItems.includes(_id) ? "wishListStyle" : null
             }
