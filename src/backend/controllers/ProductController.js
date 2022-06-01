@@ -10,7 +10,12 @@ import { Response } from "miragejs";
  * send GET Request at /api/products
  * */
 
-export const getAllProductsHandler = function () {
+export const getAllProductsHandler = function (schema,request) {
+  const searchTerm = request.queryParams?.s?.toLowerCase();
+  if (searchTerm) {
+    const filteredArray = this.db.products.filter((product) => product.title.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm))
+    return new Response(200, {}, { products: filteredArray });
+  }
   return new Response(200, {}, { products: this.db.products });
 };
 

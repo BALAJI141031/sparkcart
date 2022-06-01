@@ -6,7 +6,7 @@
   position: absolute;
   top: -65%;
   right: -25%;
-   color: var(--cta-font-color);
+  color: var(--cta-font-color);
   font-size: 1.3rem;
   width: 2rem;
   text-align: center;
@@ -29,6 +29,46 @@
 
 .navbar-rightside-div {
   width:30rem;
+}
+
+.searchbar-div{
+  position: relative;
+    width:30%  
+}
+
+.search-bar{
+  padding: 0.3rem;
+    border-radius:2px;
+    margin: 0px;
+    width: 100%;  
+}
+
+.search-icon{
+    border:0px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0px;
+    position: absolute;
+    right:0%;
+    top:10%;
+    padding-top:2px;
+    z-index: 9;
+}
+
+.searched-items-div{
+  position: absolute;
+  width: 100%;
+  background-color: var(--primary-background-color);
+  color: var(--cta-font-color);
+  height: auto;
+  top:calc(100% + 2px);
+  z-index: 999;
+}
+
+.searched-items-div > p { 
+  margin: 5px 10px 10px 5px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {

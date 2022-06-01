@@ -15,5 +15,13 @@ export const users = [
     password: "adarshBalika1234",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address: [{
+      city: "",
+      pincode: 1234,
+      street: "",
+      state: "",
+      country: "",
+      primaryAddress:true
+    }]
   },
 ];
