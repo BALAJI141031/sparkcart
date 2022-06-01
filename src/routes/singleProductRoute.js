@@ -13,6 +13,8 @@ import {
   addItemToWishlist,
 } from "../dryProviders";
 
+const fiveStars=[1,2,3,4,5]
+
 export function Product() {
   const [product, setProduct] = useState(null)
   const { dispatchWishlist, wishlistCount, wishlist } = useWishlist();
@@ -84,7 +86,7 @@ export function Product() {
         console.log(productResponse)
         setProduct(productResponse.data.product)
     }, 
-    [id])
+      [id])
   return <>
     <div className="single-product">
         {product && <img src={product.imageUrl} />}
@@ -95,7 +97,11 @@ export function Product() {
                 <p style={{'font-weight': "800" }}>Rs {product.price}/-</p>
             <p className="strike-rate" style={{"margin-left":"10px"}}>Rs {product.actualPrice}/-</p>    
             <p style={{ "margin-left": "10px", 'font-weight': "800" }} className="text-grey">5% OFF</p>
-            </div>
+        </div>
+        <div className='static-rating-container'>
+          {fiveStars.map((indexRating)=> product.rating>=indexRating? <span class="fa fa-star fa-2x checked"></span>: <span class="fa fa-star fa-2x"></span>)}
+          ({product.reviewCount} Reviews)
+        </div>
             <p className='text-grey'>Inclusive of All Taxes</p>
                 <div>
                 {[{ text: "FastDelivery", icon: <MdDeliveryDining/> }, { text: "Instock", icon: <BsFileEarmarkCheck/> }, { text: "Emi Starts at 105", icon: <MdPayment/> }].map((detials) => <AboutProduct detials={ detials}/>)}
@@ -135,7 +141,6 @@ export function Product() {
         className="primary-cta shop-now-btn"
         id="cta"
       onClick={() => navigate("/products")}
-      
       >
         Shop Now!
       </button></center>
