@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import {useEffect, useRef, useState} from 'react'
 
 import { FaShoppingCart, AiTwotoneHeart,BiSearchAlt2 } from "../../icons";
-import { useCart, useWishlist, useNavigate, useAuth } from "../../customHooks";
+import { useCart, useWishlist, useNavigate, useAuth,useFilter } from "../../customHooks";
 import { Link } from "react-router-dom";
 import {searchItems} from '../../dryProviders'
 import { MdTitle } from "react-icons/md";
@@ -15,7 +15,8 @@ const Navbar = () => {
   const [searchedResult,setSearchedResult]=useState([])
   const { isLoggedIn, setIsLoggedIn } = useAuth();
   const { sidebarToggle, setToggleState } = useSidebar();
-  const { cartCount } = useCart();
+  const { cartCount, } = useCart();
+  const {dispatchFilter}=useFilter()
   const { wishlistCount } = useWishlist();
   const navigate = useNavigate("/wishlist");
 
@@ -61,9 +62,7 @@ const Navbar = () => {
     setSearchedResult([...searchedResponse.data.products])
 })  
 
-  
- 
-
+   
   // custom hook to detect outside click
   let domNode=useClickOutside(() => {
     setSearchedResult([])
@@ -125,7 +124,16 @@ const Navbar = () => {
           <BiSearchAlt2 />
             </button>
             {searchedResult.length !== 0 && <div className="searched-items-div" ref={domNode}>
-              {searchedResult.map((product) => <p onClick={()=>console.log("products is ",product.title)}>{product.title}</p>)}
+              {searchedResult.map((product) => <p onClick={() => { 
+                 dispatchFilter({
+                  type: "categoryFilter",
+                  status: true,
+                  from:"search",
+                  payload: product.category,
+                 })
+                setSearchedResult([])
+                navigate("/products")
+              }}>{product.title}</p>)}
             </div>}
       </div>
           <div className="flex-H-space-around navbar-rightside-div">

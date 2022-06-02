@@ -18,14 +18,17 @@ const FilterProvider = ({ children }) => {
       case "categoryFilter":
         let updatedCategoryFilters = [...filterState.categoryFilters];
         if (filterAction.status) {
-          updatedCategoryFilters.push(filterAction.payload);
+          if (filterAction.from) {
+            updatedCategoryFilters = []
+            updatedCategoryFilters.push(filterAction.payload)
+          } else {
+            updatedCategoryFilters.push(filterAction.payload);
+          }
         } else {
           const categoryIndex = updatedCategoryFilters.indexOf(
             filterAction.payload
           );
-          console.log(categoryIndex,"here is inde num",updatedCategoryFilters)
           updatedCategoryFilters.splice(categoryIndex,1);
-          console.log(updatedCategoryFilters,"after poping")
         }
         return { ...filterState, categoryFilters: [...updatedCategoryFilters] };
       case "newArrival":
