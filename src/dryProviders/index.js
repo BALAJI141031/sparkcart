@@ -182,6 +182,15 @@ const searchItems = async(text) => {
   }
 }
 
+// api is not there
+// const getUserDetials = async () => {
+//   try{
+//    const response=await axios.get()
+//   } catch (e) {
+//     throw e
+//   }
+// }
+
 export {
   addItemToCart,
   gotoCart,

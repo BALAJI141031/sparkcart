@@ -16,12 +16,23 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     address: [{
-      city: "",
-      pincode: 1234,
-      street: "",
-      state: "",
-      country: "",
+      fullName:"Jason Dawood",
+      city: "Newyork city",
+      pincode: 1234678,
+      street: "Raw Diamonds 7th Lane",
+      state: "Newyork",
+      MobileNumber:"(+91)7893293278",
+      country: "USA",
       primaryAddress:true
+    },{
+      fullName:"Jason Russel",
+      city: "Newyork city",
+      pincode: 1234678,
+      street: "Raw Diamonds 7th Lane",
+      state: "Newyork",
+      MobileNumber:"(+91)7893293278",
+      country: "USA",
+      primaryAddress:false
     }]
   },
 ];

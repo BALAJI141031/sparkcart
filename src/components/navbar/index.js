@@ -3,13 +3,12 @@ import "./index.css";
 import { useSidebar } from "../../contexts/sidebarContext";
 import { CgClose, CgMenu } from "react-icons/cg";
 import Cookies from "js-cookie";
-import {useEffect, useRef, useState} from 'react'
+import {useState} from 'react'
 
 import { FaShoppingCart, AiTwotoneHeart,BiSearchAlt2 } from "../../icons";
 import { useCart, useWishlist, useNavigate, useAuth,useFilter } from "../../customHooks";
 import { Link } from "react-router-dom";
 import {searchItems} from '../../dryProviders'
-import { MdTitle } from "react-icons/md";
 import {useClickOutside} from '../../customHooks'
 const Navbar = () => {
   const [searchedResult,setSearchedResult]=useState([])
@@ -120,9 +119,6 @@ const Navbar = () => {
               onChange={(e) => searchFn(e.target.value)}
 
         />
-        <button className="search-icon">
-          <BiSearchAlt2 />
-            </button>
             {searchedResult.length !== 0 && <div className="searched-items-div" ref={domNode}>
               {searchedResult.map((product) => <p onClick={() => { 
                  dispatchFilter({
