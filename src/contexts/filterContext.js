@@ -9,7 +9,7 @@ import {
 const filterContext = createContext();
 const FilterProvider = ({ children }) => {
   const reducerFn = (filterState, filterAction) => {
-    console.log(filterAction.type, "fromswitch", filterAction.payload);
+    console.log(filterAction.type, "fromswitch", "=========================================>\n",filterAction.payload,);
     switch (filterAction.type) {
       case "products":
         return { ...filterState, productsList: [...filterAction.payload] };
@@ -23,7 +23,9 @@ const FilterProvider = ({ children }) => {
           const categoryIndex = updatedCategoryFilters.indexOf(
             filterAction.payload
           );
-          updatedCategoryFilters.pop(categoryIndex);
+          console.log(categoryIndex,"here is inde num",updatedCategoryFilters)
+          updatedCategoryFilters.splice(categoryIndex,1);
+          console.log(updatedCategoryFilters,"after poping")
         }
         return { ...filterState, categoryFilters: [...updatedCategoryFilters] };
       case "newArrival":
