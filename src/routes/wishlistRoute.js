@@ -1,8 +1,5 @@
-import { WishlistCard, Navbar } from "../components";
-
-
-import axios from "axios";
-import { useCart, useWishlist, useNavigate } from "../customHooks";
+import { WishlistCard,} from "../components";
+import {  useWishlist, useNavigate } from "../customHooks";
 
 const Wishlist = () => {
   const { wishlist } = useWishlist();

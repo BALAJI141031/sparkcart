@@ -1,9 +1,7 @@
-// import {useFilter} from '../contexts/filter-context'
 import { useEffect } from "react";
 import axios from "axios";
 import { useFilter } from "../contexts/filterContext";
-import { showSnackbar } from "../dryProviders";
-import { useSnackbar, useCart, useWishlist } from "../customHooks";
+import {  useCart, useWishlist } from "../customHooks";
 import {
   Categories,
   Rating,

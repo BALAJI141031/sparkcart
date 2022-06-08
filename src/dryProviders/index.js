@@ -45,7 +45,7 @@ const addItemToCart = async (
     });
     return response;
   } catch (e) {
-    console.log("error while adding item into cart", e);
+    throw e
   }
 };
 
@@ -111,8 +111,7 @@ const removeItemFromWishlist = async (
   try {
     const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
       headers: {
-        authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI",
+        authorization:Cookies.get("jwt_token"),
       },
     });
     dispatchWishlist({
@@ -144,7 +143,6 @@ const gotoWishlist = (navigate) => {
 const loginUser = async (payload) => {
   try {
     const loginResponse = await axios.post("/api/auth/login", payload);
-    console.log(loginResponse, "checking in calls");
     return loginResponse;
   } catch (e) {
     throw e;
@@ -162,11 +160,10 @@ const signupUser = async (payload) => {
 
 const getProduct = async (id) => {
   try {
-    console.log(`/api/products/${id}`)
     const response = await axios.get(`/api/products/${id}`)
     return response
   } catch (e) {
-    console.log(e)
+    throw e
   }
 }
 
@@ -174,22 +171,11 @@ const getProduct = async (id) => {
 const searchItems = async(text) => {
   try {
     const response=await axios.get(`/api/products?s=${text}`)
-    return response
-    
+    return response 
   } catch (e) {
-    throw e
-    
+    throw e   
   }
 }
-
-// api is not there
-// const getUserDetials = async () => {
-//   try{
-//    const response=await axios.get()
-//   } catch (e) {
-//     throw e
-//   }
-// }
 
 export {
   addItemToCart,

@@ -14,13 +14,6 @@ const WishlistCard = ({ productObj }) => {
   }
   const moveToCart = async (product) => {
     try {
-      // const response=await axios.post('/api/user/cart',{product},{
-      //   headers:{
-      //     authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI"
-      //   }
-      // });
-      // setButtonText(true)
-      // dispatchCart({type:"cart",payload:{cart:response.data.cart,cartCount:cartCount+1}})
       await addItemToCart(product, dispatchCart, setButtonText, cartCount);
     } catch (e) {
       console.error("error while adding item into cart", e);

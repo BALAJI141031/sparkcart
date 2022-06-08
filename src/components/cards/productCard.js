@@ -9,7 +9,6 @@ import {
 } from "../../dryProviders";
 import Cookies from "js-cookie";
 import { useNotifyUser } from "../../customHooks";
-import { Navigate } from "react-router-dom";
 const ProductCard = ({ productObj, cartItems, wishListItems }) => {
   const { toast } = useNotifyUser();
   const { price, imageUrl, title, description, productRating, _id } =

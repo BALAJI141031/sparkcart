@@ -1,5 +1,4 @@
 import "./index.css";
-import { Button } from "../index";
 import { useFilter } from "../../contexts/filterContext";
 
 const FilterByPrice = () => {

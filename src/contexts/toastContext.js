@@ -2,7 +2,6 @@ import { createContext } from "react";
 import { useContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// toast.configure();
 
 const notifyUserContext = createContext();
 

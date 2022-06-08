@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useRef, useState } from "react";
 import { useAuth } from "../../contexts/authContext";
 import { MdOutlineKeyboardArrowRight, GiWindSlap } from "../../icons";
-import { useSnackbar, useNotifyUser } from "../../customHooks";
+import { useNotifyUser } from "../../customHooks";
 import { loginUser } from "../../dryProviders";
 import "./auth.css";
 export function Login() {
@@ -13,7 +13,6 @@ export function Login() {
   const location = useLocation();
   const emailInput = useRef(null);
   const passwordInput = useRef(null);
-  const { snackbar, setSnackbar } = useSnackbar();
   const [validatedCredentials, validteCredentials] = useState({
     email: false,
     password: false,
@@ -121,8 +120,8 @@ export function Login() {
         <div
           onClick={() =>
             setTestCredentials({
-              tesetEmail: "adarshbalika@gmail.com",
-              testPassword: "adarshBalika1234",
+              tesetEmail: "balajiNarayana@gmail.com",
+              testPassword: "balajiNarayana1234",
             })
           }
         >

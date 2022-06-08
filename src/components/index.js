@@ -8,7 +8,6 @@ import { HeroCard, HeroImageCard } from "./hero";
 import { Navbar } from "./navbar";
 import { InputElement } from "./input";
 import { SideNavbar } from "./sidebar";
-import { IconWithText } from "./iconWithText";
 import { Button } from "./buttons";
 import { NavIcon, BadgeIcons } from "./navbar/nav-icons";
 import { AboutProduct } from "./singleProductDetials";
@@ -32,7 +31,6 @@ export {
   NavIcon,
   BadgeIcons,
   CardWithText,
-  IconWithText,
   ProductCard,
   TextCard,
   TextOverlayCard,

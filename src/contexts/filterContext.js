@@ -2,14 +2,11 @@ import {
   createContext,
   useContext,
   useReducer,
-  useEffect,
-  useState,
 } from "react";
 
 const filterContext = createContext();
 const FilterProvider = ({ children }) => {
   const reducerFn = (filterState, filterAction) => {
-    console.log(filterAction.type, "fromswitch", "=========================================>\n",filterAction.payload,);
     switch (filterAction.type) {
       case "products":
         return { ...filterState, productsList: [...filterAction.payload] };

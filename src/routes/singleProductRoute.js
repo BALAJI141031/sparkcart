@@ -9,7 +9,6 @@ import Cookies from 'js-cookie'
 import {
   addItemToCart,
   gotoCart,
-  removeItemFromWishlist,
   addItemToWishlist,
 } from "../dryProviders";
 

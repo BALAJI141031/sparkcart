@@ -1,15 +1,14 @@
 import { Checkout, CartProduct, Headers, Navbar,AboutProduct } from "../components";
 import { useCart } from "../contexts/cartContext";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoMdAddCircle } from '../icons'
 
 import "./index.css";
 import { toast } from "react-toastify";
 const Cart = () => {
-  // const [totalQuantityPrice, setTotalQuantityPrice] = useState({});
   const navigate = useNavigate();
-  const { cart, dispatchCart, cartTotal } = useCart();
+  const { cart} = useCart();
   const [changeAddress, setChangeAddress] = useState(false)
   const [newAddress, setNewAddress] = useState(false)
   const [userNewAddress,setUserNewAddress]=useState({fullName:null,location:null,pincode:null,country:null,state:null,mobile:null})
