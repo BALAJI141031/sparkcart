@@ -3,7 +3,6 @@ import { Sidebar } from "../contexts/sidebarContext";
 import { FilterProvider } from "../contexts/filterContext";
 import { CartProvider } from "../contexts/cartContext";
 import { WishlistProvider } from "../contexts/wishlistContext";
-import { SnackbarProvider } from "../contexts/snackbarContext";
 import { AuthProvider } from "../contexts/authContext";
 import { NotifyUser } from "../contexts/toastContext";
 
@@ -12,7 +11,6 @@ const Providers = ({ children }) => {
     <Router>
       <AuthProvider>
         <NotifyUser>
-          <SnackbarProvider>
             <WishlistProvider>
               <CartProvider>
                 <FilterProvider>
@@ -20,7 +18,6 @@ const Providers = ({ children }) => {
                 </FilterProvider>
               </CartProvider>
             </WishlistProvider>
-          </SnackbarProvider>
         </NotifyUser>
       </AuthProvider>
     </Router>

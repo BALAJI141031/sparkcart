@@ -4,7 +4,7 @@ const TextCard = (props) => {
   const { textObj } = props;
   const { aboutUs } = textObj;
   return (
-    <div className="cardWithText ">
+    <div className="cardWithText">
       <h4>{aboutUs}</h4>
     </div>
   );

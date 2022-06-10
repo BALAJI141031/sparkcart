@@ -1,6 +1,6 @@
 import "./index.css";
 import { useState } from "react";
-import { useCart, useNavigate, useWishlist } from "../../customHooks";
+import { useCart, useNavigate, useWishlist,useNotifyUser } from "../../customHooks";
 import {
   addItemToCart,
   gotoCart,
@@ -8,7 +8,6 @@ import {
   addItemToWishlist,
 } from "../../dryProviders";
 import Cookies from "js-cookie";
-import { useNotifyUser } from "../../customHooks";
 const ProductCard = ({ productObj, cartItems, wishListItems }) => {
   const { toast } = useNotifyUser();
   const { price, imageUrl, title, description, productRating, _id } =
@@ -37,7 +36,7 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
         );
       }
     } catch (e) {
-      throw e;
+      toast.warning("Unexpected Error!!");
     }
   };
 
@@ -63,7 +62,7 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
           break;
       }
     } catch (e) {
-      throw e;
+      toast.warning("Unexpected Error!!");
     }
   };
 

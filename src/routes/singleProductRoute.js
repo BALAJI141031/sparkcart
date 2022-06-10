@@ -51,7 +51,7 @@ export function Product() {
           break;
       }
     } catch (e) {
-      throw e;
+      toast.warning("unexpected error!!");
     }
   };
 
@@ -72,7 +72,7 @@ export function Product() {
         ); 
       } else {
         // show message that already wishlisted or navigate to wishist
-        navigate("/wishlist");
+        toast.warning("unexpected error!!");
       }
     } catch (e) {
       throw e;

@@ -6,7 +6,6 @@ import { WishlistCard } from "./cards/wishlistCard";
 import { Footer } from "./footer";
 import { HeroCard, HeroImageCard } from "./hero";
 import { Navbar } from "./navbar";
-import { InputElement } from "./input";
 import { SideNavbar } from "./sidebar";
 import { Button } from "./buttons";
 import { NavIcon, BadgeIcons } from "./navbar/nav-icons";
@@ -38,7 +37,6 @@ export {
   Footer,
   HeroCard,
   Navbar,
-  InputElement,
   SideNavbar,
   HeroImageCard,
   Arrivals,

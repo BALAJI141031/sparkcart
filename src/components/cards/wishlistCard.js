@@ -2,10 +2,12 @@ import "./index.css";
 import { GoX } from "react-icons/go";
 import { useState } from "react";
 import axios from "axios";
-import { useCart, useNavigate, useWishlist } from "../../customHooks";
+import Cookies from "js-cookie";
+import { useCart, useNavigate, useWishlist,useNotifyUser } from "../../customHooks";
 import { addItemToCart } from "../../dryProviders";
 const WishlistCard = ({ productObj }) => {
   const navigate = useNavigate();
+  const { toast } = useNotifyUser();
   const [inCart, setButtonText] = useState(false);
   const { dispatchCart, cartCount, cart } = useCart();
   let cartItems = [];
@@ -14,9 +16,9 @@ const WishlistCard = ({ productObj }) => {
   }
   const moveToCart = async (product) => {
     try {
-      await addItemToCart(product, dispatchCart, setButtonText, cartCount);
+      const response=await addItemToCart(product, dispatchCart, setButtonText, cartCount);
     } catch (e) {
-      console.error("error while adding item into cart", e);
+      toast.warning("error while adding item into cart!!");
     }
   };
   const gotoCart = () => {
@@ -38,7 +40,7 @@ const WishlistCard = ({ productObj }) => {
           );
       }
     } catch (e) {
-      throw e;
+      toast.warning("Unexpected Error!!");
     }
   };
 
@@ -47,10 +49,11 @@ const WishlistCard = ({ productObj }) => {
 
   const removeFromWishlist = async (product) => {
     try {
+
+      // have to use provider from dry providers
       const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
         headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI3MTUxN2NmOS05MTg4LTRlNGYtOWM1MS0xMzMxZWE1ZThkZmQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.WTkYnS_dAUXq8sBn-GKoX0BC6ZJKNpL8Q_CNUzlebJI",
+          authorization:Cookies.get("jwt_token"),
         },
       });
 
@@ -62,9 +65,8 @@ const WishlistCard = ({ productObj }) => {
           wishListed: false,
         },
       });
-      // setToWishlist(false)
     } catch (e) {
-      throw e;
+      toast.warning("Unexpected Error!!");
     }
   };
 
