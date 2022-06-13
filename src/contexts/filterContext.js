@@ -101,7 +101,7 @@ const FilterProvider = ({ children }) => {
 
     // price filter
     filteredProducts = filteredProducts.filter(
-      (product) => product.price >= priceFilter
+      (product) => product.price <= priceFilter
     );
 
     if (newArrival) {

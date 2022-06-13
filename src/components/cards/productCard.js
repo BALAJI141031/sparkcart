@@ -62,6 +62,7 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
           break;
       }
     } catch (e) {
+      console.log(e,"coming from here")
       toast.warning("Unexpected Error!!");
     }
   };
@@ -107,7 +108,7 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
             }
             }
             id={
-              wishListed || wishListItems.includes(_id) ? "wishListStyle" : null
+              wishListed || wishListItems.includes(_id) ? null : "wishListStyle"
             }
           >
             <i className="fas fa-heart"></i>
