@@ -17,6 +17,7 @@ const HeroCard = ({ item }) => {
           type: "categoryFilter",
           status: true,
           payload: title,
+          from:"home"
         });
         navigate("/products");
       }}

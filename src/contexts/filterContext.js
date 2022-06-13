@@ -7,6 +7,7 @@ import {
 const filterContext = createContext();
 const FilterProvider = ({ children }) => {
   const reducerFn = (filterState, filterAction) => {
+
     switch (filterAction.type) {
       case "products":
         return { ...filterState, productsList: [...filterAction.payload] };
@@ -15,6 +16,7 @@ const FilterProvider = ({ children }) => {
       case "categoryFilter":
         let updatedCategoryFilters = [...filterState.categoryFilters];
         if (filterAction.status) {
+          console.log(filterAction.from,"here")
           if (filterAction.from) {
             updatedCategoryFilters = []
             updatedCategoryFilters.push(filterAction.payload)
