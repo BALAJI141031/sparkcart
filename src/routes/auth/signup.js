@@ -187,9 +187,9 @@ export function Signup() {
           />
           <p>I accept all terms and conditions</p>
         </div>
-        <button className="primary-cta" id="cta">
+        <center><button className="primary-cta" id="cta">
           Signup
-        </button>
+        </button></center>
         <NavLink to="/user/login">
           <div className="account-info">
             <p>Already have an account</p>

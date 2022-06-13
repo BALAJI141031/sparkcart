@@ -107,28 +107,24 @@ export function Login() {
             <p className="style-error">Please Provide password</p>
           )}
         </div>
-        <div className="flex-H-space-bw">
           <div className="flex-H-center-V">
             <input type="checkbox" className="checkbox" />
-            <p>Remember Me</p>
-          </div>
-          <p>Forgot Your Password</p>
+            <p className="ml-4">Remember Me</p>
         </div>
-        <button className="primary-cta" id="cta">
+        <div className=" flex flex-col  items-center">
+        <button className="primary-cta " id="cta">
           Login
         </button>
-        <div
-          onClick={() =>
+        
+        <button className="primary-cta" id="cta" onClick={() =>
             setTestCredentials({
               tesetEmail: "balajiNarayana@gmail.com",
               testPassword: "balajiNarayana1234",
             })
-          }
-        >
-          <button className="primary-cta" id="cta">
+          }>
             Test Login
           </button>
-        </div>
+          </div>
 
         <NavLink to="/user/signup">
           <div className="account-info">
