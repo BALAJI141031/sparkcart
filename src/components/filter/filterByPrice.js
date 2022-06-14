@@ -2,7 +2,7 @@ import "./index.css";
 import { useFilter } from "../../contexts/filterContext";
 
 const FilterByPrice = () => {
-  const { dispatchFilter } = useFilter();
+  const { dispatchFilter,priceFilter } = useFilter();
   return (
     <div>
       <p>Price:$1000---$15000</p>
@@ -13,6 +13,7 @@ const FilterByPrice = () => {
         min="1000"
         max="15000"
         step="100"
+        value={priceFilter}
         onChange={(e) => {
           dispatchFilter({
             type: "priceFilter",

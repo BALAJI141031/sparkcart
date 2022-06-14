@@ -16,7 +16,6 @@ const FilterProvider = ({ children }) => {
       case "categoryFilter":
         let updatedCategoryFilters = [...filterState.categoryFilters];
         if (filterAction.status) {
-          console.log(filterAction.from,"here")
           if (filterAction.from) {
             updatedCategoryFilters = []
             updatedCategoryFilters.push(filterAction.payload)
@@ -46,7 +45,7 @@ const FilterProvider = ({ children }) => {
       case "priceFilter":
         return { ...filterState, priceFilter: filterAction.payload };
       default:
-        return { ...filterState };
+        return { ...filterState,...filterAction.payload };
     }
   };
 
@@ -134,6 +133,7 @@ const FilterProvider = ({ children }) => {
         filteredList,
         categoryFilters,
         newArrival,
+        priceFilter
       }}
     >
       {children}

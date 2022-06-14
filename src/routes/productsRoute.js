@@ -50,7 +50,14 @@ const Products = () => {
         <div>
           <div className="flex-H-space-bw filter">
             <p>Filters</p>
-            <p className="clear-All">Clear All</p>
+            <p className="clear-All cursor-pointer" onClick={()=>dispatchFilter({type:"clearFilters",payload:{allProducts: true,
+    sortBy: null,
+    // productsList: [],
+    categoryFilters: [],
+    delivery: false,
+    ratings: [],
+    newArrival: false,
+    priceFilter: 1000,}})}>Clear All</p>
           </div>
           <p>Sort By Price</p>
           <SortBy />
