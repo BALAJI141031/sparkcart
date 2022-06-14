@@ -42,7 +42,7 @@ const loadRazorPay = () => {
 
 
  
-const paymentHandler = async (cartTotal,navigate) => {
+const paymentHandler = async (cartTotal,navigate,dispatchCart) => {
     const response = await loadRazorPay();
     if (!response) return console.log('Error in loading razorpay sdk');
     var options = {
@@ -56,7 +56,11 @@ const paymentHandler = async (cartTotal,navigate) => {
         'https://icon-library.com/images/image-icon-png/image-icon-png-6.jpg',
       handler: function (res) {
 
-        
+        dispatchCart({
+      type: "cart",
+          payload: { cart: [],
+    cartCount: 0, },
+    })
         navigate(`/order/confirmed/${res.razorpay_payment_id}`)
 
       },

@@ -1,19 +1,17 @@
 import "./index.css";
-import { useCart } from "../../contexts/cartContext";
+import { useCart, } from "../../contexts/cartContext";
 import { paymentHandler,useNavigate } from '../../customHooks'
 
 
 
 const Checkout = ({ checkoutPrice }) => {
-  const { cartCount, cartTotal, discount } = useCart();
+  const { cartCount, cartTotal, discount,dispatchCart } = useCart();
 
 
   const navigate=useNavigate()
   
   const handleTransaction = async () => {
-    let transactionStatus = await paymentHandler(cartTotal, navigate);
-    console.log("coming immediately")
-    
+    let transactionStatus = await paymentHandler(cartTotal, navigate,dispatchCart);    
   }
 
   return (
