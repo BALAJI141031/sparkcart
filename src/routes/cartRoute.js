@@ -3,7 +3,6 @@ import { useCart } from "../contexts/cartContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdAddCircle } from '../icons'
-
 import "./index.css";
 import { toast } from "react-toastify";
 const Cart = () => {

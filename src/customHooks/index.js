@@ -23,6 +23,55 @@ const useClickOutside = (cb) => {
   return domNode
 }
 
+
+
+// payment integration 
+const loadRazorPay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+
+ 
+   const paymentHandler = async (cartTotal) => {
+    const response = await loadRazorPay();
+    if (!response) return console.log('Error in loading razorpay sdk');
+    var options = {
+      key_id: 'rzp_test_G8gydylRh0sAsO',
+      key: 'rzp_test_G8gydylRh0sAsO',
+      amount: cartTotal,
+      currency: 'INR',
+      name: 'Spark cart',
+      description: 'Buy new UPSC Books!',
+      image:
+        'https://icon-library.com/images/image-icon-png/image-icon-png-6.jpg',
+      handler: function (res) {
+        console.log('Payment is success, do something!');
+        console.log(res);
+      },
+      prefill: {
+        name: `Balaji Narayana`,
+        email: 'balajiab09@gmail.com',
+        contact: '6304436614',
+      },
+      theme: {
+        color: '#16003B',
+      },
+    };
+
+    var razorPay = new window.Razorpay(options);
+    razorPay.open();
+}
+
 export {
   useNavigate,
   useCart,
@@ -30,5 +79,6 @@ export {
   useFilter,
   useNotifyUser,
   useAuth,
-  useClickOutside
+  useClickOutside,
+  paymentHandler
 };

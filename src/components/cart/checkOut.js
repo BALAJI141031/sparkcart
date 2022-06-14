@@ -1,5 +1,10 @@
 import "./index.css";
 import { useCart } from "../../contexts/cartContext";
+import { paymentHandler } from '../../customHooks'
+
+
+
+
 const Checkout = ({ checkoutPrice }) => {
   const { cartCount, cartTotal, discount } = useCart();
   return (
@@ -26,7 +31,7 @@ const Checkout = ({ checkoutPrice }) => {
       <hr />
       <strong>You will save {discount} on this order</strong>
       <div class="flex-v">
-        <button class="primary-cta" id="cta">
+        <button class="primary-cta cursor-pointer" id="cta" onClick={()=>paymentHandler(cartTotal)}>
           Place Order
         </button>
       </div>
