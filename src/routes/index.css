@@ -125,6 +125,10 @@
 
 }
 
+.order-status{
+  color: var(--primary-color);
+}
+
 
 
 /* responsive breakpoints */

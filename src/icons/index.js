@@ -1,5 +1,5 @@
 import { MdOutlineKeyboardArrowRight,MdDeliveryDining,MdPayment } from "react-icons/md";
-import { GiWindSlap } from "react-icons/gi";
+import { GiWindSlap,GiConfirmed } from "react-icons/gi";
 import { BsArrowRightSquareFill,BsFileEarmarkCheck } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiTwotoneHeart } from "react-icons/ai";
@@ -12,5 +12,6 @@ export {
   GiWindSlap,
   BsArrowRightSquareFill,
   AiTwotoneHeart,BiSearchAlt2,MdDeliveryDining,BsFileEarmarkCheck,MdPayment,
-  IoMdAddCircle
+  IoMdAddCircle,
+  GiConfirmed
 };

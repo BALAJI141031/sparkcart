@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate,useNavigate} from "react-router-dom";
 import { useCart } from "../contexts/cartContext";
 import { useWishlist } from "../contexts/wishlistContext";
 import { useFilter } from "../contexts/filterContext";
@@ -42,7 +42,7 @@ const loadRazorPay = () => {
 
 
  
-   const paymentHandler = async (cartTotal) => {
+const paymentHandler = async (cartTotal,navigate) => {
     const response = await loadRazorPay();
     if (!response) return console.log('Error in loading razorpay sdk');
     var options = {
@@ -55,8 +55,10 @@ const loadRazorPay = () => {
       image:
         'https://icon-library.com/images/image-icon-png/image-icon-png-6.jpg',
       handler: function (res) {
-        console.log('Payment is success, do something!');
-        console.log(res);
+
+        
+        navigate(`/order/confirmed/${res.razorpay_payment_id}`)
+
       },
       prefill: {
         name: `Balaji Narayana`,
