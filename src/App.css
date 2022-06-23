@@ -44,6 +44,7 @@
     font-weight:bolder ;
     padding:10px;
     border-style: none;
+    
 }
 
 #cta{
@@ -52,6 +53,8 @@
     border-style: none;
     padding: 0.3em;
     font-size: 1rem;
+    cursor: pointer;
+
 }
 
 button {

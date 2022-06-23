@@ -9,7 +9,7 @@ const TextOverlayCard = () => {
         the highest quality ingredients. We bake and sell fresh daily to ensure
         only the best products are sold to our customers.
       </p>
-      <button class="btn float">
+      <button className="btn float">
         <IoArrowForward />
       </button>
     </div>

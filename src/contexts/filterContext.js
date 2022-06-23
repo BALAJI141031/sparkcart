@@ -6,8 +6,7 @@ import {
 
 const filterContext = createContext();
 const FilterProvider = ({ children }) => {
-  const reducerFn = (filterState, filterAction) => {
-
+const reducerFn = (filterState, filterAction) => {
     switch (filterAction.type) {
       case "products":
         return { ...filterState, productsList: [...filterAction.payload] };
@@ -45,7 +44,7 @@ const FilterProvider = ({ children }) => {
       case "priceFilter":
         return { ...filterState, priceFilter: filterAction.payload };
       default:
-        return { ...filterState,...filterAction.payload };
+        return { ...filterState};
     }
   };
 
@@ -68,12 +67,11 @@ const FilterProvider = ({ children }) => {
     delivery: false,
     ratings: [],
     newArrival: false,
-    priceFilter: 1000,
+    priceFilter: 1500,
   });
 
   // filter functions
   const sortProducts = (products, sortBy) => {
-    console.log(sortBy, "check1", products);
     if (sortBy === "low_to_high") {
       return products.sort((a, b) => a.price - b.price);
     } else if (sortBy === "high_to_low") {
@@ -86,7 +84,6 @@ const FilterProvider = ({ children }) => {
   const applyFilters = (sortedProducts, filterObj) => {
     const { categoryFilters, delivery, ratings, priceFilter, newArrival } =
       filterObj;
-    console.log(ratings);
     let filteredProducts = [...sortedProducts];
     if (categoryFilters.length !== 0) {
       filteredProducts = sortedProducts.filter((product) =>

@@ -62,24 +62,23 @@ const ProductCard = ({ productObj, cartItems, wishListItems }) => {
           break;
       }
     } catch (e) {
-      console.log(e,"coming from here")
       toast.warning("Unexpected Error!!");
     }
   };
 
   return (
-    <div className="flex-V-center-VH " onClick={()=>navigate(`/products/${_id}`)}>
+    <div className="flex-V-center-VH cursor-pointer" onClick={()=>navigate(`/products/${_id}`)}>
       <div className="ver-card pos-rel-Ecase productCard">
         <img src={imageUrl} alt="images" />
         <div className="flex-V-center-VH text-align-center">
           <h3>{title}</h3>
           <p>{description}</p>
-          <h4>${price}</h4>
+          <h4>{'\u20A8'} {price}</h4>
           <button
             className={
               !inCart && !cartItems.includes(_id)
-                ? "primary-cta"
-                : "secondary-cta"
+                ? "primary-cta cursor-pointer"
+                : "secondary-cta cursor-pointer"
             }
             id="cta"
            

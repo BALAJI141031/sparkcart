@@ -5,13 +5,13 @@ const FilterByPrice = () => {
   const { dispatchFilter,priceFilter } = useFilter();
   return (
     <div>
-      <p>Price:$1000---$15000</p>
+      <p>Price: {'\u20A8'} 100---{'\u20A8'} 1500</p>
 
       <input
         className="filter"
         type="range"
-        min="1000"
-        max="15000"
+        min="100"
+        max="1500"
         step="100"
         value={priceFilter}
         onChange={(e) => {

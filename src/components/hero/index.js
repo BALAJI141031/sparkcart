@@ -27,25 +27,25 @@ const HeroCard = ({ item }) => {
   );
 };
 
-const HeroImageCard = () => {
+const HeroImageCard = ({arrival:{description,actualPrice,price,imageUrl}}) => {
   const navigate = useNavigate();
   const { dispatchFilter } = useFilter();
   return (
     <div className="arrival-card-section">
-      <div class="h-card flex-H arrival-card">
+      <div className="h-card flex-H arrival-card">
         <img
-          src="https://images-na.ssl-images-amazon.com/images/I/51URPCHNSBL._SX379_BO1,204,203,200_.jpg"
-          class="card-image"
+          src={imageUrl}
+          className="card-image"
+          alt="new arrival"
         />
-        <div class="flex-V-sapce-between">
+        <div className="flex-V-sapce-between">
           <strong>New Arrival</strong>
           <div>
             <p>
-              Taj's Lorem Ipsum is simply dummy text of the printing
-              andtypesetting industry Food
+              {description}
             </p>
-            <span>Rs 599/- </span>
-            <span class="strike-rate">Rs 899/- </span>
+            <span>Rs {price}/- </span>
+            <span className="strike-rate">Rs {actualPrice}/- </span>
             <p>50% OFF</p>
           </div>
         </div>

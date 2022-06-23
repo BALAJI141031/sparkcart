@@ -49,8 +49,8 @@ export function Login() {
         emailInput.current.value = "";
         passwordInput.current.value = "";
         setTestCredentials({
-          tesetEmail: "adarshbalika@gmail.com",
-          testPassword: "adarshBalika1234",
+          tesetEmail: "",
+          testPassword: "",
         });
         if (e.response.status === 401) {
           toast.success("Invalid email or password. Please try again.!");
@@ -107,16 +107,12 @@ export function Login() {
             <p className="style-error">Please Provide password</p>
           )}
         </div>
-          <div className="flex-H-center-V">
-            <input type="checkbox" className="checkbox" />
-            <p className="ml-4">Remember Me</p>
-        </div>
         <div className=" flex flex-col  items-center">
-        <button className="primary-cta " id="cta">
+        <button className="primary-cta cta">
           Login
         </button>
         
-        <button className="primary-cta" id="cta" onClick={() =>
+        <button className="primary-cta cta" onClick={() =>
             setTestCredentials({
               tesetEmail: "balajiNarayana@gmail.com",
               testPassword: "balajiNarayana1234",

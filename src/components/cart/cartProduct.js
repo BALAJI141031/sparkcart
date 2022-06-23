@@ -88,38 +88,38 @@ const CartProduct = ({ product }) => {
   };
   return (
     <>
-      <div class="h-card flex-H" id="cartItem">
-        <img src={imageUrl} class="card-image" />
-        <div class="flex-V-sapce-between">
+      <div className="h-card flex-H" id="cartItem">
+        <img src={imageUrl} className="card-image" />
+        <div className="flex-V-sapce-between">
           <div>
             <h4>
               {title} ({author})
             </h4>
 
             <span>Rs {price}/-</span>
-            <span class="strike-rate">Rs {actualPrice}/-</span>
+            <span className="strike-rate">Rs {actualPrice}/-</span>
             <p>5% OFF</p>
           </div>
-          <div class="quantity">
+          <div className="quantity">
             <strong>Quantity:</strong>
             <button
-              class="delete"
+              className="delete"
               disabled={isdisable}
               onClick={() => decreaseQunatity(product)}
             >
               -
             </button>
             <div>{count}</div>
-            <button class="add" onClick={() => increaseQuantity(product)}>
+            <button className="add" onClick={() => increaseQuantity(product)}>
               +
             </button>
           </div>
-          <div class="flex-v">
-            <button class="primary-cta" onClick={() => removeProduct(product)}>
+          <div className="flex-v">
+            <button className="primary-cta" onClick={() => removeProduct(product)}>
               Remove from Cart
             </button>
             <button
-              class="secondary-cta"
+              className="secondary-cta"
               onClick={() => addToWishList(product)}
             >
               {wishListItems.includes(_id)

@@ -18,7 +18,7 @@ const Cart = () => {
       mobile:"(+91)7893293278",
       country: "USA",
       primaryAddress:true,
-    index: 0,
+      index: 0,
       location:"Raw Diamonds 7th Lane,Newyork city "
     },{
       fullName:"Jason Russel",
@@ -27,12 +27,22 @@ const Cart = () => {
       mobile:"(+91)7893293278",
       country: "USA",
       primaryAddress: false,
-    index: 1,
+      index: 1,
       location:"Raw Diamonds 7th Lane,Newyork city "
     }])
   
   return (
     <div className="cart">
+      <h2 className="text-center">My Cart</h2>
+      <center>
+        <button
+          className="primary-cta"
+          id="cta"
+          onClick={() => navigate("/products")}
+        >
+          Shop More!
+        </button>
+      </center>
       {cart.length !== 0 ? (
         <div className="cart-section">
           <div className="cart-products">
@@ -61,13 +71,7 @@ const Cart = () => {
           <h1>cart is empty</h1>
         </center>
       )}
-      <button
-        className="primary-cta"
-        id="cta"
-        onClick={() => navigate("/products")}
-      >
-        Shop Now!
-      </button>
+      
 
       {changeAddress && <div className="bg-black bg-opacity-50 absolute z-99 inset-0 flex justify-center items-center  ">
         <div className="bg-gray-200  p-10 rounded-lg">

@@ -82,7 +82,6 @@ export function Product() {
 
     useEffect(async() => { 
         const productResponse = await getProduct(id)
-        console.log(productResponse)
         setProduct(productResponse.data.product)
     }, 
       [id])
@@ -98,14 +97,14 @@ export function Product() {
             <p style={{ "margin-left": "10px", 'font-weight': "800" }} className="text-grey">5% OFF</p>
         </div>
         <div className='static-rating-container'>
-          {fiveStars.map((indexRating)=> product.rating>=indexRating? <span class="fa fa-star fa-2x checked"></span>: <span class="fa fa-star fa-2x"></span>)}
+          {fiveStars.map((indexRating)=> product.rating>=indexRating? <span className="fa fa-star fa-2x checked"></span>: <span className="fa fa-star fa-2x"></span>)}
           ({product.reviewCount} Reviews)
         </div>
             <p className='text-grey'>Inclusive of All Taxes</p>
                 <div>
                 {[{ text: "FastDelivery", icon: <MdDeliveryDining/> }, { text: "Instock", icon: <BsFileEarmarkCheck/> }, { text: "Emi Starts at 105", icon: <MdPayment/> }].map((detials) => <AboutProduct detials={ detials}/>)}
             </div>
-             <div class="flex-H product-cta-div">
+             <div className="flex-H product-cta-div">
           <button
             className={
               !inCart && !cartItems.includes(id)
@@ -125,7 +124,7 @@ export function Product() {
             {!inCart && !cartItems.includes(id) ? "Add to cart" : "Go to cart"}
           </button>
            <button
-              class="secondary-cta"
+              className="secondary-cta"
               onClick={() => addToWishList(product)}
             >
               {wishListItems.includes(id)

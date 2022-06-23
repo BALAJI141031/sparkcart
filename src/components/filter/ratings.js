@@ -4,7 +4,7 @@ import "./index.css";
 const Rating = ({ rating }) => {
   const { dispatchFilter } = useFilter();
   return (
-    <div class="static-rating-container filter">
+    <div className="static-rating-container filter">
       <div className="flex-H-center-V">
         <input
           type="checkbox"
@@ -24,7 +24,7 @@ const Rating = ({ rating }) => {
           }
         />
         <label className="checkboxLabel">
-          {rating} <span class="fa fa-star fa-1x checked"></span>
+          {rating} <span className="fa fa-star fa-1x checked"></span>
         </label>
       </div>
     </div>

@@ -19,7 +19,6 @@ export function Signup() {
     password: "",
     confirmPassword: "",
     displayname: "",
-    termsAndConditions: false,
   };
   const [detials, setDetials] = useState(intialDetials);
   const submitSignupForm = async (e) => {
@@ -30,8 +29,35 @@ export function Signup() {
       email,
       password,
       confirmPassword,
-      termsAndConditions,
     } = detials;
+
+    if (firstName==="") {
+      toast.info("Please Provide FirstName!");
+
+      setDetials((predDetials) => ({
+        ...predDetials,
+        password: "",
+        confirmPassword: "",
+      }));
+    }
+    if (lastName ==="") {
+      toast.info("Please Provide LastName!");
+      setDetials((predDetials) => ({
+        ...predDetials,
+        password: "",
+        confirmPassword: "",
+      }));
+    }
+
+    if (email ==="") {
+      toast.info("Please Provide Email!");
+      setDetials((predDetials) => ({
+        ...predDetials,
+        password: "",
+        confirmPassword: "",
+      }));
+    }
+    
 
     if (password.length < 6) {
       toast.info("Password must be at least 6 characters long!");
@@ -70,8 +96,6 @@ export function Signup() {
       }));
 
       toast.info("Entered Passwords Are Not Matching!");
-    } else if (!termsAndConditions) {
-      toast.info("Please Select Termas&Condition!");
     } else {
       try {
         const signupResponse = await signupUser({
@@ -97,11 +121,6 @@ export function Signup() {
   };
 
   const setDetialsHandler = (e) => {
-    console.log(
-      e.target.name,
-      "why password is getting as an empty",
-      e.target.value
-    );
     if (e.target.name !== "termsAndConditions")
       setDetials((prevCredentials) => ({
         ...prevCredentials,
@@ -176,16 +195,6 @@ export function Signup() {
             name="confirmPassword"
             onChange={setDetialsHandler}
           />
-        </div>
-
-        <div className="flex-H-center-V">
-          <input
-            type="checkbox"
-            className="checkbox"
-            name="termsAndConditions"
-            onChange={setDetialsHandler}
-          />
-          <p>I accept all terms and conditions</p>
         </div>
         <center><button className="primary-cta" id="cta">
           Signup

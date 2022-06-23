@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { useFilter } from "../contexts/filterContext";
+import {v4 as uuid} from 'uuid'
 import {  useCart, useWishlist } from "../customHooks";
 import {
   Categories,
@@ -13,13 +14,13 @@ import {
 } from "../components";
 import "./index.css";
 const categoryList = [
-  { category: "Polity", count: 10 },
-  { category: "IR", count: 10 },
-  { category: "ArtAndCulture", count: 10 },
-  { category: "Economy", count: 10 },
-  { category: "Geography", count: 10 },
-  { category: "History", count: 10 },
-  { category: "NCERT", count: 10 },
+  { id:uuid(),category: "Polity", count: 10 },
+  { id:uuid(),category: "IR", count: 10 },
+  { id:uuid(),category: "Art & Culture", count: 10 },
+  { id:uuid(),category: "Economy", count: 10 },
+  { id:uuid(),category: "Geography", count: 10 },
+  { id:uuid(),category: "History", count: 10 },
+  { id:uuid(),category: "NCERT", count: 10 },
 ];
 const ratings = [2, 3, 4];
 
@@ -64,16 +65,18 @@ const Products = () => {
           <p>CATEGORIES</p>
           <hr />
           {categoryList.map((eachCategory) => (
-            <Categories eachCategory={eachCategory} />
+            <Categories eachCategory={eachCategory} key={eachCategory.id}/>
           ))}
           <hr />
           <p>Arrivals</p>
           <Arrivals />
-          <p>RATINGS</p>
+
+          {/* will implement later */}
+          {/* <p>RATINGS</p>
           <hr />
           {ratings.map((rating) => (
-            <Rating rating={rating} />
-          ))}
+            <Rating rating={rating} key={rating}/>
+          ))} */}
           <p>Filter By Price</p>
           <hr />
           <FilterByPrice />
@@ -87,6 +90,7 @@ const Products = () => {
                 productObj={item}
                 cartItems={cartItems}
                 wishListItems={wishListItems}
+                key={item._id}
               />
             ))}
           </div>

@@ -32,7 +32,6 @@ const Navbar = () => {
   };
 
   const toggleLogin = () => {
-    console.log(isLoggedIn);
     if (isLoggedIn) {
       setIsLoggedIn(false);
       Cookies.remove("jwt_token");
@@ -57,7 +56,6 @@ const Navbar = () => {
   }
   const searchFn = debounceFn(async (text) => {
     const searchedResponse = await searchItems(text[0]) 
-    console.log(searchedResponse)
     setSearchedResult([...searchedResponse.data.products])
 })  
 
@@ -83,21 +81,21 @@ const Navbar = () => {
               </NavIcon>
             </div>
             <h1>
-              <span class="span-style">Spark</span>
+              <span className="span-style">Spark</span>
             </h1>
           </div>
           <div className="flex-H-space-bw header-icons-div">
             <div className="position-rel" onClick={() => redirect("cart")}>
               <FaShoppingCart className="header-icons header-icons-m-lr icon-md" />
               {Boolean(cartCount) && (
-                <div class="nav-icon-badge">{cartCount}</div>
+                <div className="nav-icon-badge">{cartCount}</div>
               )}
             </div>
 
             <div className="position-rel" onClick={() => redirect("wishlist")}>
               <AiTwotoneHeart className="header-icons header-icons-m-lr icon-md" />
               {Boolean(wishlistCount) && (
-                <div class="nav-icon-badge">{wishlistCount}</div>
+                <div className="nav-icon-badge">{wishlistCount}</div>
               )}
             </div>
           </div>
@@ -142,15 +140,15 @@ const Navbar = () => {
               </button>
             )}
             <div className="position-rel" onClick={() => redirect("cart")}>
-              <FaShoppingCart className="header-icons header-icons-m-lr icon-md" />
+              <FaShoppingCart className="header-icons header-icons-m-lr icon-md cursor-pointer" />
               {Boolean(cartCount) && (
-                <div class="nav-icon-badge">{cartCount}</div>
+                <div className="nav-icon-badge">{cartCount}</div>
               )}
             </div>
             <div className="position-rel" onClick={() => redirect("wishlist")}>
-              <AiTwotoneHeart className="header-icons header-icons-m-lr icon-md" />
+              <AiTwotoneHeart className="header-icons header-icons-m-lr icon-md cursor-pointer" />
               {Boolean(wishlistCount) && (
-                <div class="nav-icon-badge">{wishlistCount}</div>
+                <div className="nav-icon-badge">{wishlistCount}</div>
               )}
             </div>
           </div>

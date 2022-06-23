@@ -15,7 +15,7 @@ const Checkout = ({ checkoutPrice }) => {
   }
 
   return (
-    <div class="price-card  ">
+    <div className="price-card  ">
       <strong>Price Detials</strong>
       <hr />
       <div>
@@ -37,8 +37,8 @@ const Checkout = ({ checkoutPrice }) => {
       </div>
       <hr />
       <strong>You will save {discount} on this order</strong>
-      <div class="flex-v">
-        <button class="primary-cta cursor-pointer" id="cta" onClick={handleTransaction}>
+      <div className="flex-v">
+        <button className="primary-cta cursor-pointer" id="cta" onClick={handleTransaction}>
           Place Order
         </button>
       </div>

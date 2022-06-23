@@ -11,7 +11,7 @@ const BadgeIcons = ({ children }) => {
 
   return (<div className="position-rel">
        {children}
-      <div class="nav-icon-badge">10</div>  
+      <div className="nav-icon-badge">10</div>  
     </div>
   );
 };
