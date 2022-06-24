@@ -12,7 +12,7 @@ export default function OrderDetials() {
       </div>
           <p>Order Id:{uuid()}</p>
       <p>Transaction Id:{id}</p>
-      <Link to="/products"><button id="cta" className="primary-cta">Shop Agian!</button></Link>
+      <Link to="/products"><button id="cta" className="primary-cta">Shop Again!</button></Link>
     </div>
   )
 }

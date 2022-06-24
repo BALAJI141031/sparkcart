@@ -51,7 +51,7 @@ const Cart = () => {
                 <p>#1/4 , {address.location}</p>
               </div>
               <button
-                className="secondary-cta"
+                className="secondary-cta cursor-pointer"
                 id="cta"
               onClick={() => setChangeAddress(true)}
               >

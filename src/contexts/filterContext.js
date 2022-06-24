@@ -44,7 +44,7 @@ const reducerFn = (filterState, filterAction) => {
       case "priceFilter":
         return { ...filterState, priceFilter: filterAction.payload };
       default:
-        return { ...filterState};
+        return { ...filterState,...filterAction.payload};
     }
   };
 

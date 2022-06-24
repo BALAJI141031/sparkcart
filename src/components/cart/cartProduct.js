@@ -115,11 +115,12 @@ const CartProduct = ({ product }) => {
             </button>
           </div>
           <div className="flex-v">
-            <button className="primary-cta" onClick={() => removeProduct(product)}>
+            <button className="primary-cta" id="cta" onClick={() => removeProduct(product)}>
               Remove from Cart
             </button>
             <button
               className="secondary-cta"
+              id="cta"
               onClick={() => addToWishList(product)}
             >
               {wishListItems.includes(_id)

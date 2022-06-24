@@ -58,7 +58,7 @@ const Products = () => {
     delivery: false,
     ratings: [],
     newArrival: false,
-    priceFilter: 1000,}})}>Clear All</p>
+    priceFilter: 1500,}})}>Clear All</p>
           </div>
           <p>Sort By Price</p>
           <SortBy />
