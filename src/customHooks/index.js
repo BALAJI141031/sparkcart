@@ -48,7 +48,7 @@ const paymentHandler = async (cartTotal,navigate,dispatchCart) => {
     var options = {
       key_id: 'rzp_test_G8gydylRh0sAsO',
       key: 'rzp_test_G8gydylRh0sAsO',
-      amount: cartTotal,
+      amount: cartTotal*100,
       currency: 'INR',
       name: 'Spark cart',
       description: 'Buy new UPSC Books!',
@@ -57,9 +57,8 @@ const paymentHandler = async (cartTotal,navigate,dispatchCart) => {
       handler: function (res) {
 
         dispatchCart({
-      type: "cart",
-          payload: { cart: [],
-    cartCount: 0, },
+          type: "cart",
+          payload: { cart: [],cartCount: 0,},
     })
         navigate(`/order/confirmed/${res.razorpay_payment_id}`)
 

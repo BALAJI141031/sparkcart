@@ -11,6 +11,7 @@ const Checkout = ({ checkoutPrice }) => {
   const navigate=useNavigate()
   
   const handleTransaction = async () => {
+    
     let transactionStatus = await paymentHandler(cartTotal, navigate,dispatchCart);    
   }
 
