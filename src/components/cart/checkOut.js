@@ -1,7 +1,7 @@
 import "./index.css";
 import { useCart, } from "../../contexts/cartContext";
 import { paymentHandler,useNavigate } from '../../customHooks'
-
+import { clearCart } from "../../dryProviders";
 
 
 const Checkout = ({ checkoutPrice }) => {
@@ -11,7 +11,7 @@ const Checkout = ({ checkoutPrice }) => {
   const navigate=useNavigate()
   
   const handleTransaction = async () => {
-    
+        const response= await clearCart()
     let transactionStatus = await paymentHandler(cartTotal, navigate,dispatchCart);    
   }
 

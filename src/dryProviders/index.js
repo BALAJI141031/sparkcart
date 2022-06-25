@@ -177,6 +177,22 @@ const searchItems = async(text) => {
   }
 }
 
+const clearCart=async ()=>{
+  try{
+const updatedCartResponse = await axios.delete(
+      `/api/user/cart/delete/all`,
+      {
+        headers: {
+          authorization: Cookies.get("jwt_token"),
+        },
+      }
+    );
+  }catch(e){
+    throw e
+
+  }
+}
+
 export {
   addItemToCart,
   gotoCart,
@@ -188,5 +204,6 @@ export {
   loginUser,
   signupUser,
   searchItems,
-  getProduct
+  getProduct,
+  clearCart
 };
