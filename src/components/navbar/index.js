@@ -107,7 +107,7 @@ const Navbar = () => {
       <div className="desktopNavbar">
         <nav className="flex-H-space-around ">
           <Link to="/">
-            <span className="span-style">SparkCart</span>
+            <span className="logo">SparkCart</span>
           </Link>
          <div className="searchbar-div">
         <input

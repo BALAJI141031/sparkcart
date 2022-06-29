@@ -8,7 +8,8 @@
     --cta-font-color:#DBD8E3;
     --shadow:rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     --modal-background-color:rgba(0,0.1,0.1,0.2);
-    --primary-background-color:#000000
+    --primary-background-color:#000000;
+    --logo-color:#f1f5f9
 }
 
 .success-toast{

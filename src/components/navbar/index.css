@@ -71,6 +71,12 @@
   cursor: pointer;
 }
 
+.logo{
+  color:var(--logo-color);
+  font-weight: bolder;
+  font-size: large;
+}
+
 @media screen and (min-width: 800px) {
   .mobileNavbar {
     display: none;

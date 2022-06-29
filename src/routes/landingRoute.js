@@ -38,7 +38,7 @@ const LandingRoute = () => {
     _id: "asdefr3g",
     title: "Indian Economy",
     price: 200,
-    actualPrice: 299,
+    actualPrice: 400,
     description: "India's premium",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51WWmZpXrHL._SX397_BO1,204,203,200_.jpg",
@@ -47,7 +47,7 @@ const LandingRoute = () => {
     _id: "xyz1",
     title: "India's Relations",
     price: 500,
-    actualPrice: 599,
+    actualPrice: 1000,
     description: "India's most read book ",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51LNQ-TGU9L._SX377_BO1,204,203,200_.jpg",
@@ -56,7 +56,7 @@ const LandingRoute = () => {
     _id: "xyz11111",
     title: "Indian Polity",
     price: 500,
-    actualPrice: 599,
+    actualPrice: 1000,
     description: "India's premium book ",
     imageUrl:
       "https://images-na.ssl-images-amazon.com/images/I/51rKNmuSrsL._SX384_BO1,204,203,200_.jpg",
@@ -71,7 +71,7 @@ const LandingRoute = () => {
       </div>
       <div className="hero">
         <img
-          src="https://cdn.pixabay.com/photo/2017/06/14/08/20/map-of-the-world-2401458_960_720.jpg"
+          src="../../images/cover.jpg"
           className="hero-main-image"
         />
         <div className="banner">
